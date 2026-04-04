@@ -1,0 +1,136 @@
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { BookOpen, BarChart2, GraduationCap, User, Truck } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { useLang } from '@/lib/i18n/lang-context';
+import { useGamification, LEVELS } from '@/lib/stores/gamification.store';
+import { useState, useEffect, useRef } from 'react';
+
+export function BottomNav() {
+  const path = usePathname();
+  const { t, lang } = useLang();
+  const { totalXP, streak, getLevel } = useGamification();
+  const level = getLevel();
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setHidden(y > lastY.current && y > 60);
+      lastY.current = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const NAV = [
+    { href: '/learn',    label: t('nav_course'),    icon: BookOpen },
+    { href: '/progress', label: t('nav_progress'),  icon: BarChart2 },
+    { href: '/exams',    label: t('nav_exams'),     icon: GraduationCap },
+    { href: '/profile',  label: t('nav_profile'),   icon: User },
+  ];
+
+  return (
+    <>
+      {/* Desktop sidebar */}
+      <nav className="hidden lg:flex fixed left-0 top-0 bottom-0 w-56 bg-white border-r border-gray-100 z-50 flex-col">
+        {/* Brand header */}
+        <div className="px-4 py-4 border-b border-gray-100">
+          <Link href="/learn" className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-md shadow-emerald-500/20">
+              <Truck className="w-5 h-5 text-white" strokeWidth={2.5} />
+            </div>
+            <div>
+              <span className="font-extrabold text-base text-gray-900 tracking-tight">Dispatch<span className="text-emerald-500">GO</span></span>
+              <p className="text-[9px] text-gray-400 uppercase tracking-widest -mt-0.5">training</p>
+            </div>
+          </Link>
+        </div>
+
+        {/* Level badge */}
+        <div className="px-4 pt-4 pb-2">
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-2.5 flex items-center gap-2.5">
+            <span className="text-xl">{level.emoji}</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-gray-700 truncate">
+                {lang === 'ru' ? level.nameRu : level.name}
+              </p>
+              <p className="text-[10px] text-gray-400">{totalXP} XP{streak > 0 ? ` · 🔥${streak}` : ''}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Nav links */}
+        <div className="flex-1 flex flex-col gap-1 px-3 pt-2">
+          {NAV.map(({ href, label, icon: Icon }) => {
+            const active = path.startsWith(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={cn(
+                  'flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors text-sm font-medium',
+                  active
+                    ? 'bg-emerald-50 text-emerald-600'
+                    : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700',
+                )}
+              >
+                <Icon className="w-5 h-5" strokeWidth={active ? 2.5 : 1.8} />
+                <span>{label}</span>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Footer */}
+        <div className="px-4 py-3 border-t border-gray-100">
+          <p className="text-[10px] text-gray-300 text-center">DispatchGO v1.0</p>
+        </div>
+      </nav>
+
+      {/* Mobile top bar */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 safe-area-pt">
+        <div className="flex items-center justify-between h-12 px-4">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+              <Truck className="w-4 h-4 text-white" strokeWidth={2.5} />
+            </div>
+            <span className="font-extrabold text-sm text-gray-900">Dispatch<span className="text-emerald-500">GO</span></span>
+          </div>
+          <div className="flex items-center gap-1.5 bg-gray-50 rounded-full px-2.5 py-1">
+            <span className="text-xs">{level.emoji}</span>
+            <span className="text-[10px] font-semibold text-gray-600">{totalXP} XP</span>
+            {streak > 0 && <span className="text-[10px]">🔥{streak}</span>}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile bottom nav */}
+      <nav className={cn(
+        "lg:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-gray-100 z-50 safe-area-pb transition-transform duration-300",
+        hidden && "translate-y-full"
+      )}>
+        <div className="flex items-center justify-around h-16">
+          {NAV.map(({ href, label, icon: Icon }) => {
+            const active = path.startsWith(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={cn(
+                  'flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-colors',
+                  active ? 'text-emerald-600' : 'text-gray-400',
+                )}
+              >
+                <Icon className="w-5 h-5" strokeWidth={active ? 2.5 : 1.8} />
+                <span className="text-[10px] font-medium">{label}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
+    </>
+  );
+}

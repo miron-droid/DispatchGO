@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-gray-50 text-gray-900 font-sans; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply w-full py-3 px-4 bg-brand-600 text-white font-semibold rounded-xl
+           active:bg-brand-700 hover:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply py-2 px-4 text-gray-600 rounded-xl active:bg-gray-100 hover:bg-gray-100 transition-colors;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-4
+           lg:hover:shadow-md lg:transition-shadow;
+  }
+  .input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-xl text-base
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent;
+  }
+}
+
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ── Scroll-reveal animations ─────────────────────────────────── */
+
+.lesson-body .sr-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lesson-body .sr-item.sr-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Headings — slide from left */
+.lesson-body h2.sr-item,
+.lesson-body h3.sr-item {
+  transform: translateX(-20px) translateY(0);
+  opacity: 0;
+}
+.lesson-body h2.sr-item.sr-visible,
+.lesson-body h3.sr-item.sr-visible {
+  transform: translateX(0) translateY(0);
+  opacity: 1;
+}
+
+/* Blockquotes — slide from left with accent */
+.lesson-body blockquote.sr-item {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+.lesson-body blockquote.sr-item.sr-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Figures/images — scale up */
+.lesson-body figure.sr-item {
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+}
+.lesson-body figure.sr-item.sr-visible {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Image hover zoom */
+.lesson-body figure img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lesson-body figure:hover img {
+  transform: scale(1.03);
+}
+
+/* Lists — stagger children */
+.lesson-body ul.sr-item li,
+.lesson-body ol.sr-item li {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.lesson-body ul.sr-item.sr-visible li,
+.lesson-body ol.sr-item.sr-visible li {
+  opacity: 1;
+  transform: translateX(0);
+}
+.lesson-body ul.sr-item.sr-visible li:nth-child(1) { transition-delay: 0ms; }
+.lesson-body ul.sr-item.sr-visible li:nth-child(2) { transition-delay: 60ms; }
+.lesson-body ul.sr-item.sr-visible li:nth-child(3) { transition-delay: 120ms; }
+.lesson-body ul.sr-item.sr-visible li:nth-child(4) { transition-delay: 180ms; }
+.lesson-body ul.sr-item.sr-visible li:nth-child(5) { transition-delay: 240ms; }
+.lesson-body ol.sr-item.sr-visible li:nth-child(1) { transition-delay: 0ms; }
+.lesson-body ol.sr-item.sr-visible li:nth-child(2) { transition-delay: 60ms; }
+.lesson-body ol.sr-item.sr-visible li:nth-child(3) { transition-delay: 120ms; }
+.lesson-body ol.sr-item.sr-visible li:nth-child(4) { transition-delay: 180ms; }
+.lesson-body ol.sr-item.sr-visible li:nth-child(5) { transition-delay: 240ms; }
+
+/* ── Confetti animations ───────────────────────────────────── */
+@keyframes confetti-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+}
+@keyframes confetti-shake {
+  0%, 100% { margin-left: 0; }
+  25% { margin-left: -15px; }
+  75% { margin-left: 15px; }
+}
+
+/* ── Login animations ──────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out both; }
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .lesson-body .sr-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .lesson-body .sr-item li {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
