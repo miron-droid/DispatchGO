@@ -28,9 +28,27 @@ export interface UserItem {
   manager?: { firstName: string; lastName: string };
 }
 
+export interface DetailedStudent {
+  id: string;
+  name: string;
+  lastActiveAt: string | null;
+  completedChapters: number;
+  totalLessons: number;
+  avgScore: number | null;
+  chapters: {
+    chapter: number;
+    status: string;
+    testPassed: boolean;
+    examPassed: boolean;
+    testScore: number | null;
+    lessons: { id: string; status: string }[];
+  }[];
+}
+
 export const adminApi = {
   dashboard: () => apiFetch<DashboardStats>('/admin/dashboard'),
   students: () => apiFetch<StudentAnalytics[]>('/admin/analytics/students'),
+  detailed: () => apiFetch<DetailedStudent[]>('/admin/analytics/detailed'),
 
   // Users
   listUsers: (role?: string) => apiFetch<UserItem[]>(`/users${role ? `?role=${role}` : ''}`),

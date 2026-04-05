@@ -1,226 +1,258 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
-import { adminApi, type StudentAnalytics } from '@/lib/api/admin';
-import { examsApi } from '@/lib/api/exams';
+import { adminApi, type DetailedStudent } from '@/lib/api/admin';
+import { dailyExamsApi } from '@/lib/api/daily-exams';
 import { useAuthStore } from '@/lib/stores/auth.store';
 import { useLang } from '@/lib/i18n/lang-context';
 import Link from 'next/link';
-import { Users, GraduationCap, BarChart2, Clock, ChevronRight, AlertTriangle, TrendingUp, Target } from 'lucide-react';
+import { useState } from 'react';
+import { GraduationCap, ChevronRight, ArrowUpDown, Trophy, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+
+const CH_NAMES = ['Intro', 'Geo', 'Equip', 'Docs', 'Board', 'Broker', 'Driver', 'Bid', 'Crisis'];
+
+type SortKey = 'name' | 'progress' | 'score';
 
 export default function ManagerDashboard() {
   const { lang } = useLang();
   const user = useAuthStore(s => s.user);
-  const { data: dash } = useQuery({ queryKey: ['admin-dashboard'], queryFn: adminApi.dashboard });
-  const { data: students = [] } = useQuery({ queryKey: ['admin-students'], queryFn: adminApi.students });
-  const { data: pendingExams = [] } = useQuery({ queryKey: ['pending-exams'], queryFn: examsApi.pending });
+  const { data: detailed = [] } = useQuery({ queryKey: ['detailed-progress'], queryFn: adminApi.detailed });
+  const { data: examStats = [] } = useQuery({ queryKey: ['exam-stats'], queryFn: dailyExamsApi.getStats });
+  const [sortBy, setSortBy] = useState<SortKey>('progress');
+  const [sortAsc, setSortAsc] = useState(false);
 
-  const now = Date.now();
-  const stalled = students.filter(s => !s.lastActiveAt || (now - new Date(s.lastActiveAt!).getTime()) / 86400000 > 5);
-  const struggling = students.filter(s => s.avgTestScore != null && s.avgTestScore < 60);
-  const needsAttention = [...pendingExams.map((e: any) => ({ type: 'exam' as const, data: e })),
-    ...stalled.map(s => ({ type: 'stalled' as const, data: s })),
-    ...struggling.map(s => ({ type: 'struggling' as const, data: s }))];
+  const totalStudents = detailed.length;
+  const graduated = detailed.filter(s => s.completedChapters >= 9).length;
+  const totalExamsPassed = examStats.reduce((a: number, s: any) => a + (s.passed ?? 0), 0);
 
-  // Charts data
-  const cohort = Array.from({ length: 9 }, (_, i) => {
-    const count = students.filter(s => s.chaptersCompleted >= i + 1).length;
-    return { ch: i + 1, count };
+  // Sort
+  const sorted = [...detailed].sort((a, b) => {
+    let diff = 0;
+    if (sortBy === 'name') diff = a.name.localeCompare(b.name);
+    else if (sortBy === 'progress') diff = a.completedChapters - b.completedChapters || a.totalLessons - b.totalLessons;
+    else diff = (a.avgScore ?? -1) - (b.avgScore ?? -1);
+    return sortAsc ? diff : -diff;
   });
-  const maxCohort = Math.max(...cohort.map(c => c.count), 1);
 
-  // Score distribution
-  const scoreBuckets = [
-    { label: '90-100%', min: 90, max: 100, color: 'bg-emerald-500' },
-    { label: '80-89%', min: 80, max: 89, color: 'bg-emerald-400' },
-    { label: '70-79%', min: 70, max: 79, color: 'bg-amber-400' },
-    { label: '60-69%', min: 60, max: 69, color: 'bg-amber-500' },
-    { label: '<60%', min: 0, max: 59, color: 'bg-red-500' },
-  ].map(b => ({
-    ...b,
-    count: students.filter(s => s.avgTestScore != null && s.avgTestScore >= b.min && s.avgTestScore <= b.max).length,
-  }));
-  const maxBucket = Math.max(...scoreBuckets.map(b => b.count), 1);
+  // Top & Bottom — by progress (chapters + lessons), then by score
+  const ranked = [...detailed].sort((a, b) =>
+    b.completedChapters - a.completedChapters ||
+    b.totalLessons - a.totalLessons ||
+    (b.avgScore ?? 0) - (a.avgScore ?? 0)
+  );
+  const top3 = ranked.slice(0, 3);
+  const bottom3 = ranked.length > 3 ? ranked.slice(-3).reverse() : [];
 
-  // Activity: active today / this week / inactive
-  const activeToday = students.filter(s => s.lastActiveAt && (now - new Date(s.lastActiveAt).getTime()) < 86400000).length;
-  const activeWeek = students.filter(s => s.lastActiveAt && (now - new Date(s.lastActiveAt).getTime()) < 7 * 86400000).length;
-  const inactive = students.length - activeWeek;
-
-  const hasPending = pendingExams.length > 0;
+  function toggleSort(key: SortKey) {
+    if (sortBy === key) setSortAsc(!sortAsc);
+    else { setSortBy(key); setSortAsc(false); }
+  }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 lg:px-6 pt-6 pb-8">
+    <div className="max-w-6xl mx-auto px-4 lg:px-6 pt-6 pb-8 space-y-5">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <p className="text-sm text-gray-400">{lang === 'ru' ? 'Привет' : 'Hello'}, <span className="text-gray-600 font-medium">{user?.firstName}</span></p>
-          <h1 className="text-xl lg:text-2xl font-bold text-gray-900">{lang === 'ru' ? 'Аналитика' : 'Analytics'}</h1>
+      <div>
+        <h1 className="text-xl lg:text-2xl font-bold text-gray-900">
+          {lang === 'ru' ? 'Привет' : 'Hi'}, {user?.firstName} 👋
+        </h1>
+      </div>
+
+      {/* KPI strip */}
+      <div className="grid grid-cols-3 gap-3">
+        <div className="card p-4 text-center">
+          <p className="text-3xl font-bold font-mono text-gray-900">{totalStudents}</p>
+          <p className="text-[11px] text-gray-400 mt-1">{lang === 'ru' ? 'Студентов' : 'Students'}</p>
+        </div>
+        <div className="card p-4 text-center">
+          <p className="text-3xl font-bold font-mono text-emerald-600">{graduated}</p>
+          <p className="text-[11px] text-gray-400 mt-1">{lang === 'ru' ? 'Закончили курс' : 'Finished Course'}</p>
+        </div>
+        <div className="card p-4 text-center">
+          <p className="text-3xl font-bold font-mono text-blue-600">{totalExamsPassed}</p>
+          <p className="text-[11px] text-gray-400 mt-1">{lang === 'ru' ? 'Экзаменов сдано' : 'Exams Passed'}</p>
         </div>
       </div>
 
-      {/* KPI Row */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
-        <KPICard icon={Users} value={dash?.activeStudents ?? 0} label={lang === 'ru' ? 'Студенты' : 'Students'} />
-        <KPICard icon={BarChart2} value={dash?.avgTestScore != null ? `${dash.avgTestScore}%` : '—'} label={lang === 'ru' ? 'Ср. балл' : 'Avg Score'} color={dash?.avgTestScore && dash.avgTestScore >= 75 ? 'text-emerald-600' : 'text-amber-600'} />
-        <KPICard icon={Target} value={`${Math.round((students.filter(s => s.chaptersCompleted >= 9).length / Math.max(students.length, 1)) * 100)}%`} label={lang === 'ru' ? 'Выпускники' : 'Graduated'} />
-        <KPICard icon={TrendingUp} value={activeToday} label={lang === 'ru' ? 'Сегодня' : 'Active Today'} color="text-emerald-600" />
-        <KPICard icon={Clock} value={pendingExams.length} label={lang === 'ru' ? 'На проверку' : 'To Review'} color={hasPending ? 'text-red-600' : ''} urgent={hasPending} className="lg:col-span-1 col-span-2" />
-      </div>
-
-      {/* Needs Attention Banner */}
-      {needsAttention.length > 0 && (
-        <div className={cn('rounded-2xl border p-4 mb-6', hasPending ? 'bg-red-50/50 border-red-200' : 'bg-amber-50/50 border-amber-200')}>
-          <div className="flex items-center gap-2 mb-3">
-            <AlertTriangle className={cn('w-4 h-4', hasPending ? 'text-red-500' : 'text-amber-500')} />
-            <h2 className="text-sm font-semibold text-gray-900">
-              {lang === 'ru' ? 'Требует внимания' : 'Needs Attention'} ({needsAttention.length})
-            </h2>
-          </div>
-          <div className="space-y-2">
-            {/* Pending exams first */}
-            {pendingExams.slice(0, 3).map((ex: any) => {
-              const hours = Math.round((now - new Date(ex.createdAt).getTime()) / 3600000);
-              return (
-                <Link key={ex.id} href="/manager/exams" className="flex items-center gap-3 px-3 py-2 bg-white rounded-xl hover:shadow-sm transition-all cursor-pointer group">
-                  <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse flex-shrink-0" />
-                  <div className="flex-1 min-w-0">
-                    <span className="text-sm font-medium text-gray-900">{ex.student?.firstName} {ex.student?.lastName}</span>
-                    <span className="text-xs text-gray-400 ml-2">{lang === 'ru' ? 'экзамен' : 'exam'} · {hours}h</span>
+      {/* Top & Bottom */}
+      {totalStudents > 0 && (
+        <div className="grid lg:grid-cols-2 gap-3">
+          <div className="card p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <Trophy className="w-4 h-4 text-amber-500" />
+              <h3 className="text-sm font-semibold text-gray-900">{lang === 'ru' ? 'Лучшие' : 'Top Students'}</h3>
+            </div>
+            {top3.length === 0 ? (
+              <p className="text-xs text-gray-400">{lang === 'ru' ? 'Пока нет данных' : 'No data yet'}</p>
+            ) : (
+              <div className="space-y-2.5">
+                {top3.map((s, i) => (
+                  <div key={s.id} className="flex items-center gap-2.5">
+                    <span className={cn('text-sm font-bold w-5', i === 0 ? 'text-amber-500' : i === 1 ? 'text-gray-400' : 'text-amber-700')}>
+                      {i === 0 ? '🥇' : i === 1 ? '🥈' : '🥉'}
+                    </span>
+                    <div className="w-6 h-6 rounded-md bg-emerald-100 flex items-center justify-center text-[10px] font-bold text-emerald-700">{s.name.charAt(0)}</div>
+                    <span className="text-sm text-gray-900 flex-1 truncate">{s.name}</span>
+                    <span className="text-xs font-mono text-gray-500">{s.completedChapters}/9 {lang === 'ru' ? 'гл' : 'ch'}</span>
+                    <span className="text-sm font-mono font-bold text-emerald-600">{s.avgScore != null ? `${s.avgScore}%` : '—'}</span>
                   </div>
-                  <span className="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-semibold">{lang === 'ru' ? 'Проверить' : 'Review'}</span>
-                  <ChevronRight className="w-3 h-3 text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              );
-            })}
-            {/* Stalled */}
-            {stalled.slice(0, 2).map(s => (
-              <Link key={`st-${s.id}`} href="/manager/students" className="flex items-center gap-3 px-3 py-2 bg-white rounded-xl hover:shadow-sm transition-all cursor-pointer">
-                <span className="h-2 w-2 rounded-full bg-amber-500 flex-shrink-0" />
-                <span className="text-sm text-gray-900 flex-1">{s.name}</span>
-                <span className="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-semibold">
-                  {lang === 'ru' ? 'неактивен' : 'inactive'}
-                </span>
-              </Link>
-            ))}
-            {needsAttention.length > 5 && (
-              <p className="text-xs text-gray-400 text-center pt-1">
-                +{needsAttention.length - 5} {lang === 'ru' ? 'ещё' : 'more'}
-              </p>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="card p-4">
+            <div className="flex items-center gap-2 mb-3">
+              <AlertCircle className="w-4 h-4 text-red-400" />
+              <h3 className="text-sm font-semibold text-gray-900">{lang === 'ru' ? 'Отстающие' : 'Need Help'}</h3>
+            </div>
+            {bottom3.length === 0 ? (
+              <p className="text-xs text-gray-400">{lang === 'ru' ? 'Все молодцы!' : 'Everyone is doing great!'}</p>
+            ) : (
+              <div className="space-y-2.5">
+                {bottom3.map((s, i) => (
+                  <div key={s.id} className="flex items-center gap-2.5">
+                    <span className="text-sm font-bold text-red-400 w-5">#{ranked.length - i}</span>
+                    <div className="w-6 h-6 rounded-md bg-red-100 flex items-center justify-center text-[10px] font-bold text-red-700">{s.name.charAt(0)}</div>
+                    <span className="text-sm text-gray-900 flex-1 truncate">{s.name}</span>
+                    <span className="text-xs font-mono text-gray-500">{s.completedChapters}/9 {lang === 'ru' ? 'гл' : 'ch'}</span>
+                    <span className="text-sm font-mono font-bold text-red-500">{s.avgScore != null ? `${s.avgScore}%` : '—'}</span>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         </div>
       )}
 
-      {/* Charts Grid */}
-      <div className="grid lg:grid-cols-3 gap-4 mb-6">
-        {/* Cohort Progress */}
-        <div className="card p-5 lg:col-span-2">
-          <h2 className="text-sm font-semibold text-gray-900 mb-4">{lang === 'ru' ? 'Прогресс когорты' : 'Cohort Progress'}</h2>
-          <div className="space-y-2.5">
-            {cohort.map(c => (
-              <div key={c.ch} className="flex items-center gap-3">
-                <span className="text-[10px] font-mono text-gray-400 w-8">{lang === 'ru' ? 'Гл' : 'Ch'}.{c.ch}</span>
-                <div className="flex-1 h-6 bg-gray-100 rounded-lg overflow-hidden relative">
-                  <div className="h-full bg-emerald-500 rounded-lg transition-all duration-700 flex items-center" style={{ width: `${Math.max((c.count / maxCohort) * 100, 2)}%` }}>
-                    {c.count > 0 && <span className="text-[10px] font-mono font-bold text-white ml-2">{c.count}</span>}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Main progress table */}
+      <div className="card p-0 overflow-hidden">
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-100">
+          <h2 className="text-sm font-semibold text-gray-900">{lang === 'ru' ? 'Прогресс студентов' : 'Student Progress'}</h2>
+          <Link href="/manager/students" className="text-xs text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1 cursor-pointer">
+            {lang === 'ru' ? 'Управление' : 'Manage'} <ChevronRight className="w-3 h-3" />
+          </Link>
         </div>
 
-        {/* Score Distribution */}
-        <div className="card p-5">
-          <h2 className="text-sm font-semibold text-gray-900 mb-4">{lang === 'ru' ? 'Распределение баллов' : 'Score Distribution'}</h2>
-          <div className="space-y-3">
-            {scoreBuckets.map(b => (
-              <div key={b.label} className="flex items-center gap-2.5">
-                <span className="text-[10px] font-mono text-gray-400 w-14">{b.label}</span>
-                <div className="flex-1 h-5 bg-gray-100 rounded-md overflow-hidden">
-                  <div className={cn('h-full rounded-md transition-all duration-700', b.color)} style={{ width: `${Math.max((b.count / maxBucket) * 100, b.count > 0 ? 8 : 0)}%` }} />
-                </div>
-                <span className="text-[10px] font-mono text-gray-500 w-4 text-right">{b.count}</span>
-              </div>
-            ))}
+        {totalStudents === 0 ? (
+          <div className="p-12 text-center">
+            <p className="text-sm text-gray-400">{lang === 'ru' ? 'Нет студентов' : 'No students'}</p>
+            <Link href="/manager/students" className="text-xs text-emerald-600 mt-2 inline-block cursor-pointer">{lang === 'ru' ? 'Добавить →' : 'Add →'}</Link>
           </div>
-          {/* Mini donut */}
-          <div className="flex items-center justify-center gap-4 mt-5 pt-4 border-t border-gray-100">
-            <MiniDonut segments={[
-              { pct: (activeToday / Math.max(students.length, 1)) * 100, color: '#22c55e' },
-              { pct: ((activeWeek - activeToday) / Math.max(students.length, 1)) * 100, color: '#fbbf24' },
-              { pct: (inactive / Math.max(students.length, 1)) * 100, color: '#e5e7eb' },
-            ]} />
-            <div className="text-[10px] space-y-1">
-              <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" />{lang === 'ru' ? 'Сегодня' : 'Today'} ({activeToday})</div>
-              <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-400" />{lang === 'ru' ? 'Неделя' : 'Week'} ({activeWeek - activeToday})</div>
-              <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-gray-200" />{lang === 'ru' ? 'Неактивны' : 'Inactive'} ({inactive})</div>
+        ) : (
+          <>
+            {/* Header */}
+            <div className="hidden lg:flex items-center px-5 py-2 bg-gray-50/80 border-b border-gray-100 gap-1">
+              <SortHeader label={lang === 'ru' ? 'Студент' : 'Student'} field="name" current={sortBy} asc={sortAsc} onClick={toggleSort} className="w-36" />
+              <div className="flex-1 flex items-center gap-0">
+                {CH_NAMES.map((n, i) => (
+                  <div key={i} className="flex-1 text-center text-[9px] font-mono text-gray-400 uppercase">{n}</div>
+                ))}
+              </div>
+              <SortHeader label={lang === 'ru' ? 'Рейтинг' : 'Rating'} field="score" current={sortBy} asc={sortAsc} onClick={toggleSort} className="w-20 justify-end" />
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Quick Actions */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-        <Link href="/manager/exams" className="card p-4 flex items-center gap-3 hover:border-red-200 transition-colors cursor-pointer">
-          <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
-            <GraduationCap className="w-5 h-5 text-red-500" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold">{lang === 'ru' ? 'Экзамены' : 'Exams'}</p>
-            <p className="text-xs text-gray-400">{pendingExams.length} {lang === 'ru' ? 'ожидают' : 'pending'}</p>
-          </div>
-        </Link>
-        <Link href="/manager/students" className="card p-4 flex items-center gap-3 hover:border-blue-200 transition-colors cursor-pointer">
-          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-            <Users className="w-5 h-5 text-blue-500" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold">{lang === 'ru' ? 'Студенты' : 'Students'}</p>
-            <p className="text-xs text-gray-400">{students.length} {lang === 'ru' ? 'всего' : 'total'}</p>
-          </div>
-        </Link>
-        <Link href="/manager/students" className="card p-4 flex items-center gap-3 hover:border-amber-200 transition-colors cursor-pointer col-span-2 lg:col-span-1">
-          <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
-            <AlertTriangle className="w-5 h-5 text-amber-500" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold">{lang === 'ru' ? 'Проблемные' : 'At Risk'}</p>
-            <p className="text-xs text-gray-400">{stalled.length + struggling.length} {lang === 'ru' ? 'студентов' : 'students'}</p>
-          </div>
-        </Link>
+            <div className="divide-y divide-gray-50">
+              {sorted.map((s, idx) => (
+                <StudentRow key={s.id} student={s} rank={idx + 1} lang={lang} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
-function KPICard({ icon: Icon, value, label, color, urgent, className }: {
-  icon: any; value: any; label: string; color?: string; urgent?: boolean; className?: string;
+function SortHeader({ label, field, current, asc, onClick, className }: {
+  label: string; field: SortKey; current: SortKey; asc: boolean; onClick: (k: SortKey) => void; className?: string;
 }) {
+  const active = current === field;
   return (
-    <div className={cn('card p-4', urgent && 'border-red-200 bg-red-50/30', className)}>
-      <div className="flex items-center justify-between mb-1.5">
-        <Icon className={cn('w-4 h-4', urgent ? 'text-red-500' : 'text-gray-400')} />
-        {urgent && <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />}
-      </div>
-      <p className={cn('text-2xl font-bold font-mono', color || 'text-gray-900')}>{value}</p>
-      <p className="text-[10px] text-gray-400 mt-0.5">{label}</p>
-    </div>
+    <button onClick={() => onClick(field)} className={cn('flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider cursor-pointer transition-colors', active ? 'text-emerald-600' : 'text-gray-400 hover:text-gray-600', className)}>
+      {label}
+      <ArrowUpDown className={cn('w-3 h-3', active ? 'text-emerald-500' : 'text-gray-300')} />
+    </button>
   );
 }
 
-function MiniDonut({ segments }: { segments: { pct: number; color: string }[] }) {
-  let offset = 0;
+function StudentRow({ student: s, rank, lang }: { student: DetailedStudent; rank: number; lang: string }) {
+  const [hoveredCh, setHoveredCh] = useState<number | null>(null);
+
+  const rankColor = rank <= 3 ? 'text-amber-500' : rank >= (10) ? 'text-red-400' : 'text-gray-400';
+
   return (
-    <svg width="56" height="56" viewBox="0 0 36 36">
-      <circle cx="18" cy="18" r="14" fill="none" stroke="#f3f4f6" strokeWidth="4" />
-      {segments.map((s, i) => {
-        const dash = `${s.pct * 0.88} ${88 - s.pct * 0.88}`;
-        const o = offset;
-        offset += s.pct * 0.88;
-        return <circle key={i} cx="18" cy="18" r="14" fill="none" stroke={s.color} strokeWidth="4" strokeDasharray={dash} strokeDashoffset={-o} strokeLinecap="round" transform="rotate(-90 18 18)" className="transition-all duration-700" />;
-      })}
-    </svg>
+    <div className="flex items-center px-5 py-2.5 gap-1 hover:bg-gray-50/50 transition-colors group relative">
+      {/* Rank + Name */}
+      <div className="w-36 flex items-center gap-2 flex-shrink-0">
+        <span className={cn('text-[10px] font-bold font-mono w-4', rankColor)}>#{rank}</span>
+        <div className="w-6 h-6 rounded-md bg-emerald-100 flex items-center justify-center text-[10px] font-bold text-emerald-700 flex-shrink-0">
+          {s.name.charAt(0)}
+        </div>
+        <p className="text-sm font-medium text-gray-900 truncate">{s.name}</p>
+      </div>
+
+      {/* Chapter progress grid */}
+      <div className="flex-1 flex items-center gap-0.5 relative">
+        {s.chapters.map((ch) => {
+          // Each chapter = 4 segments (lessons)
+          const lessonsCompleted = ch.lessons.filter(l => l.status === 'COMPLETED').length;
+          const lessonsInProgress = ch.lessons.filter(l => l.status === 'IN_PROGRESS').length;
+
+          // Color: green if all done + exam passed, partial green for lessons done, yellow for in-progress, gray for locked
+          let bgColor = 'bg-gray-100';
+          if (ch.examPassed) bgColor = 'bg-emerald-500';
+          else if (ch.testPassed) bgColor = 'bg-emerald-400';
+          else if (lessonsCompleted === 4) bgColor = 'bg-emerald-300';
+          else if (lessonsCompleted > 0) bgColor = 'bg-amber-400';
+          else if (lessonsInProgress > 0) bgColor = 'bg-amber-200';
+
+          const isHovered = hoveredCh === ch.chapter;
+
+          return (
+            <div
+              key={ch.chapter}
+              className="flex-1 relative"
+              onMouseEnter={() => setHoveredCh(ch.chapter)}
+              onMouseLeave={() => setHoveredCh(null)}
+            >
+              {/* Main bar */}
+              <div className="flex gap-px h-3">
+                {ch.lessons.map((l, li) => {
+                  let lColor = 'bg-gray-100';
+                  if (l.status === 'COMPLETED') lColor = ch.examPassed ? 'bg-emerald-500' : 'bg-emerald-400';
+                  else if (l.status === 'IN_PROGRESS') lColor = 'bg-amber-300';
+                  return (
+                    <div key={li} className={cn('flex-1 rounded-sm transition-all', lColor, isHovered && 'ring-1 ring-gray-300')} />
+                  );
+                })}
+              </div>
+
+              {/* Tooltip on hover */}
+              {isHovered && (
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 bg-gray-900 text-white text-[10px] rounded-lg px-3 py-2 whitespace-nowrap shadow-lg pointer-events-none">
+                  <p className="font-semibold">{lang === 'ru' ? 'Гл' : 'Ch'}.{ch.chapter}: {CH_NAMES[ch.chapter - 1]}</p>
+                  <p className="text-gray-300 mt-0.5">
+                    {lang === 'ru' ? 'Уроки' : 'Lessons'}: {lessonsCompleted}/4
+                    {ch.testScore != null && ` · ${lang === 'ru' ? 'Тест' : 'Test'}: ${ch.testScore}%`}
+                    {ch.examPassed && ` · ✓ ${lang === 'ru' ? 'Экзамен' : 'Exam'}`}
+                  </p>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45 -mt-1" />
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Score */}
+      <div className="w-20 text-right">
+        <span className={cn('text-sm font-bold font-mono',
+          s.avgScore == null ? 'text-gray-300' :
+          s.avgScore >= 80 ? 'text-emerald-600' :
+          s.avgScore >= 60 ? 'text-amber-600' : 'text-red-500'
+        )}>
+          {s.avgScore != null ? `${s.avgScore}%` : '—'}
+        </span>
+      </div>
+    </div>
   );
 }

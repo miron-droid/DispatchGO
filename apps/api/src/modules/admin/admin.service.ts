@@ -80,6 +80,63 @@ export class AdminService {
     return this.prisma.question.delete({ where: { id } });
   }
 
+  // Detailed progress per student per chapter/lesson
+  async getDetailedProgress() {
+    const students = await this.prisma.user.findMany({
+      where: { role: 'STUDENT', isActive: true },
+      select: {
+        id: true, firstName: true, lastName: true, lastActiveAt: true,
+        chapterProgress: {
+          select: { chapterId: true, status: true, testPassed: true, examPassed: true },
+        },
+        lessonProgress: {
+          select: { lessonId: true, status: true },
+        },
+        testAttempts: {
+          select: { chapterId: true, score: true, passed: true },
+          orderBy: { completedAt: 'desc' },
+        },
+      },
+    });
+
+    return students.map(s => {
+      // Build per-chapter detail
+      const chapters = Array.from({ length: 9 }, (_, i) => {
+        const chId = `chapter-${i + 1}`;
+        const cp = s.chapterProgress.find(c => c.chapterId === chId);
+        const lessons = Array.from({ length: 4 }, (_, j) => {
+          const lId = `lesson-${i + 1}-${j + 1}`;
+          const lp = s.lessonProgress.find(l => l.lessonId === lId);
+          return { id: lId, status: lp?.status ?? 'LOCKED' };
+        });
+        const bestTest = s.testAttempts.filter(t => t.chapterId === chId).sort((a, b) => b.score - a.score)[0];
+        return {
+          chapter: i + 1,
+          status: cp?.status ?? 'LOCKED',
+          testPassed: cp?.testPassed ?? false,
+          examPassed: cp?.examPassed ?? false,
+          testScore: bestTest?.score ?? null,
+          lessons,
+        };
+      });
+
+      const completedChapters = chapters.filter(c => c.examPassed).length;
+      const scores = s.testAttempts.map(t => t.score);
+      const avgScore = scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : null;
+      const totalLessons = s.lessonProgress.filter(l => l.status === 'COMPLETED').length;
+
+      return {
+        id: s.id,
+        name: `${s.firstName} ${s.lastName}`,
+        lastActiveAt: s.lastActiveAt,
+        completedChapters,
+        totalLessons,
+        avgScore,
+        chapters,
+      };
+    });
+  }
+
   // Analytics
   async getStudentAnalytics() {
     const students = await this.prisma.user.findMany({

@@ -6,38 +6,17 @@ import { useState } from 'react';
 import { UserPlus, Search, X, Trash2, Key, RotateCcw, Settings, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-type Filter = 'all' | 'struggling' | 'stalled' | 'on-track';
-
 export default function StudentsPage() {
   const { lang } = useLang();
   const qc = useQueryClient();
   const [search, setSearch] = useState('');
-  const [filter, setFilter] = useState<Filter>('all');
   const [showCreate, setShowCreate] = useState(false);
   const [settingsFor, setSettingsFor] = useState<StudentAnalytics | null>(null);
 
   const { data: students = [], isLoading } = useQuery({ queryKey: ['admin-students'], queryFn: adminApi.students });
 
-  const now = Date.now();
-  const getStatus = (s: StudentAnalytics) => {
-    if (s.avgTestScore != null && s.avgTestScore < 60) return 'struggling';
-    if (!s.lastActiveAt || (now - new Date(s.lastActiveAt).getTime()) / 86400000 > 5) return 'stalled';
-    return 'on-track';
-  };
-
-  const counts = { all: students.length, struggling: 0, stalled: 0, 'on-track': 0 };
-  students.forEach(s => { counts[getStatus(s)]++; });
-
   const filtered = students
-    .filter(s => filter === 'all' || getStatus(s) === filter)
     .filter(s => !search || s.name?.toLowerCase().includes(search.toLowerCase()));
-
-  const TABS: { key: Filter; label: string; count: number; color?: string }[] = [
-    { key: 'all', label: lang === 'ru' ? 'Все' : 'All', count: counts.all },
-    { key: 'struggling', label: lang === 'ru' ? 'Проблемы' : 'Struggling', count: counts.struggling, color: 'bg-red-500' },
-    { key: 'stalled', label: lang === 'ru' ? 'Неактивные' : 'Stalled', count: counts.stalled, color: 'bg-amber-500' },
-    { key: 'on-track', label: lang === 'ru' ? 'В норме' : 'On Track', count: counts['on-track'], color: 'bg-emerald-500' },
-  ];
 
   return (
     <div className="max-w-5xl mx-auto px-4 lg:px-6 pt-6 pb-8">
@@ -50,21 +29,6 @@ export default function StudentsPage() {
           <UserPlus className="w-4 h-4" />
           {lang === 'ru' ? 'Добавить' : 'Add'}
         </button>
-      </div>
-
-      {/* Filter tabs */}
-      <div className="flex gap-1 p-1 bg-gray-100 rounded-xl w-fit mb-4 overflow-x-auto">
-        {TABS.map(tab => (
-          <button key={tab.key} onClick={() => setFilter(tab.key)} className={cn(
-            'px-3 py-1.5 text-xs font-medium rounded-lg transition-all duration-150 flex items-center gap-1.5 cursor-pointer whitespace-nowrap',
-            filter === tab.key ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:bg-white/60',
-          )}>
-            {tab.label}
-            {tab.count > 0 && tab.color && (
-              <span className={cn('h-4 min-w-[16px] px-1 rounded-full text-white text-[10px] font-mono font-bold flex items-center justify-center', tab.color)}>{tab.count}</span>
-            )}
-          </button>
-        ))}
       </div>
 
       {/* Search */}
@@ -82,34 +46,22 @@ export default function StudentsPage() {
           <p className="p-8 text-center text-sm text-gray-400">{lang === 'ru' ? 'Не найдено' : 'No results'}</p>
         ) : filtered.map(s => {
           const pct = Math.round((s.chaptersCompleted / 9) * 100);
-          const status = getStatus(s);
-          const cfg = {
-            'on-track': { label: lang === 'ru' ? 'В норме' : 'On Track', bg: 'bg-emerald-50 text-emerald-700', dot: 'bg-emerald-500', avatar: 'bg-emerald-100 text-emerald-700' },
-            'struggling': { label: lang === 'ru' ? 'Проблемы' : 'Struggling', bg: 'bg-red-50 text-red-700', dot: 'bg-red-500', avatar: 'bg-red-100 text-red-700' },
-            'stalled': { label: lang === 'ru' ? 'Неактивен' : 'Stalled', bg: 'bg-amber-50 text-amber-700', dot: 'bg-amber-500', avatar: 'bg-amber-100 text-amber-700' },
-          }[status];
-          const activeDays = s.lastActiveAt ? Math.round((now - new Date(s.lastActiveAt).getTime()) / 86400000) : null;
+          const activeDays = s.lastActiveAt ? Math.round((Date.now() - new Date(s.lastActiveAt).getTime()) / 86400000) : null;
 
           return (
             <div key={s.id} className="card flex items-center gap-4 group">
               {/* Avatar */}
-              <div className={cn('w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0', cfg.avatar)}>
+              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-bold flex-shrink-0">
                 {s.name?.charAt(0)}
               </div>
 
               {/* Info */}
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <p className="text-sm font-semibold text-gray-900 truncate">{s.name}</p>
-                  <span className={cn('inline-flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded-md font-semibold', cfg.bg)}>
-                    <span className={cn('h-1.5 w-1.5 rounded-full', cfg.dot)} />
-                    {cfg.label}
-                  </span>
-                </div>
+                <p className="text-sm font-semibold text-gray-900 truncate mb-1">{s.name}</p>
                 <div className="flex items-center gap-4 text-[11px] text-gray-400">
                   <span className="flex items-center gap-1.5">
                     <div className="w-14 h-1 bg-gray-100 rounded-full overflow-hidden">
-                      <div className={cn('h-full rounded-full', cfg.dot)} style={{ width: `${pct}%` }} />
+                      <div className="h-full rounded-full bg-emerald-500" style={{ width: `${pct}%` }} />
                     </div>
                     <span className="font-mono">{s.chaptersCompleted}/9</span>
                   </span>
@@ -120,7 +72,7 @@ export default function StudentsPage() {
                   )}>
                     {s.avgTestScore != null ? `${s.avgTestScore}%` : '—'}
                   </span>
-                  <span className={cn(activeDays != null && activeDays > 3 ? 'text-red-400' : '')}>
+                  <span>
                     {activeDays != null ? (activeDays === 0 ? (lang === 'ru' ? 'сегодня' : 'today') : `${activeDays}d`) : '—'}
                   </span>
                 </div>

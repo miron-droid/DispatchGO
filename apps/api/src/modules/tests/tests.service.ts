@@ -103,8 +103,8 @@ export class TestsService {
   private async completeChapterAndUnlockNext(userId: string, chapterId: string) {
     await this.prisma.chapterProgress.upsert({
       where: { userId_chapterId: { userId, chapterId } },
-      update: { status: ProgressStatus.COMPLETED },
-      create: { userId, chapterId, status: ProgressStatus.COMPLETED, testPassed: true },
+      update: { status: ProgressStatus.COMPLETED, examPassed: true },
+      create: { userId, chapterId, status: ProgressStatus.COMPLETED, testPassed: true, examPassed: true },
     });
 
     const currentChapter = await this.prisma.chapter.findUnique({

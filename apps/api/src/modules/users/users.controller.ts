@@ -11,7 +11,7 @@ export class UsersController {
   constructor(private users: UsersService) {}
 
   @Post()
-  @Roles(UserRole.ADMIN)
+  @Roles(UserRole.ADMIN, UserRole.MANAGER)
   create(@Body() dto: CreateUserDto) {
     return this.users.create(dto);
   }

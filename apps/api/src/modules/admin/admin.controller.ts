@@ -16,6 +16,9 @@ export class AdminController {
   @Get('analytics/students')
   studentAnalytics() { return this.admin.getStudentAnalytics(); }
 
+  @Get('analytics/detailed')
+  detailedProgress() { return this.admin.getDetailedProgress(); }
+
   @Post('courses/:courseId/chapters')
   upsertChapter(@Param('courseId') courseId: string, @Body() dto: UpsertChapterDto) {
     return this.admin.upsertChapter(courseId, dto);

@@ -1,12 +1,10 @@
 'use client';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Users, GraduationCap, LogOut, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Users, LogOut, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { useAuthStore } from '@/lib/stores/auth.store';
-import { examsApi } from '@/lib/api/exams';
 import { Logo } from '@/components/domain/logo';
 import { useLang } from '@/lib/i18n/lang-context';
 import { LangToggle } from '@/components/layout/lang-toggle';
@@ -19,17 +17,9 @@ function ManagerShell({ children }: { children: React.ReactNode }) {
   const user = useAuthStore(s => s.user);
   const logout = useAuthStore(s => s.clearAuth);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { data: pendingExams = [] } = useQuery({
-    queryKey: ['pending-exams-count'],
-    queryFn: examsApi.pending,
-    refetchInterval: 60000,
-  });
-  const pendingCount = Array.isArray(pendingExams) ? pendingExams.length : 0;
-
   const NAV = [
     { href: '/manager',       label: lang === 'ru' ? 'Дашборд' : 'Dashboard',  icon: LayoutDashboard, exact: true, badge: 0 },
     { href: '/manager/students', label: lang === 'ru' ? 'Студенты' : 'Students', icon: Users, badge: 0 },
-    { href: '/manager/exams', label: lang === 'ru' ? 'Экзамены' : 'Exams',      icon: GraduationCap, badge: pendingCount },
   ];
 
   const isActive = (item: typeof NAV[0]) =>

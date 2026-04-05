@@ -22,8 +22,7 @@ export default function LoginPage() {
     try {
       const { accessToken, user } = await authApi.login(email, password);
       setAuth(user, accessToken);
-      if (user.role === 'ADMIN') router.replace('/admin');
-      else if (user.role === 'MANAGER') router.replace('/manager');
+      if (user.role === 'ADMIN' || user.role === 'MANAGER') router.replace('/manager');
       else router.replace('/learn');
     } catch (err: any) {
       setError(err.message ?? t('auth_login_failed'));
