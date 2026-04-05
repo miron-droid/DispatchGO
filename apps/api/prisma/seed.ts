@@ -4477,6 +4477,2146 @@ function getContent(chapter: number, lesson: number): object {
         ],
       },
     },
+
+    '4-1': {
+      type: 'text',
+      body: `
+        <h2>Documentation in US Trucking</h2>
+        <p>In US trucking, every load comes with paperwork. Documents are not bureaucracy for its own sake — they protect the carrier, confirm the shipment, and are the basis for payment. Without properly completed documents, the dispatcher risks not getting paid, receiving fines, or losing broker trust.</p>
+        <blockquote>
+          <strong>The core rule:</strong> No document — no payment. Each document has a specific function and a specific moment when it must be completed.
+        </blockquote>
+
+        <h3>Why Documents Matter to the Dispatcher</h3>
+        <p>The dispatcher isn't in the cab, but bears full responsibility for ensuring all documents are correctly completed at every stage of the load. Document errors turn into payment disputes, freight holds, or legal conflicts with the broker.</p>
+        <p>The three core documents a dispatcher handles every day are the <strong>Rate Confirmation</strong>, the <strong>Bill of Lading</strong>, and the <strong>Proof of Delivery</strong>. Beyond these, there are supporting documents: lumper receipts, detention forms, and the carrier packet.</p>
+
+        <h3>Key Documents: Overview</h3>
+        <p><strong>Rate Confirmation (Rate Con)</strong> — the contract between broker and carrier. It specifies the rate, route, and delivery terms. Signed before the load moves. This is the legal foundation of the entire deal.</p>
+        <p><strong>Bill of Lading (BOL)</strong> — the shipping receipt issued by the shipper at pickup. Confirms that the driver received the freight and describes its contents, weight, and addresses. Travels with the load through to delivery.</p>
+        <p><strong>Proof of Delivery (POD)</strong> — delivery confirmation. Created when the consignee signs the BOL upon receipt. Forms the basis for invoicing the broker.</p>
+        <p><strong>Lumper Receipt</strong> — a receipt for warehouse unloading services. Used to recover unloading costs through the broker.</p>
+        <p><strong>Carrier Packet / MC Authority</strong> — a carrier documentation package that brokers request before working together for the first time.</p>
+
+        <h3>Document Flow Through the Load</h3>
+        <p>Understanding documentation is easier when viewed through the load timeline. Before dispatch — the dispatcher signs the <strong>Rate Con</strong> with the broker. At pickup — the driver receives the <strong>BOL</strong> from the shipper. In transit — the BOL rides in the truck cab. At delivery — the consignee signs the BOL, creating the <strong>POD</strong>. After delivery — the dispatcher sends the POD to the broker and invoices for payment.</p>
+
+        <h3>Documents and Money</h3>
+        <p>Every document is directly tied to money. The Rate Con determines how much the carrier earns. The BOL protects against disputes over what was shipped. The POD is required for payment release. The Lumper Receipt allows recovery of unloading costs.</p>
+        <p>A dispatcher who understands document flow and controls every stage of it works professionally and ensures consistent revenue for the carrier.</p>
+
+        <h3>Summary</h3>
+        <p>In the following lessons we will cover each document in detail: what it must contain, what to look for, and how to handle non-standard situations. The goal is to make working with documents an automatic part of your daily practice.</p>
+      <figure><img src="/img-proxy/wikipedia/commons/f/f0/Person_writing_in_notebook_while_using_laptop_at_a_modern_workspace.jpg" alt="Dispatcher reviewing documents at workstation" loading="lazy" /><figcaption>Every load starts and ends with documentation — the dispatcher's daily workflow</figcaption></figure>
+
+      <h3>Document Timeline — Visual Flow</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#1e293b;color:white">
+          <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Stage</th>
+          <th style="padding:10px;text-align:left">Document</th>
+          <th style="padding:10px;text-align:left">Who Creates</th>
+          <th style="padding:10px;text-align:left;border-radius:0 8px 0 0">Key Action</th>
+        </tr>
+        <tr style="background:#f8fafc"><td style="padding:10px;border-bottom:1px solid #e2e8f0">📋 Before Dispatch</td><td style="padding:10px;border-bottom:1px solid #e2e8f0"><strong>Rate Con</strong></td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Broker → Dispatcher signs</td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Verify & sign</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid #e2e8f0">🚚 At Pickup</td><td style="padding:10px;border-bottom:1px solid #e2e8f0"><strong>BOL</strong></td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Shipper → Driver receives</td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Photo → Dispatcher → Broker</td></tr>
+        <tr style="background:#f8fafc"><td style="padding:10px;border-bottom:1px solid #e2e8f0">📦 At Delivery</td><td style="padding:10px;border-bottom:1px solid #e2e8f0"><strong>POD</strong></td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Consignee signs BOL</td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Photo → Dispatcher → Broker</td></tr>
+        <tr><td style="padding:10px">💰 After Delivery</td><td style="padding:10px"><strong>Invoice</strong></td><td style="padding:10px">Carrier/Dispatcher</td><td style="padding:10px">Checkout in CargoETL</td></tr>
+      </table>
+
+      <blockquote><strong>💡 Pro Tip:</strong> Think of documents as a chain — if any link is missing, the payment chain breaks. Rate Con → BOL → POD → Payment.</blockquote>`,
+      bodyRu: `
+        <h2>Документация в американских грузоперевозках</h2>
+        <p>В грузоперевозках США каждый рейс сопровождается документами. Документы — это не бюрократия ради бюрократии: они защищают перевозчика, подтверждают факт перевозки и являются основанием для оплаты. Без правильно оформленных документов диспетчер рискует не получить деньги, получить штраф или потерять доверие брокера.</p>
+        <blockquote>
+          <strong>Главное правило:</strong> Нет документа — нет оплаты. Каждый документ имеет конкретную функцию и момент, когда он должен быть оформлен.
+        </blockquote>
+
+        <h3>Почему документы важны для диспетчера</h3>
+        <p>Диспетчер не едет в кабине, но несёт полную ответственность за то, чтобы все документы были правильно оформлены на каждом этапе рейса. Ошибки в документах превращаются в споры об оплате, задержку груза или юридические конфликты с брокером.</p>
+        <p>Три основных документа, с которыми работает диспетчер каждый день — это <strong>Rate Confirmation</strong>, <strong>Bill of Lading</strong> и <strong>Proof of Delivery</strong>. Помимо них, существуют дополнительные документы: lumper receipt, detention forms и carrier packet.</p>
+
+        <h3>Основные документы: краткий обзор</h3>
+        <p><strong>Rate Confirmation (Rate Con)</strong> — договор между брокером и перевозчиком. Фиксирует ставку, маршрут, условия доставки. Подписывается до начала рейса. Это юридическая основа всей сделки.</p>
+        <p><strong>Bill of Lading (BOL)</strong> — накладная, выдаваемая грузоотправителем при погрузке. Подтверждает, что груз принят водителем и описывает его содержимое, вес и адреса. Следует с грузом до доставки.</p>
+        <p><strong>Proof of Delivery (POD)</strong> — подтверждение доставки. Создаётся путём подписания BOL грузополучателем при сдаче груза. Является основанием для выставления счёта брокеру.</p>
+        <p><strong>Lumper Receipt</strong> — квитанция за услуги разгрузки на складе. Используется для возмещения расходов через брокера.</p>
+        <p><strong>Carrier Packet / MC Authority</strong> — пакет документов перевозчика, который запрашивает брокер перед первой совместной работой.</p>
+
+        <h3>Документооборот по ходу рейса</h3>
+        <p>Понять документацию проще через хронологию рейса. До отправки водителя — диспетчер подписывает <strong>Rate Con</strong> с брокером. На погрузке — водитель получает <strong>BOL</strong> от грузоотправителя. В пути — BOL хранится в кабине грузовика. На выгрузке — грузополучатель подписывает BOL, он становится <strong>POD</strong>. После доставки — диспетчер отправляет POD брокеру и выставляет счёт.</p>
+
+        <h3>Документы и деньги</h3>
+        <p>Каждый документ напрямую связан с деньгами. Rate Con определяет, сколько заработает перевозчик. BOL защищает от споров о том, что именно было перевезено. POD является основанием для выплаты. Lumper Receipt позволяет вернуть деньги за разгрузку.</p>
+        <p>Диспетчер, который понимает документооборот и контролирует каждый его этап, работает профессионально и обеспечивает стабильный доход перевозчику.</p>
+
+        <h3>Итог</h3>
+        <p>В следующих уроках мы подробно разберём каждый документ: что в нём должно быть, на что обратить внимание и что делать в нестандартных ситуациях. Цель — сделать работу с документами автоматической частью вашей ежедневной практики.</p>
+      <figure><img src="/img-proxy/wikipedia/commons/f/f0/Person_writing_in_notebook_while_using_laptop_at_a_modern_workspace.jpg" alt="Диспетчер за рабочим местом с документами" loading="lazy" /><figcaption>Каждый рейс начинается и заканчивается документами — ежедневный рабочий процесс диспетчера</figcaption></figure>
+
+    <h3>Хронология документов — визуальная схема</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#1e293b;color:white">
+        <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Этап</th>
+        <th style="padding:10px;text-align:left">Документ</th>
+        <th style="padding:10px;text-align:left">Кто создаёт</th>
+        <th style="padding:10px;text-align:left;border-radius:0 8px 0 0">Действие</th>
+      </tr>
+      <tr style="background:#f8fafc"><td style="padding:10px;border-bottom:1px solid #e2e8f0">📋 До отправки</td><td style="padding:10px;border-bottom:1px solid #e2e8f0"><strong>Rate Con</strong></td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Брокер → Диспетчер подписывает</td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Проверить и подписать</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid #e2e8f0">🚚 На погрузке</td><td style="padding:10px;border-bottom:1px solid #e2e8f0"><strong>BOL</strong></td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Грузоотправитель → Водитель</td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Фото → Диспетчер → Брокер</td></tr>
+      <tr style="background:#f8fafc"><td style="padding:10px;border-bottom:1px solid #e2e8f0">📦 На доставке</td><td style="padding:10px;border-bottom:1px solid #e2e8f0"><strong>POD</strong></td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Получатель подписывает BOL</td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Фото → Диспетчер → Брокер</td></tr>
+      <tr><td style="padding:10px">💰 После доставки</td><td style="padding:10px"><strong>Счёт</strong></td><td style="padding:10px">Перевозчик/Диспетчер</td><td style="padding:10px">Checkout в CargoETL</td></tr>
+    </table>
+
+    <blockquote><strong>💡 Совет:</strong> Документы — это цепочка: если одно звено отсутствует, цепочка оплаты рвётся. Rate Con → BOL → POD → Оплата.</blockquote>`,
+      quiz: {
+        questions: [
+          { id: 'doc-in-q1', text: "What are the three core documents a dispatcher works with daily?", options: ["Invoice, Receipt, Contract", "Rate Confirmation, Bill of Lading, Proof of Delivery", "BOL, POD, CDL", "Rate Con, TMS Report, Insurance Certificate"], correctIndex: 1 },
+          { id: 'doc-in-q2', text: "What is the Rate Confirmation (Rate Con)?", options: ["A receipt for fuel purchases", "A contract between broker and carrier specifying rate, route, and terms", "The driver's license verification", "A load board search result"], correctIndex: 1 },
+          { id: 'doc-in-q3', text: "When does a BOL become a POD?", options: ["When the dispatcher uploads it to CargoETL", "When the consignee signs the BOL at delivery", "When the broker approves the rate", "When the driver starts the engine"], correctIndex: 1 },
+          { id: 'doc-in-q4', text: "What happens if POD is not sent to the broker?", options: ["Nothing — POD is optional", "Payment will not be received", "The broker sends a replacement POD", "The load is automatically cancelled"], correctIndex: 1 },
+          { id: 'doc-in-q5', text: "Can the Rate Con rate be shown to the driver?", options: ["Yes — drivers need to know the full rate", "No — the rate is confidential and must NEVER be disclosed to the driver", "Only if the driver asks directly", "Only for owner-operators"], correctIndex: 1 },
+          { id: 'doc-in-q6', text: "What is a Lumper Receipt?", options: ["A fuel expense document", "A receipt for warehouse unloading services, used to recover costs through the broker", "A toll payment receipt", "A driver's overtime slip"], correctIndex: 1 },
+          { id: 'doc-in-q7', text: "In what order do documents flow through a load?", options: ["BOL → Rate Con → POD", "POD → BOL → Rate Con", "Rate Con → BOL → POD", "BOL → POD → Rate Con"], correctIndex: 2 },
+          { id: 'doc-in-q8', text: "What is HCPOD?", options: ["High Clearance Proof of Delivery", "Hard Copy POD — the POD in PDF format", "Hazmat Certified Proof of Delivery", "Highway Checkpoint POD"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: 'doc-in-q1', text: "Какие три основных документа использует диспетчер ежедневно?", options: ["Счёт, Квитанция, Контракт", "Rate Confirmation, Bill of Lading, Proof of Delivery", "BOL, POD, CDL", "Rate Con, TMS-отчёт, Страховой сертификат"], correctIndex: 1 },
+          { id: 'doc-in-q2', text: "Что такое Rate Confirmation (Rate Con)?", options: ["Квитанция за топливо", "Договор между брокером и перевозчиком с указанием ставки, маршрута и условий", "Проверка водительских прав", "Результат поиска на бирже грузов"], correctIndex: 1 },
+          { id: 'doc-in-q3', text: "Когда BOL становится POD?", options: ["Когда диспетчер загружает его в CargoETL", "Когда грузополучатель подписывает BOL при доставке", "Когда брокер утверждает ставку", "Когда водитель заводит двигатель"], correctIndex: 1 },
+          { id: 'doc-in-q4', text: "Что будет, если POD не отправлен брокеру?", options: ["Ничего — POD необязателен", "Оплата не будет получена", "Брокер отправит замену POD", "Груз автоматически отменяется"], correctIndex: 1 },
+          { id: 'doc-in-q5', text: "Можно ли показывать водителю ставку из Rate Con?", options: ["Да — водитель должен знать полную ставку", "Нет — ставка конфиденциальна и НИКОГДА не раскрывается водителю", "Только если водитель спросит", "Только для owner-операторов"], correctIndex: 1 },
+          { id: 'doc-in-q6', text: "Что такое Lumper Receipt?", options: ["Документ на топливные расходы", "Квитанция за услуги разгрузки на складе для возмещения через брокера", "Квитанция за дорожные сборы", "Документ на сверхурочную работу водителя"], correctIndex: 1 },
+          { id: 'doc-in-q7', text: "В каком порядке документы проходят через рейс?", options: ["BOL → Rate Con → POD", "POD → BOL → Rate Con", "Rate Con → BOL → POD", "BOL → POD → Rate Con"], correctIndex: 2 },
+          { id: 'doc-in-q8', text: "Что такое HCPOD?", options: ["High Clearance Proof of Delivery", "Hard Copy POD — POD в формате PDF", "Hazmat Certified Proof of Delivery", "Highway Checkpoint POD"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '4-2': {
+      type: 'text',
+      body: `
+        <h2>Freight Documentation: Complete Guide</h2>
+        <p>A dispatcher works with several key documents every day. Each has a specific purpose, a specific moment in the load lifecycle, and specific consequences when completed incorrectly. Let's cover each document in detail.</p>
+
+        <h2>Rate Confirmation (Rate Con)</h2>
+        <p>The Rate Confirmation is a legally binding contract between the <strong>broker</strong> (or direct shipper) and the <strong>carrier</strong>. It defines the terms of the load and the agreed payment.</p>
+
+        <h3>What Rate Con Must Contain</h3>
+        <p>Every Rate Con must include: broker and carrier names and contacts, load number / reference number, pickup and delivery addresses with dates and time windows, freight description and weight, agreed rate in dollars, equipment type (53ft dry van, flatbed, etc.), special requirements (temperature, team drivers, hazmat), and payment terms (quick pay, standard net terms).</p>
+
+        <blockquote>
+          <strong>Dispatcher rule:</strong> Before signing the Rate Con, check every field. Rate, route, date, address — everything must match what was agreed verbally. A signed Rate Con with an error is your error.
+        </blockquote>
+
+        <h3>Common Rate Con Errors</h3>
+        <p><strong>Wrong rate</strong> — the most common mistake. The broker "accidentally" lists the opening offer instead of the agreed amount. Always verify against the final negotiated number.</p>
+        <p><strong>Wrong address</strong> — incorrect zipcode or city name. The driver goes to the wrong location. Time and money lost.</p>
+        <p><strong>Wrong date</strong> — pickup or delivery listed a day early or late. Results in a missed appointment.</p>
+        <p><strong>Wrong equipment type</strong> — Rate Con says 53ft but driver has 48ft or flatbed. Driver gets turned away at pickup.</p>
+        <p><strong>Missing accessorial charges</strong> — if additional charges were negotiated (fuel surcharge, detention, layover), they must be explicitly listed in the Rate Con or an addendum.</p>
+
+        <h3>Signing and Storing</h3>
+        <p>Rate Cons are signed electronically (DocuSign, email confirmation) or by fax. After signing — save a copy. It is your evidence in any payment dispute.</p>
+
+        <h2>Bill of Lading (BOL)</h2>
+        <p>The Bill of Lading is an official document issued by the <strong>shipper</strong> to the driver at pickup. It serves three functions: it is a contract of carriage, a freight inventory, and a receipt acknowledging the driver accepted the freight.</p>
+
+        <h3>What the BOL Contains</h3>
+        <p>A standard BOL includes: shipper name and address, consignee name and address, commodity description, quantity (pieces/pallets/skids), weight in lbs, freight class, special handling instructions, PRO/BOL number, and signatures of both driver and shipper at pickup.</p>
+
+        <h3>What to Verify When Receiving the BOL</h3>
+        <p>The driver must verify: addresses match those on the Rate Con, actual freight weight, piece count, and that freight description matches expectations. If discrepancies are found, the driver must immediately inform the dispatcher, and the dispatcher contacts the broker before the driver signs the document.</p>
+
+        <blockquote>
+          <strong>Important:</strong> The driver's signature on the BOL means they accepted the freight in the stated quantity and condition. If weight is incorrect or freight is damaged at loading — this must be noted on the BOL before signing (notation: "subject to count" or "damaged at pickup").
+        </blockquote>
+
+        <h3>Straight BOL vs Order BOL</h3>
+        <p><strong>Straight BOL</strong> — freight is delivered to the specific consignee named in the document. Non-transferable. Used in the majority of trucking loads.</p>
+        <p><strong>Order BOL (Negotiable BOL)</strong> — can be transferred to a third party. Less common; appears in international and complex logistics chains.</p>
+
+        <h2>Proof of Delivery (POD)</h2>
+        <p>Proof of Delivery is confirmation that freight was delivered to the recipient. Technically, the POD is the BOL signed by the consignee at unloading. In some cases it is a separate form or digital signature.</p>
+
+        <h3>Why POD is Critical</h3>
+        <p>Most brokers will not release payment without a POD. This isn't a preference — the broker must confirm delivery to the shipper before they themselves get paid. Without the POD, the payment chain breaks.</p>
+        <p>The dispatcher is responsible for ensuring the driver obtains a signed POD immediately after unloading and sends it to the dispatcher. The dispatcher forwards the POD to the broker without delay.</p>
+
+        <h3>What POD Must Contain</h3>
+        <p>A valid POD includes: signature of an authorized consignee representative, delivery date and time, consignee stamp (if required), and notes on freight damage at delivery (if any).</p>
+
+        <blockquote>
+          <strong>Dispatcher rule:</strong> As soon as the driver reports delivery — request the POD immediately. Don't leave it for later. The faster the POD reaches the broker, the faster payment arrives.
+        </blockquote>
+
+        <h3>Damage at Delivery</h3>
+        <p>If the consignee discovers damage — it must be noted on the POD before signing. A "damaged" notation with description proves the damage did not occur due to carrier fault (assuming freight was accepted in good condition per the BOL at pickup).</p>
+
+        <h2>Lumper Receipt</h2>
+        <p>A lumper is a warehouse-hired worker who unloads freight from the trailer. Some warehouses unload with their own staff at no charge; others require a lumper fee (typically $75–$200 per load).</p>
+
+        <h3>How Lumper Fee Works</h3>
+        <p>The driver arrives for unloading. The warehouse announces a lumper fee. The driver or carrier pays cash or check. In return, the lumper provides a signed receipt (lumper receipt).</p>
+        <p>The dispatcher submits the lumper receipt to the broker alongside the POD. The broker reimburses the lumper fee to the carrier — if covered under the deal terms. This is why a detailed receipt is essential: date, address, amount, signature.</p>
+
+        <h2>Carrier Packet (MC Authority)</h2>
+        <p>Before working together for the first time, the broker requests a carrier documentation package. This typically includes: MC number and DOT number copy, Certificate of Insurance, W-9 form for tax purposes, NOA (Notice of Assignment) if using a factoring company.</p>
+        <p>The dispatcher is responsible for keeping all carrier packet documents current and ready to send at a new broker's first request. An expired insurance certificate or missing W-9 stops work with a new broker.</p>
+
+        <h2>Detention Documentation</h2>
+        <p>If the driver waits at pickup or delivery beyond 2 hours past the appointment time, the carrier is entitled to detention pay (typically $50–$75/hour). To collect detention: record exact arrival time and start/end of waiting, notify the broker in real time about the delay, and obtain broker confirmation agreeing to pay detention.</p>
+        <p>Without documented proof, the broker can refuse detention payment. The dispatcher must keep accurate records and notify the broker promptly.</p>
+
+        <h2>Chapter 4 Final Test</h2>
+        <p>This test covers all chapter topics: Rate Confirmation, Bill of Lading, Proof of Delivery, Lumper Receipt, Carrier Packet, and Detention. <strong>Goal: 80% or higher.</strong></p>
+      <figure><img src="/img-proxy/wikipedia/commons/5/57/Truck_cab.JPG" alt="Inside a truck cab — driver workspace" loading="lazy" /><figcaption>The truck cab where drivers handle BOL and communicate with dispatch</figcaption></figure>
+
+      <h3>VIN Rules — Quick Reference</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#1e293b;color:white">
+          <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Truck Type</th>
+          <th style="padding:10px;text-align:left">Which VIN to Use</th>
+          <th style="padding:10px;text-align:left;border-radius:0 8px 0 0">Why</th>
+        </tr>
+        <tr style="background:#f8fafc"><td style="padding:10px;border-bottom:1px solid #e2e8f0">Cargo Van / Sprinter</td><td style="padding:10px;border-bottom:1px solid #e2e8f0"><strong>Highway VIN</strong> (registered)</td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Contracted owner-operator model</td></tr>
+        <tr><td style="padding:10px">Box Truck</td><td style="padding:10px"><strong>Real VIN</strong></td><td style="padding:10px">Company-owned vehicle</td></tr>
+      </table>
+      <blockquote><strong>⚠️ Critical:</strong> If a broker says the VIN doesn't match their records, respond: "It's a contracted owner-operator under our MC, 100% exclusive use for our carrier."</blockquote>
+
+      <h3>Rate Con Checklist — Before You Sign</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#dc2626;color:white">
+          <th style="padding:10px;text-align:center;border-radius:8px 8px 0 0" colspan="2">🔍 VERIFY BEFORE SIGNING</th>
+        </tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Company name spelled correctly</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">ZIP codes match the load offer</td></tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Miles match (±10 miles is OK)</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Pickup and delivery times are realistic</td></tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Cargo dimensions and weight match</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Rate is correct</td></tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-radius:0 0 8px 8px">✅</td><td style="padding:8px;border-radius:0 0 8px 8px"><strong>CALLED THE DRIVER to confirm</strong></td></tr>
+      </table>`,
+      bodyRu: `
+        <h2>Документы грузоперевозок: полное руководство</h2>
+        <p>Диспетчер работает с несколькими ключевыми документами ежедневно. Каждый из них имеет конкретное назначение, момент появления в рейсе и последствия при неправильном оформлении. Разберём каждый документ детально.</p>
+
+        <h2>Rate Confirmation (Rate Con)</h2>
+        <p>Rate Confirmation — это юридически обязывающий договор между <strong>брокером</strong> (или грузоотправителем-напрямую) и <strong>перевозчиком</strong>. Именно он определяет, на каких условиях выполняется рейс и сколько будет заплачено.</p>
+
+        <h3>Что должно быть в Rate Con</h3>
+        <p>Каждый Rate Con должен содержать: имена и контактные данные брокера и перевозчика, номер груза (load number / reference number), адреса погрузки и выгрузки с датами и временными окнами, описание груза и вес, согласованную ставку в долларах, тип оборудования (53ft dry van, flatbed и т.д.), специальные требования (температурный режим, team drivers, hazmat), а также условия оплаты (quick pay, standard net terms).</p>
+
+        <blockquote>
+          <strong>Правило диспетчера:</strong> Перед подписанием Rate Con проверьте каждое поле. Ставка, маршрут, дата, адрес — всё должно совпадать с тем, о чём вы договорились устно. Подписанный Rate Con с ошибкой — это ваша ошибка.
+        </blockquote>
+
+        <h3>Типичные ошибки в Rate Con</h3>
+        <p><strong>Неверная ставка</strong> — самая распространённая ошибка. Брокер «случайно» указывает первоначальное предложение вместо согласованной суммы. Всегда сверяйте с конечной договорённостью.</p>
+        <p><strong>Неверный адрес</strong> — неправильный zipcode или название города. Водитель едет не туда. Это теряет время и деньги.</p>
+        <p><strong>Неверная дата</strong> — pickup или delivery указан на день раньше или позже. Влечёт нарушение appointment.</p>
+        <p><strong>Неверный тип оборудования</strong> — в rate con указан 53ft, а у водителя 48ft или flatbed. Водителя развернут на погрузке.</p>
+        <p><strong>Отсутствие accessorial charges</strong> — если согласованы дополнительные надбавки (fuel surcharge, detention, layover), они должны быть явно прописаны в rate con или в приложении к нему.</p>
+
+        <h3>Подписание и хранение</h3>
+        <p>Rate Con подписывается электронно (DocuSign, email confirmation) или по факсу. После подписания — сохраните копию. Это ваше доказательство при любом споре об оплате.</p>
+
+        <h2>Bill of Lading (BOL)</h2>
+        <p>Bill of Lading — это официальный документ, выдаваемый <strong>грузоотправителем</strong> водителю при погрузке. Он выполняет три функции: является договором перевозки, описью груза и распиской о приёме груза водителем.</p>
+
+        <h3>Что содержит BOL</h3>
+        <p>Стандартный BOL включает: наименование и адрес грузоотправителя (shipper), наименование и адрес грузополучателя (consignee), описание товара (commodity), количество единиц (pieces/pallets/skids), вес (weight in lbs), класс груза (freight class), специальные инструкции по обращению, номер PRO/BOL, а также подписи водителя и грузоотправителя при погрузке.</p>
+
+        <h3>Что проверить при получении BOL</h3>
+        <p>Водитель обязан проверить: соответствие адресов тем, что указаны в Rate Con; фактический вес груза; количество единиц; соответствие описания груза ожидаемому. При обнаружении расхождений водитель должен немедленно сообщить диспетчеру, а диспетчер — связаться с брокером до того, как водитель подпишет документ.</p>
+
+        <blockquote>
+          <strong>Важно:</strong> Подпись водителя на BOL означает, что он принял груз в указанном количестве и состоянии. Если вес неверный или товар повреждён при погрузке — это нужно зафиксировать в BOL до подписания (пометка "subject to count" или "damaged at pickup").
+        </blockquote>
+
+        <h3>Straight BOL vs Order BOL</h3>
+        <p><strong>Straight BOL</strong> — груз доставляется конкретному получателю, указанному в документе. Не переуступаем. Используется в большинстве грузоперевозок.</p>
+        <p><strong>Order BOL (Negotiable BOL)</strong> — может быть передан третьей стороне. Менее распространён, встречается при международных перевозках и сложных логистических схемах.</p>
+
+        <h2>Proof of Delivery (POD)</h2>
+        <p>Proof of Delivery — это подтверждение того, что груз был доставлен получателю. Технически POD — это BOL, подписанный грузополучателем при выгрузке. В некоторых случаях это отдельная форма или цифровая подпись.</p>
+
+        <h3>Почему POD критически важен</h3>
+        <p>Большинство брокеров не выпустят платёж без POD. Это не прихоть — брокер должен подтвердить грузоотправителю, что груз был доставлен, прежде чем сам получит оплату. Без POD цепочка оплаты разрывается.</p>
+        <p>Диспетчер несёт ответственность за то, чтобы водитель получил подписанный POD сразу после выгрузки и отправил его диспетчеру. Диспетчер незамедлительно пересылает POD брокеру.</p>
+
+        <h3>Что должно быть в POD</h3>
+        <p>Полноценный POD содержит: подпись уполномоченного представителя грузополучателя, дату и время доставки, печать грузополучателя (если требуется), пометки о повреждениях груза при доставке (если есть).</p>
+
+        <blockquote>
+          <strong>Правило диспетчера:</strong> Как только водитель сообщил о доставке — немедленно запросите POD. Не ждите «на потом». Чем быстрее POD отправлен брокеру, тем быстрее приходит оплата.
+        </blockquote>
+
+        <h3>Повреждения при доставке</h3>
+        <p>Если грузополучатель обнаружил повреждения — это должно быть зафиксировано на POD до подписания. Пометка "damaged" с описанием является доказательством того, что повреждение произошло не по вине перевозчика (если груз был принят в нормальном состоянии согласно BOL при погрузке).</p>
+
+        <h2>Lumper Receipt</h2>
+        <p>Lumper — это нанятый складом работник, который выгружает груз из трейлера. В некоторых складах выгрузку выполняет собственный персонал бесплатно, в других — требуют оплату lumper fee (обычно $75–$200 за рейс).</p>
+
+        <h3>Как работает lumper fee</h3>
+        <p>Водитель приезжает на выгрузку. Склад сообщает о lumper fee. Водитель или перевозчик оплачивает наличными или чеком. Взамен lumper выдаёт подписанную квитанцию (lumper receipt).</p>
+        <p>Диспетчер отправляет lumper receipt брокеру вместе с POD. Брокер возмещает lumper fee перевозчику — если это предусмотрено условиями сделки. Именно поэтому важно получить детальную квитанцию: дата, адрес, сумма, подпись.</p>
+
+        <h2>Carrier Packet (MC Authority)</h2>
+        <p>Перед первой совместной работой брокер запрашивает от перевозчика пакет документов. Обычно он включает: копию MC-номера и DOT-номера, страховой сертификат (Certificate of Insurance), W-9 форму для налоговых целей, NOA (Notice of Assignment) если используется факторинговая компания.</p>
+        <p>Диспетчер отвечает за то, чтобы все документы carrier packet были актуальными и готовы к отправке при первом запросе нового брокера. Устаревшая страховка или отсутствующий W-9 останавливают работу с новым брокером.</p>
+
+        <h2>Detention Documentation</h2>
+        <p>Если водитель ждёт на погрузке или выгрузке более 2 часов сверх appointment времени — перевозчик имеет право на detention pay (обычно $50–$75/час). Для получения detention необходимо: зафиксировать точное время прибытия и начала/окончания ожидания, уведомить брокера о задержке в реальном времени, получить подтверждение от брокера о согласии выплатить detention.</p>
+        <p>Без документального подтверждения брокер может отказать в оплате detention. Диспетчер должен вести точные записи и своевременно информировать брокера.</p>
+
+        <h2>Итоговый тест по всей 4-й главе</h2>
+        <p>Тест охватывает все темы главы: Rate Confirmation, Bill of Lading, Proof of Delivery, Lumper Receipt, Carrier Packet и Detention. <strong>Цель: 80% и выше.</strong></p>
+      <figure><img src="/img-proxy/wikipedia/commons/5/57/Truck_cab.JPG" alt="Кабина грузовика — рабочее пространство водителя" loading="lazy" /><figcaption>Кабина грузовика, где водитель работает с BOL и связывается с диспетчером</figcaption></figure>
+
+    <h3>Правила VIN — краткая справка</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#1e293b;color:white">
+        <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Тип грузовика</th>
+        <th style="padding:10px;text-align:left">Какой VIN использовать</th>
+        <th style="padding:10px;text-align:left;border-radius:0 8px 0 0">Почему</th>
+      </tr>
+      <tr style="background:#f8fafc"><td style="padding:10px;border-bottom:1px solid #e2e8f0">Cargo Van / Sprinter</td><td style="padding:10px;border-bottom:1px solid #e2e8f0"><strong>Highway VIN</strong> (зарегистрированный)</td><td style="padding:10px;border-bottom:1px solid #e2e8f0">Модель субконтракта</td></tr>
+      <tr><td style="padding:10px">Box Truck</td><td style="padding:10px"><strong>Реальный VIN</strong></td><td style="padding:10px">Машина компании</td></tr>
+    </table>
+    <blockquote><strong>⚠️ Критически важно:</strong> Если брокер говорит, что VIN не совпадает: «Это субконтрактный owner-operator под нашим MC, 100% эксклюзивное использование.»</blockquote>
+
+    <h3>Чеклист Rate Con — до подписания</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#dc2626;color:white">
+        <th style="padding:10px;text-align:center;border-radius:8px 8px 0 0" colspan="2">🔍 ПРОВЕРИТЬ ДО ПОДПИСАНИЯ</th>
+      </tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Название компании без ошибок</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">ZIP-коды совпадают с офером</td></tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Мили совпадают (±10 миль ОК)</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Время погрузки и доставки реалистичны</td></tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Габариты и вес совпадают</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #fecaca">✅</td><td style="padding:8px;border-bottom:1px solid #fecaca">Ставка верна</td></tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-radius:0 0 8px 8px">✅</td><td style="padding:8px;border-radius:0 0 8px 8px"><strong>ПОЗВОНИЛИ водителю для подтверждения</strong></td></tr>
+    </table>`,
+      quiz: {
+        questions: [
+          { id: 'doc-th-eq1', text: "What is a Rate Confirmation and when is it signed?", options: ["A delivery confirmation signed after unloading", "A legally binding contract between broker and carrier specifying rate and terms — signed before the driver moves", "A shipper-issued receipt at pickup", "A government permit for interstate transport"], correctIndex: 1 },
+          { id: 'doc-th-eq2', text: "What must a valid Rate Con contain?", options: ["Only the rate and route — everything else is optional", "Party names, addresses, dates, rate, equipment type, and special requirements", "Only load number and pickup date", "Driver's personal info and CDL number"], correctIndex: 1 },
+          { id: 'doc-th-eq3', text: "What is the function of the Bill of Lading (BOL)?", options: ["The payment contract between broker and carrier", "A contract of carriage, freight inventory, and receipt of acceptance — issued by the shipper at pickup", "Delivery confirmation from the consignee", "A receipt for lumper unloading services"], correctIndex: 1 },
+          { id: 'doc-th-eq4', text: "What does the driver's signature on the BOL at pickup mean?", options: ["Driver confirms their CDL qualification", "Driver accepted the freight in the stated quantity and condition — and is responsible for it", "Driver agrees to the route listed on the BOL", "Driver acknowledges the warehouse detention policy"], correctIndex: 1 },
+          { id: 'doc-th-eq5', text: "How is a Proof of Delivery (POD) technically created?", options: ["Dispatcher fills out a POD form in the TMS after driver confirms delivery", "Driver photographs the freight outside the warehouse", "The BOL is signed by an authorized consignee representative at unloading", "Broker auto-generates a POD when shipper payment is received"], correctIndex: 2 },
+          { id: 'doc-th-eq6', text: "Why do brokers require a POD before paying the carrier?", options: ["It's just a formality — most brokers pay without POD", "The broker must confirm delivery to the shipper before getting paid themselves — POD unlocks the payment chain", "POD is only needed for accessorial charge reimbursement", "Brokers use POD to calculate dispatcher bonuses"], correctIndex: 1 },
+          { id: 'doc-th-eq7', text: "What is a lumper and when is a lumper receipt needed?", options: ["A lumper is the carrier's insurance agent; receipt needed for claims", "A lumper is a warehouse-hired unloader; the receipt is needed to recover unloading costs through the broker", "A lumper is a broker's load-finding agent; receipt confirms commission", "A lumper is a relief driver; receipt issued when freight is transferred between drivers"], correctIndex: 1 },
+          { id: 'doc-th-eq8', text: "What does a standard Carrier Packet requested by a broker include?", options: ["Dispatcher's passport and driver's license", "MC number, DOT number, Certificate of Insurance, and W-9 form", "Only the carrier's insurance policy", "Carrier's bank details and payment history"], correctIndex: 1 },
+          { id: 'doc-th-eq9', text: "When is the carrier entitled to detention pay?", options: ["If the driver waited more than 30 minutes at any facility", "If the driver waited more than 2 hours past appointment time at pickup or delivery", "Only if the delay was pre-documented by the broker", "If traffic increased total trip time by more than one hour"], correctIndex: 1 },
+          { id: 'doc-th-eq10', text: "The driver finds freight is damaged at pickup. How should the BOL be handled?", options: ["Don't note it — it will cause problems with the broker", "Note the damage on the BOL before signing with a \"damaged at pickup\" notation and description", "Refuse the load entirely without explanation", "Sign the BOL as-is and report damage only at delivery"], correctIndex: 1 },
+          { id: 'doc-th-eq11', text: "Mini-case: Rate Con arrives with correct route and rate, but \"Equipment\" says Flatbed — your driver has a Dry Van. Departure in 2 hours. What do you do?", options: ["Sign it — broker won't check equipment type at pickup", "Contact the broker immediately to correct the equipment type before signing — dispatching with wrong equipment will get the driver turned away", "Send the driver and explain the mismatch at the pickup facility", "Sign and add a handwritten note \"Dry Van, not Flatbed\""], correctIndex: 1 },
+          { id: 'doc-th-eq12', text: "Mini-case: Driver delivered. Consignee signed POD but noted \"1 pallet damaged — forklift damage at delivery.\" What does this mean for the carrier?", options: ["Carrier bears full responsibility for the damage — no exceptions", "Damage is documented as occurring at delivery — if the BOL at pickup had no damage notations, consignee liability needs investigation. The notation protects the carrier.", "A POD with a damage notation is not valid for payment", "Carrier must deduct the damaged pallet cost from their rate"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: 'doc-th-q1', text: "Что такое Rate Confirmation и когда он подписывается?", options: ["Документ, подтверждающий доставку груза, подписывается после выгрузки", "Юридически обязывающий договор между брокером и перевозчиком, фиксирующий ставку и условия — подписывается до отправки водителя", "Накладная, выдаваемая грузоотправителем при погрузке", "Государственное разрешение на межштатную перевозку"], correctIndex: 1 },
+          { id: 'doc-th-q2', text: "Что обязательно должен содержать корректный Rate Con?", options: ["Только ставку и маршрут — остальное опционально", "Имена сторон, адреса, даты, ставку, тип оборудования и специальные требования", "Только номер груза и дату погрузки", "Личные данные водителя и номер его CDL"], correctIndex: 1 },
+          { id: 'doc-th-q3', text: "Какова функция Bill of Lading (BOL)?", options: ["Договор оплаты между брокером и перевозчиком", "Договор перевозки, опись груза и расписка о его приёме — выдаётся грузоотправителем при погрузке", "Подтверждение доставки от грузополучателя", "Квитанция за услуги разгрузчиков на складе"], correctIndex: 1 },
+          { id: 'doc-th-q4', text: "Что означает подпись водителя на BOL при погрузке?", options: ["Водитель подтверждает свою квалификацию и наличие CDL", "Водитель принял груз в указанном количестве и состоянии — и несёт за него ответственность", "Водитель согласен с маршрутом, указанным в BOL", "Водитель уведомлён о detention policy склада"], correctIndex: 1 },
+          { id: 'doc-th-q5', text: "Как технически создаётся Proof of Delivery (POD)?", options: ["Диспетчер заполняет форму POD в TMS после подтверждения доставки от водителя", "Водитель фотографирует груз у склада на телефон", "BOL подписывается уполномоченным представителем грузополучателя при выгрузке", "Брокер автоматически создаёт POD в своей системе при получении оплаты от грузоотправителя"], correctIndex: 2 },
+          { id: 'doc-th-q6', text: "Почему брокеры требуют POD перед выплатой перевозчику?", options: ["Это только формальность — большинство брокеров платят без POD", "Брокер должен подтвердить доставку грузоотправителю перед тем, как сам получит оплату — POD разблокирует цепочку платежей", "POD нужен только для возмещения accessorial charges", "Брокер использует POD для расчёта бонуса диспетчеру"], correctIndex: 1 },
+          { id: 'doc-th-q7', text: "Что такое lumper и когда нужен lumper receipt?", options: ["Lumper — это страховой агент перевозчика; receipt нужен при подаче страховой претензии", "Lumper — нанятый складом работник по разгрузке; receipt — квитанция за эту услугу, необходимая для возмещения расходов через брокера", "Lumper — брокерский агент по поиску грузов; receipt подтверждает комиссию", "Lumper — водитель на подмену; receipt оформляется при передаче груза между водителями"], correctIndex: 1 },
+          { id: 'doc-th-q8', text: "Что входит в стандартный Carrier Packet, который запрашивает брокер?", options: ["Паспорт и водительское удостоверение диспетчера", "MC-номер, DOT-номер, страховой сертификат и W-9 форма", "Только страховой полис перевозчика", "Банковские реквизиты перевозчика и история платежей"], correctIndex: 1 },
+          { id: 'doc-th-q9', text: "Когда перевозчик имеет право на detention pay?", options: ["Если водитель прождал более 30 минут на любом объекте", "Если водитель ждал свыше 2 часов сверх appointment времени на погрузке или выгрузке", "Только если задержка задокументирована брокером заранее", "Если пробки на маршруте увеличили время рейса более чем на час"], correctIndex: 1 },
+          { id: 'doc-th-q10', text: "Водитель обнаружил, что груз повреждён при погрузке. Как должно быть оформлено в BOL?", options: ["Не отмечать — это создаст проблемы с брокером", "Зафиксировать повреждение на BOL до подписания с пометкой \"damaged at pickup\" и описанием", "Отказаться от груза полностью без объяснений", "Подписать BOL как есть и сообщить о повреждении только при доставке"], correctIndex: 1 },
+          { id: 'doc-th-q11', text: "Мини-кейс: Rate Con прислан с правильным маршрутом и ставкой, но в поле \"Equipment\" указан Flatbed, а у вашего водителя Dry Van. Время отправки через 2 часа. Что делать?", options: ["Подписать — брокер не проверит тип оборудования при погрузке", "Немедленно связаться с брокером для исправления типа оборудования до подписания — отправка с неверным equipment-type приведёт к отказу на погрузке", "Отправить водителя и объяснить несоответствие на месте погрузки", "Подписать и добавить примечание \"Dry Van, not Flatbed\" от руки"], correctIndex: 1 },
+          { id: 'doc-th-q12', text: "Мини-кейс: Водитель доставил груз. Грузополучатель подписал POD, но поставил отметку \"1 pallet damaged — forklift damage at delivery\". Что это означает для перевозчика?", options: ["Перевозчик несёт полную ответственность за повреждение — без исключений", "Повреждение зафиксировано как произошедшее при доставке — если BOL при погрузке не содержал замечаний, ответственность грузополучателя нуждается в расследовании. Отметка защищает перевозчика.", "POD с пометкой о повреждении не является действительным для оплаты", "Перевозчик должен оплатить стоимость повреждённого поддона из своей ставки"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '4-3': {
+      type: 'text',
+      body: `
+        <h2>Demo: Full Document Cycle on a Real Load</h2>
+        <p>Let's see how documents work on a real load — from the broker call to payment receipt. Dispatcher Alex is working with driver Tom on the Dallas, TX → Atlanta, GA run.</p>
+
+        <h3>Stage 1: Booking the Load — Rate Con</h3>
+        <p><strong>Monday, 9:15 AM.</strong> Alex finds a load on DAT: Dallas → Atlanta, 820 miles, 53ft dry van, $2,400. Calls the broker, negotiates to $2,650. Broker agrees.</p>
+        <p>Twenty minutes later the Rate Con arrives. Alex opens the document and checks every field:</p>
+        <blockquote>
+          ✅ Rate: $2,650 — correct<br/>
+          ✅ Route: Dallas, TX → Atlanta, GA — correct<br/>
+          ✅ Pickup: Tuesday 08:00, 1400 Industrial Blvd, Dallas TX 75207<br/>
+          ✅ Delivery: Wednesday by 14:00, 800 Logistics Way, Atlanta GA 30303<br/>
+          ✅ Equipment: 53ft Dry Van — Tom has exactly that<br/>
+          ✅ Commodity: General freight, 22 pallets, 28,000 lbs
+        </blockquote>
+        <p>Everything checks out. Alex signs the Rate Con and sends Tom the load details.</p>
+
+        <h3>Stage 2: Pickup — Bill of Lading</h3>
+        <p><strong>Tuesday, 7:50 AM.</strong> Tom arrives at the Dallas warehouse 10 minutes early. The dock worker greets him and begins loading. By 8:45 AM, loading is complete — 22 pallets of packaged consumer goods.</p>
+        <p>The warehouse documentation office hands Tom the BOL. Tom carefully reviews it before signing:</p>
+        <blockquote>
+          ✅ Shipper: ABC Distribution, Dallas TX 75207<br/>
+          ✅ Consignee: XYZ Retail Warehouse, Atlanta GA 30303<br/>
+          ✅ Commodity: Consumer goods, 22 pallets<br/>
+          ⚠️ Weight: 29,400 lbs — Rate Con showed 28,000 lbs
+        </blockquote>
+        <p>Tom spots the weight discrepancy and calls Alex. Alex immediately calls the broker back: "The BOL shows 29,400 lbs — we had 28,000 on the Rate Con. Need an updated rate con." The broker verifies with the shipper, confirms actual weight is 29,400, and updates the Rate Con. Fifteen minutes later Tom gets confirmation from Alex, signs the BOL, and moves.</p>
+
+        <h3>Stage 3: In Transit — Check Calls</h3>
+        <p><strong>Tuesday, 2:00 PM.</strong> Alex makes a scheduled check call. Tom: "All good, passed Shreveport, on schedule. ETA Atlanta tomorrow around 10:00 AM."</p>
+        <p><strong>Tuesday, 10:00 PM.</strong> Tom is resting in Biloxi, MS. Alex updates the broker: "Driver on reset, ETA Atlanta tomorrow 10:00 AM."</p>
+
+        <h3>Stage 4: Delivery — POD</h3>
+        <p><strong>Wednesday, 9:55 AM.</strong> Tom arrives at the Atlanta warehouse. By 10:30 AM unloading is complete. The XYZ Retail warehouse manager inspects the freight — all good, 22 pallets, no damage.</p>
+        <p>The manager signs the BOL. That signed BOL is now the <strong>Proof of Delivery</strong>. Tom photographs it and sends it to Alex.</p>
+        <p>Alex receives the POD at 10:47 AM and immediately forwards it to the broker: "Load delivered. POD attached. Please confirm receipt and process payment."</p>
+
+        <h3>Stage 5: Getting Paid</h3>
+        <p><strong>Wednesday, 2:30 PM.</strong> The broker confirms receipt of the POD and invoices the shipper. The carrier will receive payment within 30–45 days (or faster via quick pay).</p>
+        <p>Alex closes the load in the system and adds this broker's contact to the reliable partners list. The full document cycle — from Rate Con to POD — completed without errors.</p>
+
+        <h3>What Would Have Happened Without the Weight Check?</h3>
+        <p>If Tom had signed the BOL at 29,400 lbs without notifying anyone, a DOT weigh station could have flagged an overweight situation. Additionally, in any dispute over freight damage or shortage — an incorrect weight on the BOL would put the carrier in a vulnerable position. The right action: always verify and clarify before signing.</p>
+
+        <h3>Key Lessons From This Load</h3>
+        <p>The Rate Con is fully reviewed before signing — especially rate and equipment type. The BOL is verified at the warehouse before signing — especially weight and addresses. The POD is requested immediately after delivery. Every document is saved and forwarded without delay. Document management is the dispatcher's professionalism in action.</p>
+
+        <h3>Simulation: Document Quiz</h3>
+        <p>Below is an interactive simulation with questions based on real freight documentation scenarios. Answer carefully — these questions are based on situations that occur in real dispatcher work.</p>
+      `,
+      bodyRu: `
+        <h2>Демо: Полный цикл документооборота на реальном рейсе</h2>
+        <p>Посмотрим, как документы используются в реальном рейсе — от звонка брокера до получения оплаты. Диспетчер Алекс работает с водителем Томом на маршруте Даллас, TX → Атланта, GA.</p>
+
+        <h3>Этап 1: Бронирование груза — Rate Con</h3>
+        <p><strong>Понедельник, 9:15 утра.</strong> Алекс находит груз на DAT: Даллас → Атланта, 820 миль, сухой фургон 53ft, $2 400. Звонит брокеру, ведёт переговоры до $2 650. Брокер соглашается.</p>
+        <p>Через 20 минут приходит Rate Con. Алекс открывает документ и проверяет каждое поле:</p>
+        <blockquote>
+          ✅ Ставка: $2 650 — верно<br/>
+          ✅ Маршрут: Dallas, TX → Atlanta, GA — верно<br/>
+          ✅ Погрузка: вторник 08:00, 1400 Industrial Blvd, Dallas TX 75207<br/>
+          ✅ Доставка: среда до 14:00, 800 Logistics Way, Atlanta GA 30303<br/>
+          ✅ Оборудование: 53ft Dry Van — у Тома именно такой<br/>
+          ✅ Commodity: General freight, 22 pallets, 28 000 lbs
+        </blockquote>
+        <p>Все данные верны. Алекс подписывает Rate Con и отправляет Тому детали рейса.</p>
+
+        <h3>Этап 2: Погрузка — Bill of Lading</h3>
+        <p><strong>Вторник, 07:50 утра.</strong> Том прибывает на склад в Далласе на 10 минут раньше. Докер встречает его и начинает погрузку. В 08:45 погрузка завершена — 22 поддона упакованных потребительских товаров.</p>
+        <p>Документальная служба склада выдаёт Тому BOL. Том внимательно проверяет его перед подписанием:</p>
+        <blockquote>
+          ✅ Shipper: ABC Distribution, Dallas TX 75207<br/>
+          ✅ Consignee: XYZ Retail Warehouse, Atlanta GA 30303<br/>
+          ✅ Commodity: Consumer goods, 22 pallets<br/>
+          ⚠️ Weight: 29 400 lbs — в rate con было 28 000 lbs
+        </blockquote>
+        <p>Том замечает расхождение по весу и звонит Алексу. Алекс немедленно перезванивает брокеру: «Вес в BOL — 29 400 фунтов, у нас в rate con было 28 000. Нужно обновить rate con». Брокер уточняет у грузоотправителя — подтверждает фактический вес 29 400, обновляет rate con. Через 15 минут Том получает подтверждение от Алекса, подписывает BOL и трогается.</p>
+
+        <h3>Этап 3: В пути — check calls</h3>
+        <p><strong>Вторник, 14:00.» </strong> Алекс делает плановый check call. Том: «Всё хорошо, проехал Shreveport, иду по графику. ETA на Atlanta — завтра в 10:00 утра.»</p>
+        <p><strong>Вторник, 22:00.</strong> Том отдыхает в Биксби, MS. Алекс уведомляет брокера: «Водитель на отдыхе, ETA Atlanta — завтра 10:00.»</p>
+
+        <h3>Этап 4: Доставка — POD</h3>
+        <p><strong>Среда, 09:55 утра.</strong> Том прибывает на склад в Атланте. В 10:30 разгрузка завершена. Менеджер склада XYZ Retail осматривает груз — всё в порядке, 22 поддона без повреждений.</p>
+        <p>Менеджер подписывает BOL. Теперь этот подписанный BOL — <strong>Proof of Delivery</strong>. Том фотографирует его и отправляет Алексу.</p>
+        <p>Алекс получает POD в 10:47 и немедленно пересылает его брокеру с письмом: «Load delivered. POD attached. Please confirm receipt and process payment.»</p>
+
+        <h3>Этап 5: Получение оплаты</h3>
+        <p><strong>Среда, 14:30.</strong> Брокер подтверждает получение POD и выставляет счёт грузоотправителю. Перевозчик получит оплату в течение 30–45 дней (или быстрее через quick pay).</p>
+        <p>Алекс закрывает рейс в системе и добавляет контакт этого брокера в список надёжных партнёров. Полный документооборот — от Rate Con до POD — выполнен без ошибок.</p>
+
+        <h3>Что было бы, если бы Том не проверил вес?</h3>
+        <p>Если бы Том подписал BOL с весом 29 400 фунтов без уведомления, при проверке на весовой станции DOT мог бы возникнуть вопрос о перегрузке. Кроме того, в случае спора о повреждении груза или недостаче веса — неверный вес в BOL ставил бы перевозчика в уязвимое положение. Правильное действие — всегда проверять и уточнять до подписания.</p>
+
+        <h3>Ключевые уроки этого рейса</h3>
+        <p>Rate Con проверяется полностью до подписания — особенно ставка и тип оборудования. BOL проверяется на складе до подписания — особенно вес и адреса. POD запрашивается немедленно после доставки. Каждый документ хранится и пересылается без задержек. Документооборот — это профессионализм диспетчера в действии.</p>
+
+        <h3>Симуляция: опросы по документации</h3>
+        <p>Ниже — интерактивная симуляция с вопросами по реальным ситуациям из документооборота грузоперевозок. Отвечай внимательно — вопросы основаны на сценариях, которые происходят в реальной работе диспетчера.</p>
+      `,
+    },
+
+    '4-4': {
+      type: 'text',
+      body: `
+        <h2>Practice — Chapter 4: Documentation in US Trucking</h2>
+        <p>This practice test covers all Chapter 4 material: Rate Confirmation, Bill of Lading, Proof of Delivery, Lumper Receipt, Carrier Packet, and Detention. The test contains <strong>20 questions</strong> — 14 standard and 6 mini-cases.</p>
+        <blockquote><strong>Goal:</strong> Score 80% or higher (16 out of 20 correct) to pass.</blockquote>
+        <h3>Topics covered:</h3>
+        <ul>
+          <li>Rate Confirmation: content, verification, signing</li>
+          <li>Bill of Lading: functions, pickup verification, BOL types</li>
+          <li>Proof of Delivery: creation, importance, actions when missing</li>
+          <li>Lumper Receipt: process, reimbursement</li>
+          <li>Carrier Packet: contents, document currency</li>
+          <li>Detention: conditions, documentation</li>
+        </ul>
+      `,
+      bodyRu: `
+        <h2>Практика — Глава 4: Документация в грузоперевозках США</h2>
+        <p>Практический тест охватывает все материалы Главы 4: Rate Confirmation, Bill of Lading, Proof of Delivery, Lumper Receipt, Carrier Packet и Detention. Тест содержит <strong>20 вопросов</strong> — 14 стандартных и 6 мини-кейсов.</p>
+        <blockquote><strong>Цель:</strong> Набрать 80% и выше (16 из 20 правильных ответов) для прохождения.</blockquote>
+        <h3>Темы:</h3>
+        <ul>
+          <li>Rate Confirmation: содержание, проверка, подписание</li>
+          <li>Bill of Lading: функции, проверка при погрузке, типы BOL</li>
+          <li>Proof of Delivery: создание, важность, действия при отсутствии</li>
+          <li>Lumper Receipt: процесс, возмещение</li>
+          <li>Carrier Packet: состав, актуальность документов</li>
+          <li>Detention: условия, документирование</li>
+        </ul>
+      `,
+      quiz: {
+        questions: [
+          { id: 'doc-pr-eq1', text: "Who issues the Bill of Lading to the driver at pickup?", options: ["The broker — after rate negotiation", "The shipper — at the warehouse when freight is loaded", "The dispatcher — when booking the load", "The consignee — at delivery"], correctIndex: 1 },
+          { id: 'doc-pr-eq2', text: "What happens to the BOL when the consignee signs it?", options: ["It is voided and replaced by a new document", "It becomes the Proof of Delivery (POD) — confirming delivery", "It is returned to the shipper for filing", "It is used by the broker to calculate their margin"], correctIndex: 1 },
+          { id: 'doc-pr-eq3', text: "Which document is the legal foundation of the financial agreement between broker and carrier?", options: ["Bill of Lading", "Rate Confirmation", "Proof of Delivery", "Lumper Receipt"], correctIndex: 1 },
+          { id: 'doc-pr-eq4', text: "How many hours past appointment time generally triggers the carrier's right to detention pay?", options: ["30 minutes", "1 hour", "2 hours", "4 hours"], correctIndex: 2 },
+          { id: 'doc-pr-eq5', text: "Which of the following is NOT part of a standard Carrier Packet?", options: ["MC number and DOT number", "Certificate of Insurance", "Driver's route weather history", "W-9 form"], correctIndex: 2 },
+          { id: 'doc-pr-eq6', text: "Which type of BOL can be transferred to a third party?", options: ["Straight BOL", "Order BOL (Negotiable BOL)", "Digital BOL", "Express BOL"], correctIndex: 1 },
+          { id: 'doc-pr-eq7', text: "What must a valid POD contain?", options: ["Only the driver's signature", "Authorized consignee representative signature, delivery date and time", "Broker and carrier signatures", "Only the warehouse stamp"], correctIndex: 1 },
+          { id: 'doc-pr-eq8', text: "What is a \"subject to count\" notation on a BOL?", options: ["A note about overweight requiring weigh station verification", "A notation meaning the driver could not count units and accepted freight on trust", "An indication that freight is insured for a specific amount", "A broker requirement for additional freight inspection"], correctIndex: 1 },
+          { id: 'doc-pr-eq9', text: "When must the dispatcher notify the broker about a driver delay?", options: ["Only if the delay exceeds 4 hours", "As soon as possible — the moment the delay is known, regardless of cause", "After delivery — in the final report", "Only if the delay causes a delivery window violation"], correctIndex: 1 },
+          { id: 'doc-pr-eq10', text: "What is \"quick pay\" in the context of freight documentation?", options: ["A special type of rate con with a fixed fast rate", "An option to receive payment faster than standard terms, typically for a small fee", "A broker service for instant rate con signing", "An electronic document submission system"], correctIndex: 1 },
+          { id: 'doc-pr-eq11', text: "Mini-case: Rate Con arrives with correct route and rate but no fuel surcharge — you negotiated $0.15/mile. What do you do before signing?", options: ["Sign it — fuel surcharge is calculated automatically by law", "Return the Rate Con to the broker requesting an explicit fuel surcharge line before signing", "Add the fuel surcharge manually to the Rate Con before signing", "Accept as-is — add fuel surcharge to the invoice later"], correctIndex: 1 },
+          { id: 'doc-pr-eq12', text: "Mini-case: Driver at unloading is told the warehouse charges a $250 lumper fee. The Rate Con has no lumper clause. What do you do?", options: ["Refuse — if lumper isn't in the Rate Con, it's not your cost", "Allow the driver to pay, get a detailed signed receipt, notify the broker, and request reimbursement as an accessorial charge", "Tell the driver to unload himself — that's his job", "Cancel the delivery — extra costs make the load unprofitable"], correctIndex: 1 },
+          { id: 'doc-pr-eq13', text: "Mini-case: Driver has been waiting at pickup 3.5 hours past appointment. You want to claim detention. What is required for successful payment?", options: ["A verbal claim by phone after delivery is sufficient", "Document arrival time and delay start, notify broker in real time, and obtain written broker confirmation of detention payment", "Wait until tomorrow — detention claims are only processed after the load completes", "Only the driver's signature on wait time is needed"], correctIndex: 1 },
+          { id: 'doc-pr-eq14', text: "Mini-case: POD from a load delivered 3 days ago is still missing. Broker is holding payment. What do you do?", options: ["Wait — driver will send it when available", "Immediately contact the consignee directly for a digital POD by email, simultaneously notifying the broker of the status", "Create your own delivery confirmation based on the Rate Con", "Demand the broker pay without POD — the load was clearly delivered"], correctIndex: 1 },
+          { id: 'doc-pr-eq15', text: "Mini-case: Broker requests carrier packet for first-time work. You find the Certificate of Insurance expired 2 weeks ago. What do you do?", options: ["Send the expired certificate — brokers typically don't check dates", "Immediately contact the insurance agent for an updated certificate before sending the carrier packet", "Ask the broker to wait a month for the next insurance renewal", "Send the packet without insurance and add it \"later\""], correctIndex: 1 },
+          { id: 'doc-pr-eq16', text: "Mini-case: Rate Con shows $1,950, but you negotiated $2,100. Driver is ready to go in one hour. What do you do?", options: ["Dispatch the driver — $1,950 is \"close enough\"", "Call the broker, point out the discrepancy, and require a corrected Rate Con. Driver waits.", "Sign the current Rate Con and add the difference to the next invoice", "Ask the driver to resolve the issue himself"], correctIndex: 1 },
+          { id: 'doc-pr-eq17', text: "The consignee signed the POD but refused to stamp it, citing \"internal policy.\" The POD has a signature and date. Is it valid?", options: ["No — without a warehouse stamp, the POD has no legal standing", "Yes — authorized representative signature and date are sufficient for most brokers; a stamp is not a mandatory industry requirement", "No — a notarized confirmation is required instead of a stamp", "Only if the broker agreed in advance to accept a POD without a stamp"], correctIndex: 1 },
+          { id: 'doc-pr-eq18', text: "What is the correct post-delivery document workflow?", options: ["Only call the broker to verbally confirm delivery", "Receive POD from driver, send to broker, save a copy in the accounting system", "Wait for the broker to request documents", "Send POD to shipper and give broker only verbal confirmation"], correctIndex: 1 },
+          { id: 'doc-pr-eq19', text: "What does NOA (Notice of Assignment) in the Carrier Packet tell the broker?", options: ["To notify DOT about a new route", "That carrier payments are directed to a factoring company", "To confirm the driver has a valid CDL", "To register new equipment in the FMCSA database"], correctIndex: 1 },
+          { id: 'doc-pr-eq20', text: "Driver finds freight is damaged at pickup. What is the correct way to handle the BOL?", options: ["Don't note it — it complicates things with the broker", "Note the damage on the BOL before signing with a \"damaged at pickup\" notation and description", "Refuse the load entirely without documentation", "Sign the BOL normally and only report damage after delivery"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: 'doc-pr-q1', text: "Кто выдаёт Bill of Lading водителю при погрузке?", options: ["Брокер — после согласования ставки", "Грузоотправитель (shipper) — на складе при загрузке груза", "Диспетчер — при бронировании рейса", "Грузополучатель (consignee) — при доставке"], correctIndex: 1 },
+          { id: 'doc-pr-q2', text: "Что происходит с BOL после того, как грузополучатель его подписывает?", options: ["Он аннулируется и заменяется новым документом", "Он становится Proof of Delivery (POD) — подтверждением факта доставки", "Он возвращается грузоотправителю для архивирования", "Он используется брокером для расчёта маржи"], correctIndex: 1 },
+          { id: 'doc-pr-q3', text: "Какой документ является юридической основой финансового договора между брокером и перевозчиком?", options: ["Bill of Lading", "Rate Confirmation", "Proof of Delivery", "Lumper Receipt"], correctIndex: 1 },
+          { id: 'doc-pr-q4', text: "Как правило, через сколько часов ожидания сверх appointment у перевозчика возникает право на detention pay?", options: ["30 минут", "1 час", "2 часа", "4 часа"], correctIndex: 2 },
+          { id: 'doc-pr-q5', text: "Что из перечисленного НЕ входит в стандартный Carrier Packet?", options: ["MC-номер и DOT-номер", "Страховой сертификат (Certificate of Insurance)", "История погодных условий по маршрутам водителя", "W-9 форма"], correctIndex: 2 },
+          { id: 'doc-pr-q6', text: "Какой тип BOL может быть передан третьей стороне?", options: ["Straight BOL", "Order BOL (Negotiable BOL)", "Digital BOL", "Express BOL"], correctIndex: 1 },
+          { id: 'doc-pr-q7', text: "Что должен содержать полноценный POD?", options: ["Только подпись водителя", "Подпись уполномоченного представителя грузополучателя, дату и время доставки", "Подпись брокера и перевозчика", "Только штамп склада"], correctIndex: 1 },
+          { id: 'doc-pr-q8', text: "Для чего нужна NOA (Notice of Assignment) в Carrier Packet?", options: ["Для уведомления DOT о новом маршруте", "Чтобы уведомить брокера, что платежи перевозчика переводятся на факторинговую компанию", "Для подтверждения наличия CDL у водителя", "Для регистрации нового оборудования в базе FMCSA"], correctIndex: 1 },
+          { id: 'doc-pr-q9', text: "Водитель получил подписанный POD, но в нём есть пометка о повреждении 2 поддонов при доставке. Что должен сделать диспетчер?", options: ["Не отправлять этот POD брокеру — дождаться нового без пометок", "Отправить POD брокеру как есть и уточнить у водителя состояние груза при погрузке по BOL — пометка может зафиксировать ответственность грузополучателя", "Потребовать от брокера снизить ставку на стоимость повреждённого товара", "Просить водителя вернуться на склад и получить новый POD без пометок"], correctIndex: 1 },
+          { id: 'doc-pr-q10', text: "Что значит \"quick pay\" в контексте документооборота?", options: ["Специальный тип rate con с фиксированной быстрой ставкой", "Опция получения оплаты быстрее стандартного срока (обычно за небольшую комиссию)", "Услуга брокера по мгновенному подписанию rate con", "Электронная система отправки документов в реальном времени"], correctIndex: 1 },
+          { id: 'doc-pr-q11', text: "Мини-кейс: Брокер отправил rate con, но accessorial charge за fuel surcharge отсутствует, хотя вы договорились о $0,15/миля. Что делать до подписания?", options: ["Подписать — fuel surcharge начисляется автоматически по закону", "Вернуть rate con брокеру с требованием добавить явный пункт о fuel surcharge перед подписанием", "Добавить fuel surcharge от руки в rate con перед подписанием", "Принять как есть — fuel surcharge можно добавить в инвойс позже"], correctIndex: 1 },
+          { id: 'doc-pr-q12', text: "Мини-кейс: Водитель на выгрузке обнаружил, что склад требует $250 lumper fee. В rate con нет пункта о lumper. Ваши действия?", options: ["Отказать — если lumper не в rate con, это не ваши расходы", "Разрешить водителю оплатить, получить детальную подписанную квитанцию, уведомить брокера и запросить возмещение как accessorial charge", "Попросить водителя самому разгружать — это его работа", "Отменить доставку — дополнительные расходы делают груз невыгодным"], correctIndex: 1 },
+          { id: 'doc-pr-q13', text: "Мини-кейс: Водитель ждёт на погрузке уже 3,5 часа после назначенного времени. Вы хотите заявить detention. Что необходимо для успешного получения оплаты?", options: ["Достаточно устного требования по телефону после доставки", "Зафиксировать время прибытия и начала задержки, уведомить брокера в реальном времени и получить его письменное подтверждение о согласии выплатить detention", "Подождать до завтра — detention claims рассматриваются только после завершения рейса", "Получить только подпись водителя о времени ожидания"], correctIndex: 1 },
+          { id: 'doc-pr-q14', text: "Мини-кейс: Вы отправили водителя, но POD от предыдущего рейса ещё не получен, хотя груз доставлен 3 дня назад. Брокер на удержании. Что делать?", options: ["Ждать — водитель сам пришлёт POD когда освободится", "Немедленно связаться с грузополучателем напрямую для запроса цифрового POD по email, одновременно уведомив брокера о статусе", "Создать подтверждение доставки самостоятельно на основе rate con", "Потребовать от брокера оплатить без POD — груз явно доставлен"], correctIndex: 1 },
+          { id: 'doc-pr-q15', text: "Мини-кейс: Брокер требует carrier packet для первой работы. Вы обнаруживаете, что страховой сертификат истёк 2 недели назад. Что делать?", options: ["Отправить просроченный сертификат — брокер обычно не проверяет даты", "Немедленно связаться со страховой агентурой для получения обновлённого сертификата перед отправкой carrier packet брокеру", "Попросить брокера подождать месяц до следующего обновления страховки", "Отправить пакет без страховки и добавить её «позже»"], correctIndex: 1 },
+          { id: 'doc-pr-q16', text: "Что такое \"subject to count\" на BOL?", options: ["Отметка о перегрузе, требующая взвешивания на весовой станции", "Пометка, означающая что водитель не имел возможности пересчитать единицы груза — они приняты на веру", "Указание на то, что груз застрахован на определённую сумму", "Требование брокера о дополнительном осмотре груза"], correctIndex: 1 },
+          { id: 'doc-pr-q17', text: "Когда диспетчер обязан уведомить брокера о задержке водителя?", options: ["Только если задержка превышает 4 часа", "Как можно скорее — в момент, когда становится известно о задержке, независимо от её причины", "После доставки — в финальном отчёте", "Только если задержка влечёт нарушение delivery window"], correctIndex: 1 },
+          { id: 'doc-pr-q18', text: "Что из перечисленного является частью правильного документооборота после доставки?", options: ["Только звонок брокеру с подтверждением доставки", "Получить POD от водителя, отправить брокеру, сохранить копию в системе учёта", "Ждать пока брокер сам запросит документы", "Направить POD грузоотправителю, а брокеру — только устное подтверждение"], correctIndex: 1 },
+          { id: 'doc-pr-q19', text: "Мини-кейс: В Rate Con указана ставка $1 950, но вы договорились на $2 100. Водитель готов ехать через час. Что делаете?", options: ["Отправляете водителя — $1 950 «достаточно»", "Звоните брокеру, указываете на расхождение и требуете исправленный rate con. Водитель ждёт.", "Подписываете текущий rate con и добавляете разницу в следующий инвойс", "Просите водителя решить вопрос самостоятельно"], correctIndex: 1 },
+          { id: 'doc-pr-q20', text: "Мини-кейс: Грузополучатель подписал POD, но отказался ставить печать склада, сославшись на «внутреннюю политику». POD содержит подпись и дату. Действителен ли он?", options: ["Нет — без печати склада POD не имеет юридической силы", "Да — подпись уполномоченного представителя и дата достаточны для большинства брокеров; печать не является обязательным реквизитом по стандартам отрасли", "Нет — необходимо получить нотариально заверенное подтверждение вместо печати", "Только если брокер заранее согласился принять POD без печати"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '5-1': {
+      type: 'text',
+      body: `<h2>CARGO ETL — Your Main Dispatch Tool</h2>
+<p>CARGO ETL is our proprietary dispatch application built specifically for finding and booking freight loads. It was created after dispatchers spent enormous amounts of time on repetitive manual tasks that left little room for actual load searching.</p>
+<h3>What It Does</h3>
+<ul>
+<li>Automatically pulls incoming load requests from broker emails</li>
+<li>Displays all available loads in real time on the Dispatch Board</li>
+<li>Shows which of your trucks can realistically take each load (within 300 miles)</li>
+<li>Lets you call brokers and owners directly inside the app</li>
+<li>Manages your entire fleet — locations, availability, and status</li>
+</ul>
+<h3>Why It Matters</h3>
+<p>Without CARGO ETL, a dispatcher would have to manually check dozens of emails, cross-reference truck locations, and switch between multiple apps just to book one load. The application consolidates all of this into one screen, letting you focus on decisions rather than data collection.</p>
+<blockquote>The app works in sync with your Gmail account. Broker communication happens in email — CARGO ETL reads those emails and surfaces the relevant load data automatically.</blockquote><figure><img src="/img-proxy/wikipedia/commons/2/23/Desktop_with_laptop_and_calculator_%28Unsplash%29.jpg" alt="Dispatcher workstation with laptop" loading="lazy" /><figcaption>The dispatcher's command center — load board, email, and fleet management on screen</figcaption></figure>
+
+      <h3>CargoETL Screen Layout</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#1e293b;color:white">
+          <th style="padding:10px;text-align:center;border-radius:8px 0 0 0" width="50%">⬅️ LEFT PANEL</th>
+          <th style="padding:10px;text-align:center;border-radius:0 8px 0 0" width="50%">RIGHT PANEL ➡️</th>
+        </tr>
+        <tr>
+          <td style="padding:12px;border:1px solid #e2e8f0;vertical-align:top;background:#f8fafc">
+            <strong>Load Details:</strong><br/>
+            • Loaded miles & deadhead<br/>
+            • Weight & pallet count<br/>
+            • Pickup/delivery dates<br/>
+            • Broker name & contact<br/>
+            • Equipment requirements
+          </td>
+          <td style="padding:12px;border:1px solid #e2e8f0;vertical-align:top;background:#f0fdf4">
+            <strong>Available Trucks:</strong><br/>
+            • All trucks within <strong>300 miles</strong><br/>
+            • Truck type & capacity<br/>
+            • Current location<br/>
+            • Driver/owner contact<br/>
+            • Call button for quick contact
+          </td>
+        </tr>
+      </table>
+      <blockquote><strong>💡 Recommended setup:</strong> Two monitors — one for CargoETL load board, one for email. Email notifications from brokers pop up for 10 seconds, so you need to react fast!</blockquote>`,
+      bodyRu: `<h2>CARGO ETL — Ваш главный инструмент диспетчера</h2>
+<p>CARGO ETL — это наше собственное приложение для диспетчеров, созданное специально для поиска и бронирования грузов. Программа появилась после того, как диспетчеры тратили огромное время на рутинные задачи вместо реального поиска грузов.</p>
+<h3>Что делает приложение</h3>
+<ul>
+<li>Автоматически получает входящие заявки из писем брокеров</li>
+<li>Отображает все доступные грузы в режиме реального времени на доске заявок</li>
+<li>Показывает, какие из ваших машин реально могут взять каждый груз (в радиусе 300 миль)</li>
+<li>Позволяет звонить брокерам и оунерам прямо внутри программы</li>
+<li>Управляет всем парком — местоположение, доступность, статус</li>
+</ul>
+<h3>Почему это важно</h3>
+<p>Без CARGO ETL диспетчер вручную просматривал бы десятки писем, сопоставлял местоположение машин и переключался между несколькими приложениями только чтобы забронировать один груз. Программа объединяет всё это на одном экране.</p>
+<blockquote>Приложение работает в связке с вашим Gmail. Общение с брокерами происходит в почте — CARGO ETL читает эти письма и автоматически отображает данные по грузам.</blockquote><figure><img src="/img-proxy/wikipedia/commons/2/23/Desktop_with_laptop_and_calculator_%28Unsplash%29.jpg" alt="Рабочее место диспетчера" loading="lazy" /><figcaption>Командный центр диспетчера — биржа грузов, email и управление парком на экране</figcaption></figure>
+
+    <h3>Раскладка экрана CargoETL</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#1e293b;color:white">
+        <th style="padding:10px;text-align:center;border-radius:8px 0 0 0" width="50%">⬅️ ЛЕВАЯ ПАНЕЛЬ</th>
+        <th style="padding:10px;text-align:center;border-radius:0 8px 0 0" width="50%">ПРАВАЯ ПАНЕЛЬ ➡️</th>
+      </tr>
+      <tr>
+        <td style="padding:12px;border:1px solid #e2e8f0;vertical-align:top;background:#f8fafc">
+          <strong>Детали груза:</strong><br/>
+          • Гружёные мили и deadhead<br/>
+          • Вес и количество паллет<br/>
+          • Даты погрузки/доставки<br/>
+          • Имя и контакт брокера<br/>
+          • Требования к оборудованию
+        </td>
+        <td style="padding:12px;border:1px solid #e2e8f0;vertical-align:top;background:#f0fdf4">
+          <strong>Доступные машины:</strong><br/>
+          • Все грузовики в радиусе <strong>300 миль</strong><br/>
+          • Тип и вместимость<br/>
+          • Текущее расположение<br/>
+          • Контакт водителя/владельца<br/>
+          • Кнопка быстрого звонка
+        </td>
+      </tr>
+    </table>
+    <blockquote><strong>💡 Рекомендация:</strong> Два монитора — один для биржи грузов CargoETL, другой для email. Уведомления от брокеров появляются на 10 секунд — нужна быстрая реакция!</blockquote>`,
+      quiz: {
+        questions: [
+          { id: '6-1-q1', text: "What is the primary purpose of CARGO ETL?", options: ["Send invoices to brokers automatically", "Find and display available freight loads in real time from broker emails", "Manage driver payroll and expenses", "Track delivery locations via GPS"], correctIndex: 1 },
+          { id: '6-1-q2', text: "Where does CARGO ETL pull incoming load requests from?", options: ["A central freight exchange database", "Broker emails connected to your Gmail account", "Direct API calls from DAT or Truckstop", "Manual entries by the dispatcher"], correctIndex: 1 },
+          { id: '6-1-q3', text: "What was the main problem CARGO ETL was built to solve?", options: ["Drivers forgetting to submit PODs", "Dispatchers spending too much time on repetitive manual tasks instead of finding loads", "Brokers not responding fast enough", "Incorrect rate confirmations from brokers"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '6-1-q1-ru', text: "Какова основная цель CARGO ETL?", options: ["Автоматически отправлять инвойсы брокерам", "Находить и отображать доступные грузы в реальном времени из писем брокеров", "Управлять зарплатами водителей", "Отслеживать местоположение доставки по GPS"], correctIndex: 1 },
+          { id: '6-1-q2-ru', text: "Откуда CARGO ETL получает входящие заявки?", options: ["Из центральной биржи грузов", "Из писем брокеров, подключённых к вашему Gmail", "Через прямые API-запросы к DAT или Truckstop", "Из ручных записей диспетчера"], correctIndex: 1 },
+          { id: '6-1-q3-ru', text: "Какую главную проблему решает CARGO ETL?", options: ["Водители забывают отправить POD", "Диспетчеры тратили слишком много времени на рутину вместо поиска грузов", "Брокеры отвечают недостаточно быстро", "Неправильные Rate Con от брокеров"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '5-2': {
+      type: 'text',
+      body: `<h2>Core Features of CARGO ETL</h2>
+<h3>Dispatch Board</h3>
+<p>The Dispatch Board is the main screen. It shows all incoming load requests pulled from broker emails in real time. Every manager can see the same board, open any load, and decide whether to play (book) it.</p>
+<figure><img src="/cargo/fig1.png" alt="Dispatch Board" /><figcaption>Fig. 1 — Dispatch Board: incoming loads in real time</figcaption></figure>
+<h3>Load View</h3>
+<p>When you open a load, you see two sides:</p>
+<ul>
+<li><strong>Left side:</strong> All load details — loaded miles, weight, pallets, broker name, contact info</li>
+<li><strong>Right side:</strong> All trucks within 300 miles that could theoretically take the load</li>
+</ul>
+<p>There are two call buttons in the top-right corner: <strong>DRIVER</strong> and <strong>OWNER</strong>. Use the correct button depending on who makes pricing decisions for that truck. You must know this for every truck in your fleet.</p>
+<figure><img src="/cargo/fig2.png" alt="Load View" /><figcaption>Fig. 2 — Load View: load details on the left, available trucks on the right, DRIVER/OWNER call buttons</figcaption></figure>
+<h3>VEHICLES Tab</h3>
+<p>The VEHICLES tab shows your entire fleet. Key columns:</p>
+<ul>
+<li><strong>DRIVERS</strong> — driver first and last name</li>
+<li><strong>TYPE</strong> — truck size (small, medium, large)</li>
+<li><strong>SIZE</strong> — dimensions in inches (1 inch = 2.54 cm)</li>
+<li><strong>STATUS</strong> — one of three values you can change yourself: <strong>IN SERVICE</strong>, <strong>OUT OF SERVICE</strong>, <strong>RETIRED</strong></li>
+</ul>
+<p>Status meanings: <strong>IN SERVICE</strong> — truck is available, you know its location. <strong>OUT OF SERVICE</strong> — unavailable (broken, vacation, etc.). <strong>RETIRED</strong> — truck no longer works with you.</p>
+<figure><img src="/cargo/fig3.png" alt="VEHICLES Tab" /><figcaption>Fig. 3 — VEHICLES tab: full fleet overview with statuses</figcaption></figure>
+<h3>Vehicle Detail</h3>
+<p>Inside each vehicle record you can edit four fields daily: <strong>AVAILABLE CITY</strong>, <strong>AVAILABLE DATE</strong>, <strong>AVAILABILITY NOTE</strong>, <strong>STATUS</strong>. Keeping these updated is your responsibility — the board shows trucks based on this data.</p>
+<figure><img src="/cargo/fig4.png" alt="Vehicle Detail" /><figcaption>Fig. 4 — Vehicle Detail: editable fields inside a truck record</figcaption></figure>
+<h3>FAVOURITES Tab</h3>
+<p>Add your trucks to Favourites to filter the Dispatch Board. When active, you only see loads where one of your trucks is within range — eliminating irrelevant results and keeping your focus sharp.</p>
+<figure><img src="/cargo/fig5.png" alt="Favourites — fleet list" /><figcaption>Fig. 5 — FAVOURITES: your trucks marked as favourites</figcaption></figure>
+<figure><img src="/cargo/fig6.png" alt="Favourites — filtered board" /><figcaption>Fig. 6 — Board filtered by FAVOURITES: only loads matching your fleet are shown</figcaption></figure>
+<h3>OWNERS Tab</h3>
+<p>A directory of all drivers and their owners with contact information. Use it when you need to reach someone quickly without leaving the app.</p>
+<figure><img src="/cargo/fig7.png" alt="OWNERS Tab" /><figcaption>Fig. 7 — OWNERS tab: driver and owner contact directory</figcaption></figure>
+<h3>Gmail Integration & Notifications</h3>
+<p>When a broker replies to your email, a green notification icon appears in the bottom-right corner. It stays for <strong>10 seconds</strong> — if you miss it, the app will not remind you again. Recommended setup: use two monitors. One screen for Gmail, one for CARGO ETL. This way you never miss a broker response.</p>
+<figure><img src="/cargo/fig8.png" alt="Gmail notification" /><figcaption>Fig. 8 — Green notification icon (bottom-right): broker replied to your email</figcaption></figure><h3>📋 Load Offer Example — Decoded</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;border:2px solid #1e293b;border-radius:12px;overflow:hidden">
+        <tr style="background:#1e293b;color:white"><th style="padding:10px" colspan="2">LOAD #47821 — Small Straight</th></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0;width:40%"><strong>Miles Out:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">14 mi ✅ (under 50 = great)</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Pickup:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Mosinee, WI 54455 — 1/9 15:00 EST</td></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Delivery:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Columbia City, IN 46725 — 1/12 07:00 EST</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Miles:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">412 loaded</td></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Pieces / Weight:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">3 pcs / 3,414 lbs</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Dims:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">150L × 30W × 30H inches</td></tr>
+        <tr style="background:#fef2f2"><td style="padding:8px"><strong>⚠️ Notes:</strong></td><td style="padding:8px"><strong>Requires PPE</strong></td></tr>
+      </table>
+
+      <h3>🗺️ Area Pricing System</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr>
+          <td style="padding:12px;background:#059669;color:white;text-align:center;border-radius:8px 0 0 0;border:1px solid #047857"><strong>🟢 GOOD</strong><br/>High demand, good rates<br/>IL, WI, MI, OH, IN</td>
+          <td style="padding:12px;background:#eab308;color:#1e293b;text-align:center;border:1px solid #ca8a04"><strong>🟡 NBS</strong><br/>Decent volume, avg rates<br/>TX, GA, PA, NJ, NY</td>
+          <td style="padding:12px;background:#dc2626;color:white;text-align:center;border-radius:0 8px 0 0;border:1px solid #b91c1c"><strong>🔴 DEAD</strong><br/>Few loads, must escape<br/>FL, ME, LA, MS, AL</td>
+        </tr>
+      </table>
+
+      <figure><img src="/img-proxy/wikipedia/commons/7/77/Container_loading_with_forklift_at_warehouse_in_Thailand.jpg" alt="Forklift loading palletized cargo" loading="lazy" /><figcaption>Understanding pallet counts and weight limits is essential for matching loads to trucks</figcaption></figure>
+
+      <blockquote><strong>🚨 Airport Pickup Warnings:</strong><br/>• ZIP <strong>60666</strong> (Chicago) = 90% chance airport pickup at O'Hare (ORD)<br/>• ZIP <strong>90045</strong> (LA/Westchester) = 90% chance airport pickup at LAX<br/>Airport pickups take longer and require extra patience.</blockquote>`,
+      bodyRu: `<h2>Основные функции CARGO ETL</h2>
+<h3>Доска заявок (Dispatch Board)</h3>
+<p>Главный экран приложения. Отображает все входящие заявки из писем брокеров в реальном времени. Все менеджеры видят одну доску, могут открыть любую заявку и "сыграть" её (забронировать груз).</p>
+<figure><img src="/cargo/fig1.png" alt="Dispatch Board" /><figcaption>Рис. 1 — Dispatch Board: входящие заявки в реальном времени</figcaption></figure>
+<h3>Просмотр заявки (Load View)</h3>
+<p>При открытии заявки вы видите два блока:</p>
+<ul>
+<li><strong>Левая сторона:</strong> Детали груза — гружёные мили, вес, паллеты, имя брокера, контакты</li>
+<li><strong>Правая сторона:</strong> Все машины в радиусе 300 миль, которые теоретически могут взять груз</li>
+</ul>
+<p>В правом верхнем углу — две кнопки звонка: <strong>DRIVER</strong> и <strong>OWNER</strong>. Используйте нужную в зависимости от того, кто принимает решения по ценам за данный трак. Вы должны знать это для каждой машины своего парка.</p>
+<figure><img src="/cargo/fig2.png" alt="Load View" /><figcaption>Рис. 2 — Load View: детали груза слева, доступные машины справа, кнопки звонка DRIVER/OWNER</figcaption></figure>
+<h3>Вкладка VEHICLES</h3>
+<p>Показывает весь ваш парк. Основные колонки:</p>
+<ul>
+<li><strong>DRIVERS</strong> — имя и фамилия водителя</li>
+<li><strong>TYPE</strong> — размер трака (маленький, средний, большой)</li>
+<li><strong>SIZE</strong> — размеры в дюймах (1 дюйм = 2,54 см)</li>
+<li><strong>STATUS</strong> — один из трёх статусов, которые вы меняете сами: <strong>IN SERVICE</strong>, <strong>OUT OF SERVICE</strong>, <strong>RETIRED</strong></li>
+</ul>
+<p>Статусы: <strong>IN SERVICE</strong> — машина доступна, вы знаете её местоположение. <strong>OUT OF SERVICE</strong> — недоступна (поломка, отпуск и т.д.). <strong>RETIRED</strong> — трак больше не работает с вами.</p>
+<figure><img src="/cargo/fig3.png" alt="Вкладка VEHICLES" /><figcaption>Рис. 3 — Вкладка VEHICLES: список всего парка со статусами</figcaption></figure>
+<h3>Детали машины</h3>
+<p>Внутри каждой карточки машины вы можете ежедневно редактировать четыре поля: <strong>AVAILABLE CITY</strong>, <strong>AVAILABLE DATE</strong>, <strong>AVAILABILITY NOTE</strong>, <strong>STATUS</strong>. Своевременное обновление — ваша ответственность.</p>
+<figure><img src="/cargo/fig4.png" alt="Карточка машины" /><figcaption>Рис. 4 — Карточка машины: редактируемые поля внутри записи</figcaption></figure>
+<h3>Вкладка FAVOURITES</h3>
+<p>Добавляйте свои машины в Избранное, чтобы фильтровать доску заявок. При активной вкладке вы видите только те грузы, для которых у вас есть машина — это убирает лишние результаты и помогает сосредоточиться.</p>
+<figure><img src="/cargo/fig5.png" alt="Favourites — список машин" /><figcaption>Рис. 5 — FAVOURITES: машины, добавленные в избранное</figcaption></figure>
+<figure><img src="/cargo/fig6.png" alt="Favourites — отфильтрованная доска" /><figcaption>Рис. 6 — Доска с фильтром FAVOURITES: видны только грузы под ваш парк</figcaption></figure>
+<h3>Вкладка OWNERS</h3>
+<p>Справочник водителей и их оунеров с контактами. Используйте, когда нужно быстро найти чей-то номер, не выходя из программы.</p>
+<figure><img src="/cargo/fig7.png" alt="Вкладка OWNERS" /><figcaption>Рис. 7 — Вкладка OWNERS: справочник водителей и оунеров</figcaption></figure>
+<h3>Интеграция с Gmail и уведомления</h3>
+<p>Когда брокер отвечает на ваше письмо, в правом нижнем углу появляется зелёная иконка. Она видна <strong>10 секунд</strong> — если пропустили, программа больше не напомнит. Рекомендация: работайте на двух мониторах. На одном — Gmail, на другом — CARGO ETL. Тогда вы не пропустите ни одного ответа брокера.</p>
+<figure><img src="/cargo/fig8.png" alt="Уведомление Gmail" /><figcaption>Рис. 8 — Зелёная иконка уведомления (правый нижний угол): брокер ответил на ваше письмо</figcaption></figure><h3>📋 Пример оффера — разбор</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;border:2px solid #1e293b;border-radius:12px;overflow:hidden">
+      <tr style="background:#1e293b;color:white"><th style="padding:10px" colspan="2">ГРУЗ #47821 — Small Straight</th></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0;width:40%"><strong>Miles Out:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">14 миль ✅ (до 50 = отлично)</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Погрузка:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Mosinee, WI 54455 — 1/9 15:00 EST</td></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Доставка:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Columbia City, IN 46725 — 1/12 07:00 EST</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Мили:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">412 гружёных</td></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Кол-во / Вес:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">3 шт. / 3 414 фунтов</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>Габариты:</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">150Д × 30Ш × 30В дюймов</td></tr>
+      <tr style="background:#fef2f2"><td style="padding:8px"><strong>⚠️ Примечания:</strong></td><td style="padding:8px"><strong>Требуется PPE</strong></td></tr>
+    </table>
+
+    <h3>🗺️ Система зон ценообразования</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr>
+        <td style="padding:12px;background:#059669;color:white;text-align:center;border-radius:8px 0 0 0;border:1px solid #047857"><strong>🟢 GOOD</strong><br/>Высокий спрос, хорошие ставки<br/>IL, WI, MI, OH, IN</td>
+        <td style="padding:12px;background:#eab308;color:#1e293b;text-align:center;border:1px solid #ca8a04"><strong>🟡 NBS</strong><br/>Средний объём, средние ставки<br/>TX, GA, PA, NJ, NY</td>
+        <td style="padding:12px;background:#dc2626;color:white;text-align:center;border-radius:0 8px 0 0;border:1px solid #b91c1c"><strong>🔴 DEAD</strong><br/>Мало грузов, нужно уезжать<br/>FL, ME, LA, MS, AL</td>
+      </tr>
+    </table>
+
+    <figure><img src="/img-proxy/wikipedia/commons/7/77/Container_loading_with_forklift_at_warehouse_in_Thailand.jpg" alt="Погрузка поддонов вилочным погрузчиком" loading="lazy" /><figcaption>Понимание паллетных объёмов и весовых лимитов — ключ к правильному подбору груза</figcaption></figure>
+
+    <blockquote><strong>🚨 Предупреждения по аэропортным погрузкам:</strong><br/>• ZIP <strong>60666</strong> (Чикаго) = 90% аэропортная погрузка в O'Hare (ORD)<br/>• ZIP <strong>90045</strong> (LA/Westchester) = 90% аэропортная погрузка в LAX<br/>Аэропортные погрузки занимают больше времени.</blockquote>`,
+      quiz: {
+        questions: [
+          { id: '6-2-q1', text: "What does the right side of the Load View show?", options: ["Broker payment history", "All trucks within 300 miles that could potentially take the load", "The route map with toll locations", "Available parking near the pickup point"], correctIndex: 1 },
+          { id: '6-2-q2', text: "When should you use the DRIVER button vs the OWNER button in Load View?", options: ["DRIVER for daytime loads, OWNER for night loads", "Depending on who makes pricing decisions for that specific truck", "DRIVER always — owners don't handle load pricing", "OWNER always — drivers just follow instructions"], correctIndex: 1 },
+          { id: '6-2-q3', text: "Which VEHICLES status means the truck is broken or on vacation?", options: ["RETIRED", "IN SERVICE", "OUT OF SERVICE", "PENDING"], correctIndex: 2 },
+          { id: '6-2-q4', text: "How long does the Gmail broker reply notification stay visible?", options: ["30 seconds", "1 minute", "10 seconds", "Until you click it"], correctIndex: 2 },
+          { id: '6-2-q5', text: "What is the purpose of the FAVOURITES tab?", options: ["Save loads you want to book later", "Filter the board to show only loads matching your own fleet's trucks", "Mark preferred brokers", "Set favorite routes for drivers"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '6-2-q1-ru', text: "Что показывает правая сторона в просмотре заявки (Load View)?", options: ["История выплат брокера", "Все машины в радиусе 300 миль, которые могут взять груз", "Карту маршрута с пунктами оплаты", "Доступные парковки у места загрузки"], correctIndex: 1 },
+          { id: '6-2-q2-ru', text: "Когда использовать кнопку DRIVER, а когда OWNER в просмотре заявки?", options: ["DRIVER для дневных грузов, OWNER для ночных", "В зависимости от того, кто принимает решения по ценам для данного трака", "Всегда DRIVER — оунеры не занимаются ценами", "Всегда OWNER — водители просто выполняют инструкции"], correctIndex: 1 },
+          { id: '6-2-q3-ru', text: "Какой статус в VEHICLES означает, что машина сломана или в отпуске?", options: ["RETIRED", "IN SERVICE", "OUT OF SERVICE", "PENDING"], correctIndex: 2 },
+          { id: '6-2-q4-ru', text: "Сколько секунд видно уведомление об ответе брокера в Gmail?", options: ["30 секунд", "1 минута", "10 секунд", "Пока не нажмёшь"], correctIndex: 2 },
+          { id: '6-2-q5-ru', text: "Для чего нужна вкладка FAVOURITES?", options: ["Сохранять грузы, которые хочешь взять позже", "Фильтровать доску, чтобы видеть только грузы под машины своего парка", "Отмечать предпочтительных брокеров", "Устанавливать любимые маршруты для водителей"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '5-3': {
+      type: 'text',
+      body: `<h2>Working in CARGO ETL — Step by Step</h2>
+<p>Every shift in CARGO ETL follows a clear routine. Here's how a typical dispatcher workflow looks from login to booking.</p>
+<h3>Step 1 — Update Your Fleet</h3>
+<p>Before anything else, open the VEHICLES tab and update every truck in your fleet: set the correct <strong>AVAILABLE CITY</strong>, <strong>AVAILABLE DATE</strong>, and <strong>STATUS</strong>. If a truck has a note (special equipment, driver preference), add it to <strong>AVAILABILITY NOTE</strong>. This data drives everything the board shows you.</p>
+<h3>Step 2 — Set Up FAVOURITES</h3>
+<p>Add all your trucks to the FAVOURITES tab. This filters the Dispatch Board so you only see loads that are physically reachable by your fleet — saving time and reducing noise.</p>
+<h3>Step 3 — Work the Board</h3>
+<p>Monitor the Dispatch Board for new loads. When something looks promising, open the load. Check the left side for load details (miles, weight, commodity, pickup/delivery times). Check the right side for which of your trucks is closest.</p>
+<figure><img src="/cargo/fig1.png" alt="Dispatch Board" /><figcaption>Fig. 1 — Dispatch Board: find your load here</figcaption></figure>
+<figure><img src="/cargo/fig2.png" alt="Load View" /><figcaption>Fig. 2 — Open the load to see details and available trucks</figcaption></figure>
+<h3>Step 4 — Call and Book</h3>
+<p>Use the in-app call button (DRIVER or OWNER) to confirm the truck is available and the driver agrees. Then reply to the broker email to play the load. All communication with brokers stays in Gmail — the app surfaces the data, Gmail handles the conversation.</p>
+<h3>Step 5 — Monitor Notifications</h3>
+<p>Keep an eye on the green notification icon. If a broker replies, you have 10 seconds to click it. Set up two monitors to watch Gmail and CARGO ETL simultaneously — this is the standard recommended setup.</p>
+<blockquote>Key rule: CARGO ETL shows which trucks <em>theoretically</em> can take a load based on location. It's your job to analyze whether they <em>actually</em> can — considering driver hours, existing loads, preferences, and any owner restrictions.</blockquote>`,
+      bodyRu: `<h2>Работа в CARGO ETL — шаг за шагом</h2>
+<p>Каждая смена в CARGO ETL следует чёткому порядку. Вот как выглядит типичный рабочий процесс диспетчера.</p>
+<h3>Шаг 1 — Обновите парк</h3>
+<p>Перед всем остальным откройте вкладку VEHICLES и обновите данные по каждой машине: <strong>AVAILABLE CITY</strong>, <strong>AVAILABLE DATE</strong>, <strong>STATUS</strong>. Если есть примечание — добавьте в <strong>AVAILABILITY NOTE</strong>. Эти данные определяют, что вы видите на доске.</p>
+<h3>Шаг 2 — Настройте FAVOURITES</h3>
+<p>Добавьте все свои машины во вкладку Избранное. Это отфильтрует доску так, чтобы вы видели только физически доступные для вашего парка грузы.</p>
+<h3>Шаг 3 — Работайте с доской</h3>
+<p>Следите за новыми заявками на Dispatch Board. Когда появляется перспективный груз, откройте его. Левая сторона — детали груза (мили, вес, товар, время загрузки/выгрузки). Правая — какая из ваших машин ближе всего.</p>
+<figure><img src="/cargo/fig1.png" alt="Dispatch Board" /><figcaption>Рис. 1 — Dispatch Board: здесь находите нужный груз</figcaption></figure>
+<figure><img src="/cargo/fig2.png" alt="Load View" /><figcaption>Рис. 2 — Открываете заявку и видите детали и доступные машины</figcaption></figure>
+<h3>Шаг 4 — Звоните и бронируйте</h3>
+<p>Используйте кнопку звонка (DRIVER или OWNER), чтобы подтвердить доступность машины. Затем отвечайте брокеру в Gmail, чтобы сыграть груз. Всё общение с брокерами — через почту, приложение лишь показывает данные.</p>
+<h3>Шаг 5 — Следите за уведомлениями</h3>
+<p>Следите за зелёной иконкой в правом нижнем углу. Если брокер ответил — у вас 10 секунд. Рекомендуется два монитора: один для Gmail, второй для CARGO ETL.</p>
+<blockquote>Важное правило: CARGO ETL показывает, какие машины <em>теоретически</em> могут взять груз по местоположению. Ваша задача — оценить, могут ли они это сделать <em>реально</em>, с учётом часов водителя, существующих грузов и ограничений оунера.</blockquote>`,
+      loadBoard: true,
+      quiz: {
+        questions: [
+          { id: '6-3-q1', text: "What is the first thing you should do at the start of a shift in CARGO ETL?", options: ["Start booking loads immediately from the board", "Update your fleet data in the VEHICLES tab (city, date, status)", "Check the OWNERS tab for new contacts", "Call all your drivers to confirm availability"], correctIndex: 1 },
+          { id: '6-3-q2', text: "A load appears on the board near your truck. The right side shows your truck is 280 miles away. What must you do before booking?", options: ["Book immediately — 280 miles is within range so it qualifies", "Analyze whether the driver actually can take it: check hours, current load, and owner restrictions", "Reject it — only loads within 100 miles are worth booking", "Ask the broker to hold it for 24 hours while you decide"], correctIndex: 1 },
+          { id: '6-3-q3', text: "You missed the green notification icon. What happens next?", options: ["The app re-displays it after 30 seconds", "The app sends you an email instead", "The app does not remind you again — check Gmail manually", "The broker is automatically notified that you're busy"], correctIndex: 2 },
+          { id: '6-3-q4', text: "Where should all communication with brokers take place?", options: ["Inside CARGO ETL messaging system", "Via phone calls only", "In Gmail — CARGO ETL only surfaces load data, not conversations", "In a separate broker portal"], correctIndex: 2 },
+          { id: '6-3-q5', text: "You want to book a load but aren't sure who handles pricing for that truck. Where do you look?", options: ["Check the VEHICLES tab STATUS field", "Check the OWNERS tab for the driver's owner contact and ask", "Check the Dispatch Board comments", "Ask another dispatcher"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '6-3-q1-ru', text: "Что нужно сделать в первую очередь в начале смены в CARGO ETL?", options: ["Сразу начать бронировать грузы с доски", "Обновить данные парка во вкладке VEHICLES (город, дата, статус)", "Проверить вкладку OWNERS на наличие новых контактов", "Позвонить всем водителям для подтверждения доступности"], correctIndex: 1 },
+          { id: '6-3-q2-ru', text: "На доске появился груз рядом с вашей машиной. Правая сторона показывает, что ваш трак в 280 милях. Что нужно сделать перед бронированием?", options: ["Бронировать сразу — 280 миль в радиусе, значит подходит", "Проанализировать, может ли водитель реально взять груз: часы, текущий груз, ограничения оунера", "Отклонить — только грузы в радиусе 100 миль стоят внимания", "Попросить брокера подержать груз 24 часа"], correctIndex: 1 },
+          { id: '6-3-q3-ru', text: "Вы пропустили зелёную иконку уведомления. Что происходит дальше?", options: ["Приложение покажет её снова через 30 секунд", "Приложение отправит письмо на почту", "Приложение не напомнит снова — проверьте Gmail вручную", "Брокер автоматически получает уведомление, что вы заняты"], correctIndex: 2 },
+          { id: '6-3-q4-ru', text: "Где должно происходить всё общение с брокерами?", options: ["Внутри системы сообщений CARGO ETL", "Только по телефону", "В Gmail — CARGO ETL лишь показывает данные о грузах, а не ведёт переписку", "В отдельном портале для брокеров"], correctIndex: 2 },
+          { id: '6-3-q5-ru', text: "Вы хотите взять груз, но не знаете, кто принимает решения по ценам для этого трака. Куда смотреть?", options: ["В поле STATUS во вкладке VEHICLES", "Во вкладку OWNERS — найти контакт оунера и уточнить", "В комментарии на Dispatch Board", "Спросить другого диспетчера"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '5-4': {
+      type: 'text',
+      body: `<h2>CARGO ETL — Final Practice Test</h2>
+<p>This test covers the complete CARGO ETL workflow: the Dispatch Board, Load View, VEHICLES management, FAVOURITES, OWNERS, Gmail integration, and dispatcher decision-making. 20 questions. Pass threshold: 18/20.</p>`,
+      bodyRu: `<h2>CARGO ETL — Итоговый тест</h2>
+<p>Этот тест охватывает весь рабочий процесс в CARGO ETL: доску заявок, просмотр груза, управление VEHICLES, FAVOURITES, OWNERS, интеграцию с Gmail и принятие решений диспетчером. 20 вопросов. Порог прохождения: 18/20.</p>`,
+      quiz: {
+        questions: [
+          { id: '6-4-q1', text: "What is CARGO ETL primarily designed to do?", options: ["Generate invoices and process carrier payments", "Aggregate broker load requests from email and display them in real time for dispatchers", "Replace Gmail as the main communication channel with brokers", "Automatically book loads without dispatcher involvement"], correctIndex: 1 },
+          { id: '6-4-q2', text: "How does CARGO ETL receive incoming load requests?", options: ["Via direct API integration with major load boards (DAT, Truckstop)", "Through your connected Gmail account — broker emails are parsed automatically", "By manually entering load data from broker phone calls", "Via a shared company inbox separate from personal Gmail"], correctIndex: 1 },
+          { id: '6-4-q3', text: "What does the LEFT side of the Load View display?", options: ["Trucks within 300 miles sorted by distance", "All load details: miles, weight, pallets, broker name, and contact info", "The broker's rating and payment history", "Route map with estimated transit time"], correctIndex: 1 },
+          { id: '6-4-q4', text: "What does the RIGHT side of the Load View display?", options: ["All load details for easy reference", "All trucks within 300 miles that could theoretically take the load", "Available drivers currently online in the system", "Competing loads from other brokers on the same route"], correctIndex: 1 },
+          { id: '6-4-q5', text: "The DRIVER and OWNER call buttons appear in Load View. When do you press OWNER?", options: ["When the driver is unavailable by phone", "When the owner — not the driver — makes the final decision on pricing for that truck", "Always call OWNER first before DRIVER", "Only for owner-operators who drive their own truck"], correctIndex: 1 },
+          { id: '6-4-q6', text: "What does \"IN SERVICE\" status mean for a truck in the VEHICLES tab?", options: ["The truck passed its last DOT inspection", "The truck is available, the dispatcher knows its location, and it can be offered loads", "The truck is currently delivering a load", "The truck is being serviced at a repair shop"], correctIndex: 1 },
+          { id: '6-4-q7', text: "What does \"OUT OF SERVICE\" status mean?", options: ["The truck is permanently removed from the fleet", "The truck is temporarily unavailable — broken, on vacation, or otherwise not ready", "The truck needs a DOT inspection before operating", "The truck is available but the driver refused loads this week"], correctIndex: 1 },
+          { id: '6-4-q8', text: "What does \"RETIRED\" status mean?", options: ["The truck is on a long-distance route and unavailable temporarily", "The truck no longer operates with your company for any reason", "The driver retired but the truck is still available with another driver", "The truck is in scheduled maintenance"], correctIndex: 1 },
+          { id: '6-4-q9', text: "Which four fields can a dispatcher edit in the Vehicle Detail record?", options: ["DRIVER NAME, TRUCK TYPE, SIZE, WEIGHT CAPACITY", "AVAILABLE CITY, AVAILABLE DATE, AVAILABILITY NOTE, STATUS", "PICKUP LOCATION, DELIVERY LOCATION, RATE, BROKER", "MC NUMBER, DOT NUMBER, INSURANCE DATE, VIN"], correctIndex: 1 },
+          { id: '6-4-q10', text: "Why is it important to update the Vehicle Detail daily?", options: ["The app charges a fee if records are not updated", "The Dispatch Board uses this data to match trucks to loads — stale data leads to wrong matches", "Brokers can see the vehicle data directly and reject outdated trucks", "DOT requires daily fleet status reporting via CARGO ETL"], correctIndex: 1 },
+          { id: '6-4-q11', text: "What is the purpose of the FAVOURITES tab in CARGO ETL?", options: ["Bookmark loads you want to book later in the day", "Filter the Dispatch Board to only show loads matching your own fleet's trucks", "Mark brokers you prefer working with", "Save your most-used routes for quick access"], correctIndex: 1 },
+          { id: '6-4-q12', text: "What does the OWNERS tab provide?", options: ["A list of freight brokers and their load rates", "Contact information for drivers and their owners", "Owner-operator contract templates", "A record of all past loads by owner"], correctIndex: 1 },
+          { id: '6-4-q13', text: "A broker replies to your email. A green icon appears in the bottom-right corner of CARGO ETL. How long do you have to click it?", options: ["30 seconds", "1 minute", "10 seconds", "5 minutes"], correctIndex: 2 },
+          { id: '6-4-q14', text: "You miss the green notification icon. What is the correct next step?", options: ["Wait — the app will show it again in 60 seconds", "Refresh the entire application to reload notifications", "Open Gmail manually to check for the broker's reply", "Call the broker directly — the email system has failed"], correctIndex: 2 },
+          { id: '6-4-q15', text: "What is the recommended monitor setup for working with CARGO ETL and Gmail simultaneously?", options: ["One monitor with both windows side by side", "Two monitors: one for Gmail, one for CARGO ETL", "Use only CARGO ETL — Gmail notifications are redirected inside the app", "Three monitors: Gmail, CARGO ETL, and load board"], correctIndex: 1 },
+          { id: '6-4-q16', text: "CARGO ETL shows a truck 290 miles from a load pickup. Does this mean the truck should automatically take the load?", options: ["Yes — if it's within 300 miles it's always a good match", "No — the dispatcher must verify the driver's actual availability: hours, current load, and owner approval", "Yes — the app only shows trucks that are confirmed available", "No — only trucks within 100 miles should ever be offered loads"], correctIndex: 1 },
+          { id: '6-4-q17', text: "Where must all negotiations and communication with brokers take place?", options: ["Inside the CARGO ETL messaging system", "Via phone calls only — email is too slow", "In Gmail — CARGO ETL surfaces load data but does not handle broker conversations", "In a broker portal outside both Gmail and CARGO ETL"], correctIndex: 2 },
+          { id: '6-4-q18', text: "A load appears on the Dispatch Board. What is the correct order of steps to book it?", options: ["Call the broker first, then check your trucks, then update VEHICLES", "Check load details in Load View, verify a truck is available, call DRIVER/OWNER to confirm, reply to broker in Gmail", "Reply to broker in Gmail immediately to hold the load, then check trucks", "Update VEHICLES status first, then open the load, then call the broker"], correctIndex: 1 },
+          { id: '6-4-q19', text: "Mini-case: You have two trucks available. The board shows 12 loads but none appear in your FAVOURITES view. What is the most likely cause?", options: ["CARGO ETL is disconnected from Gmail and not pulling new loads", "Your trucks are not added to the FAVOURITES tab, so the filter excludes all loads", "All 12 loads are already booked by other dispatchers", "The broker emails haven't been parsed yet — wait 10 minutes"], correctIndex: 1 },
+          { id: '6-4-q20', text: "Mini-case: Your driver has been IN SERVICE all week but hasn't moved. A load matches his location but the AVAILABLE CITY field still shows last week's city. What should you do?", options: ["Book the load — the system is usually accurate enough", "Update the AVAILABLE CITY immediately before acting on any load match, then verify with the driver", "Call the broker and let them decide based on the system data", "Change the driver's status to OUT OF SERVICE until you can update the location"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '6-4-q1-ru', text: "Для чего в первую очередь создано CARGO ETL?", options: ["Формировать инвойсы и обрабатывать выплаты перевозчикам", "Агрегировать заявки брокеров из почты и отображать их в реальном времени для диспетчеров", "Заменить Gmail как основной канал общения с брокерами", "Автоматически бронировать грузы без участия диспетчера"], correctIndex: 1 },
+          { id: '6-4-q2-ru', text: "Как CARGO ETL получает входящие заявки?", options: ["Через прямую API-интеграцию с биржами грузов (DAT, Truckstop)", "Через подключённый Gmail — письма брокеров парсятся автоматически", "Путём ручного ввода данных из телефонных звонков брокеров", "Через общий корпоративный ящик, отдельный от личного Gmail"], correctIndex: 1 },
+          { id: '6-4-q3-ru', text: "Что отображает ЛЕВАЯ сторона в просмотре заявки?", options: ["Машины в радиусе 300 миль, отсортированные по расстоянию", "Все детали груза: мили, вес, паллеты, имя брокера и контакты", "Рейтинг брокера и история выплат", "Карту маршрута с расчётным временем в пути"], correctIndex: 1 },
+          { id: '6-4-q4-ru', text: "Что отображает ПРАВАЯ сторона в просмотре заявки?", options: ["Все детали груза для удобного просмотра", "Все машины в радиусе 300 миль, которые теоретически могут взять груз", "Доступных водителей, которые сейчас онлайн в системе", "Конкурирующие грузы от других брокеров на том же маршруте"], correctIndex: 1 },
+          { id: '6-4-q5-ru', text: "В просмотре заявки есть кнопки DRIVER и OWNER. Когда нажимать OWNER?", options: ["Когда до водителя не дозвониться", "Когда именно оунер — а не водитель — принимает окончательное решение по цене за данный трак", "Всегда звонить сначала OWNER, потом DRIVER", "Только для owner-операторов, которые сами управляют своей машиной"], correctIndex: 1 },
+          { id: '6-4-q6-ru', text: "Что означает статус \"IN SERVICE\" для машины во вкладке VEHICLES?", options: ["Машина прошла последнюю проверку DOT", "Машина доступна, диспетчер знает её местоположение и может предлагать грузы", "Машина в данный момент везёт груз", "Машина на техническом обслуживании"], correctIndex: 1 },
+          { id: '6-4-q7-ru', text: "Что означает статус \"OUT OF SERVICE\"?", options: ["Машина навсегда выведена из парка", "Машина временно недоступна — сломана, в отпуске или по другой причине", "Машине нужна проверка DOT перед работой", "Машина доступна, но водитель отказывается от грузов на этой неделе"], correctIndex: 1 },
+          { id: '6-4-q8-ru', text: "Что означает статус \"RETIRED\"?", options: ["Машина на дальнем маршруте и временно недоступна", "Машина больше не работает с вашей компанией по любой причине", "Водитель вышел на пенсию, но машина доступна с другим водителем", "Машина на плановом техническом обслуживании"], correctIndex: 1 },
+          { id: '6-4-q9-ru', text: "Какие четыре поля может редактировать диспетчер в карточке машины?", options: ["ИМЯ ВОДИТЕЛЯ, ТИП ТРАКА, РАЗМЕР, ГРУЗОПОДЪЁМНОСТЬ", "AVAILABLE CITY, AVAILABLE DATE, AVAILABILITY NOTE, STATUS", "МЕСТО ЗАГРУЗКИ, МЕСТО ВЫГРУЗКИ, СТАВКА, БРОКЕР", "MC НОМЕР, DOT НОМЕР, ДАТА СТРАХОВКИ, VIN"], correctIndex: 1 },
+          { id: '6-4-q10-ru', text: "Почему важно обновлять карточку машины ежедневно?", options: ["Приложение берёт плату, если записи не обновляются", "Dispatch Board использует эти данные для сопоставления машин с грузами — устаревшие данные ведут к ошибкам", "Брокеры видят данные о машинах напрямую и отклоняют устаревшие", "DOT требует ежедневной отчётности о статусе парка через CARGO ETL"], correctIndex: 1 },
+          { id: '6-4-q11-ru', text: "Для чего предназначена вкладка FAVOURITES в CARGO ETL?", options: ["Сохранять грузы, которые планируете взять позже", "Фильтровать доску заявок, оставив только грузы под машины вашего парка", "Отмечать брокеров, с которыми предпочитаете работать", "Сохранять часто используемые маршруты"], correctIndex: 1 },
+          { id: '6-4-q12-ru', text: "Что предоставляет вкладка OWNERS?", options: ["Список брокеров с их ставками", "Контактную информацию по водителям и их оунерам", "Шаблоны договоров для owner-операторов", "Историю всех грузов по каждому оунеру"], correctIndex: 1 },
+          { id: '6-4-q13-ru', text: "Брокер ответил на ваше письмо. В правом нижнем углу CARGO ETL появилась зелёная иконка. Сколько секунд есть, чтобы нажать на неё?", options: ["30 секунд", "1 минута", "10 секунд", "5 минут"], correctIndex: 2 },
+          { id: '6-4-q14-ru', text: "Вы пропустили зелёную иконку уведомления. Какой следующий правильный шаг?", options: ["Подождать — приложение покажет её снова через 60 секунд", "Перезапустить приложение для перезагрузки уведомлений", "Открыть Gmail вручную и проверить ответ брокера", "Позвонить брокеру — система почты дала сбой"], correctIndex: 2 },
+          { id: '6-4-q15-ru', text: "Какая рекомендуемая настройка мониторов для одновременной работы с CARGO ETL и Gmail?", options: ["Один монитор с двумя окнами рядом", "Два монитора: один для Gmail, один для CARGO ETL", "Использовать только CARGO ETL — уведомления Gmail перенаправляются в приложение", "Три монитора: Gmail, CARGO ETL и биржа грузов"], correctIndex: 1 },
+          { id: '6-4-q16-ru', text: "CARGO ETL показывает машину в 290 милях от места загрузки. Означает ли это, что машина должна автоматически взять груз?", options: ["Да — если в радиусе 300 миль, это всегда хорошее совпадение", "Нет — диспетчер должен проверить реальную доступность водителя: часы, текущий груз, разрешение оунера", "Да — приложение показывает только подтверждённо доступные машины", "Нет — грузы стоит предлагать только машинам в радиусе 100 миль"], correctIndex: 1 },
+          { id: '6-4-q17-ru', text: "Где должны происходить все переговоры и общение с брокерами?", options: ["Внутри системы сообщений CARGO ETL", "Только по телефону — почта слишком медленная", "В Gmail — CARGO ETL показывает данные о грузах, но не ведёт переписку с брокерами", "В брокерском портале, отдельном от Gmail и CARGO ETL"], correctIndex: 2 },
+          { id: '6-4-q18-ru', text: "На доске появился груз. Какой правильный порядок действий для его бронирования?", options: ["Сначала позвонить брокеру, затем проверить машины, затем обновить VEHICLES", "Проверить детали груза в Load View, убедиться в доступности машины, позвонить DRIVER/OWNER для подтверждения, ответить брокеру в Gmail", "Сразу ответить брокеру в Gmail чтобы зафиксировать груз, затем проверить машины", "Сначала обновить статус в VEHICLES, затем открыть заявку, затем позвонить брокеру"], correctIndex: 1 },
+          { id: '6-4-q19-ru', text: "Кейс: У вас две доступные машины. На доске 12 грузов, но во вкладке FAVOURITES ни одного не видно. Какова наиболее вероятная причина?", options: ["CARGO ETL отключён от Gmail и не получает новые грузы", "Ваши машины не добавлены во вкладку FAVOURITES, поэтому фильтр исключает все грузы", "Все 12 грузов уже забронированы другими диспетчерами", "Письма от брокеров ещё не обработаны — подождите 10 минут"], correctIndex: 1 },
+          { id: '6-4-q20-ru', text: "Кейс: Ваш водитель всю неделю в статусе IN SERVICE, но не двигался. Груз совпадает с его позицией, но в поле AVAILABLE CITY указан город прошлой недели. Что делать?", options: ["Бронировать груз — система обычно достаточно точна", "Сразу обновить AVAILABLE CITY перед любыми действиями по грузу, затем уточнить у водителя", "Позвонить брокеру и пусть он решает на основе данных системы", "Перевести водителя в OUT OF SERVICE до момента обновления локации"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '6-1': {
+      type: 'text',
+      body: `<h2>Who Are Brokers and Why You Need to Know How to Work With Them</h2>
+<p>A <strong>freight broker</strong> is a licensed intermediary (requires an FMCSA Broker Authority) who connects shippers with carriers. Brokers don't own trucks — they earn a margin between what the shipper pays and what the carrier gets. As a dispatcher, the broker is your direct customer: you find loads through them and get paid through them.</p>
+<div class="bg-red-50 border-l-4 border-red-500 px-4 py-3 my-4 rounded-r-xl"><p class="font-bold text-red-700 text-sm">⚠️ CRITICAL RULE — READ THIS FIRST</p><p class="text-red-700 text-sm mt-1">BEFORE YOU SIGN THE RC, YOU MUST CALL THE DRIVER AND ASK IF THEY ARE STILL DOING THIS LOAD. If you sign without calling and a recovery situation is created — you will be penalized. No exceptions.</p></div>
+<h3>Types of Brokers You'll Deal With</h3>
+<ul>
+<li><strong>Large national brokers</strong> — Echo Global, Coyote, TQL, CH Robinson, Worldwide Express. High volume, strict processes, often lower rates. They have portals and carrier compliance requirements.</li>
+<li><strong>Mid-size brokers</strong> — Regional players. Often more flexible on rates, faster to set up with.</li>
+<li><strong>Small/independent brokers</strong> — Direct access to decision-makers. Can negotiate more freely. Risk: slower payment, verify carefully before first load.</li>
+</ul>
+<h3>How Brokers Find Carriers (and You Find Them)</h3>
+<ul>
+<li><strong>Load boards:</strong> DAT, Truckstop.com, 123Loadboard — brokers post loads, carriers search and call</li>
+<li><strong>Direct outreach:</strong> Brokers email carriers they've worked with before</li>
+<li><strong>CARGO ETL:</strong> Our system pulls broker emails automatically — you see their loads on the board</li>
+</ul>
+<h3>The Broker's Priorities</h3>
+<ul>
+<li>Cover the load quickly (their shipper has a deadline)</li>
+<li>Reliable carrier — no late pickups, no missed deliveries</li>
+<li>Minimal drama — no constant calls, no surprise price changes after booking</li>
+<li>Documentation on time — signed RC, POD delivered fast</li>
+</ul>
+<blockquote>The broker who trusts you sends you loads without shopping around. Building that trust is the long-term goal of every broker relationship.</blockquote><figure><img src="/img-proxy/wikipedia/commons/6/6a/Testing_output_from_call_center_operator_headset.jpg" alt="Call center headset — dispatcher phone equipment" loading="lazy" /><figcaption>The headset is a dispatcher's primary tool — most broker communication happens by phone</figcaption></figure>
+
+      <h3>The Communication Golden Rules</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#059669;color:white">
+          <th style="padding:10px;text-align:center;border-radius:8px 8px 0 0" colspan="2">✅ DO</th>
+        </tr>
+        <tr style="background:#f0fdf4"><td style="padding:8px;border-bottom:1px solid #bbf7d0">🟢</td><td style="padding:8px;border-bottom:1px solid #bbf7d0">Update the broker proactively — even if the news is bad</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #bbf7d0">🟢</td><td style="padding:8px;border-bottom:1px solid #bbf7d0">Provide realistic ETAs, never optimistic guesses</td></tr>
+        <tr style="background:#f0fdf4"><td style="padding:8px;border-bottom:1px solid #bbf7d0">🟢</td><td style="padding:8px;border-bottom:1px solid #bbf7d0">Send updates every 2 hours on long hauls</td></tr>
+        <tr><td style="padding:8px">🟢</td><td style="padding:8px">Use professional email templates for every stage</td></tr>
+      </table>
+      <table style="width:100%;border-collapse:collapse;margin:0 0 16px 0;font-size:14px">
+        <tr style="background:#dc2626;color:white">
+          <th style="padding:10px;text-align:center;border-radius:8px 8px 0 0" colspan="2">❌ DON'T</th>
+        </tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">🔴</td><td style="padding:8px;border-bottom:1px solid #fecaca">Go silent when there's a problem</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #fecaca">🔴</td><td style="padding:8px;border-bottom:1px solid #fecaca">Promise ETAs you can't deliver</td></tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">🔴</td><td style="padding:8px;border-bottom:1px solid #fecaca">Wait for the broker to call you for updates</td></tr>
+        <tr><td style="padding:8px">🔴</td><td style="padding:8px">Blame the driver by name to the broker</td></tr>
+      </table>
+      <blockquote><strong>💡 Remember:</strong> Even 10+ hour delays can be forgiven if the broker feels constantly informed and your ETA is realistic.</blockquote>`,
+      bodyRu: `<h2>Кто такие брокеры и почему важно уметь с ними работать</h2>
+<p><strong>Грузовой брокер</strong> — это лицензированный посредник (лицензия Broker Authority от FMCSA), который соединяет грузоотправителей с перевозчиками. Брокеры не владеют траками — они зарабатывают на марже. Для диспетчера брокер — прямой клиент: через него находите грузы и получаете оплату.</p>
+<div class="bg-red-50 border-l-4 border-red-500 px-4 py-3 my-4 rounded-r-xl"><p class="font-bold text-red-700 text-sm">⚠️ КРИТИЧЕСКОЕ ПРАВИЛО — ПРОЧИТАЙТЕ ПЕРВЫМ</p><p class="text-red-700 text-sm mt-1">ДО ПОДПИСАНИЯ RC ВЫ ОБЯЗАНЫ ПОЗВОНИТЬ ВОДИТЕЛЮ И УБЕДИТЬСЯ, ЧТО ОН ВЕЗЁТ ЭТОТ ГРУЗ. Если подпишете без звонка и возникнет recovery situation — будет штраф. Без исключений.</p></div>
+<h3>Типы брокеров, с которыми вы работаете</h3>
+<ul>
+<li><strong>Крупные национальные брокеры</strong> — Echo Global, Coyote, TQL, CH Robinson, Worldwide Express. Большой объём, строгие процессы, ставки нередко ниже.</li>
+<li><strong>Средние брокеры</strong> — региональные игроки. Гибче в переговорах, быстрее регистрация.</li>
+<li><strong>Мелкие/независимые брокеры</strong> — прямой выход на тех, кто принимает решения. Риск: медленная оплата — проверяйте перед первым грузом.</li>
+</ul>
+<h3>Как брокеры находят перевозчиков (и вы находите их)</h3>
+<ul>
+<li><strong>Биржи грузов:</strong> DAT, Truckstop.com, 123Loadboard</li>
+<li><strong>Прямые контакты:</strong> брокеры сами пишут перевозчикам, с которыми работали раньше</li>
+<li><strong>CARGO ETL:</strong> система автоматически получает письма брокеров</li>
+</ul>
+<h3>Приоритеты брокера</h3>
+<ul>
+<li>Закрыть груз быстро (у грузоотправителя дедлайн)</li>
+<li>Надёжный перевозчик — без опозданий и срывов доставки</li>
+<li>Минимум проблем — без постоянных звонков и неожиданных изменений цены</li>
+<li>Документы вовремя — подписанный RC, быстрая отправка POD</li>
+</ul>
+<blockquote>Брокер, который вам доверяет, отдаёт груз без поиска альтернатив. Выстроить это доверие — долгосрочная цель каждых брокерских отношений.</blockquote><figure><img src="/img-proxy/wikipedia/commons/6/6a/Testing_output_from_call_center_operator_headset.jpg" alt="Гарнитура оператора — оборудование диспетчера" loading="lazy" /><figcaption>Гарнитура — основной инструмент диспетчера. Большая часть коммуникации с брокерами происходит по телефону</figcaption></figure>
+
+    <h3>Золотые правила коммуникации</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#059669;color:white">
+        <th style="padding:10px;text-align:center;border-radius:8px 8px 0 0" colspan="2">✅ ДЕЛАЙТЕ</th>
+      </tr>
+      <tr style="background:#f0fdf4"><td style="padding:8px;border-bottom:1px solid #bbf7d0">🟢</td><td style="padding:8px;border-bottom:1px solid #bbf7d0">Обновляйте брокера проактивно — даже если новости плохие</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #bbf7d0">🟢</td><td style="padding:8px;border-bottom:1px solid #bbf7d0">Давайте реалистичные ETA, никогда оптимистичные</td></tr>
+      <tr style="background:#f0fdf4"><td style="padding:8px;border-bottom:1px solid #bbf7d0">🟢</td><td style="padding:8px;border-bottom:1px solid #bbf7d0">Обновления каждые 2 часа на длинных рейсах</td></tr>
+      <tr><td style="padding:8px">🟢</td><td style="padding:8px">Используйте шаблоны email на каждом этапе</td></tr>
+    </table>
+    <table style="width:100%;border-collapse:collapse;margin:0 0 16px 0;font-size:14px">
+      <tr style="background:#dc2626;color:white">
+        <th style="padding:10px;text-align:center;border-radius:8px 8px 0 0" colspan="2">❌ НЕ ДЕЛАЙТЕ</th>
+      </tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">🔴</td><td style="padding:8px;border-bottom:1px solid #fecaca">Замолкать при проблемах</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #fecaca">🔴</td><td style="padding:8px;border-bottom:1px solid #fecaca">Обещать нереальные ETA</td></tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #fecaca">🔴</td><td style="padding:8px;border-bottom:1px solid #fecaca">Ждать пока брокер позвонит за обновлением</td></tr>
+      <tr><td style="padding:8px">🔴</td><td style="padding:8px">Называть водителя по имени брокеру</td></tr>
+    </table>
+    <blockquote><strong>💡 Помните:</strong> Даже 10+ часовые задержки прощаются, если брокер постоянно в курсе, а ваш ETA реалистичен.</blockquote>`,
+      quiz: {
+        questions: [
+          { id: '6-1-q1', text: "What MUST you do before signing the RC?", options: ["Check the rate matches what you negotiated", "Call the driver and confirm they are still doing this load", "Send the RC to the broker for review", "Create the load in Cargo ETL"], correctIndex: 1 },
+          { id: '6-1-q2', text: "What happens if you sign the RC without calling the driver first and they can't go?", options: ["Nothing — you simply cancel the load", "You create a recovery situation and will be penalized", "The broker automatically finds another carrier", "You get a warning but no penalty on the first offense"], correctIndex: 1 },
+          { id: '6-1-q3', text: "What is the broker's top priority when posting a load?", options: ["Finding the cheapest carrier on the market", "Maximizing their profit margin on every load", "Covering the load quickly with a reliable carrier who delivers without issues", "Building a relationship with the dispatcher"], correctIndex: 2 },
+          { id: '6-1-q4', text: "Which system automatically pulls broker emails and shows loads in real time?", options: ["DAT load board", "Truckstop.com", "CARGO ETL", "Gmail directly"], correctIndex: 2 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '6-1-q1-ru', text: "Что вы ОБЯЗАНЫ сделать до подписания RC?", options: ["Проверить, что ставка совпадает с согласованной", "Позвонить водителю и убедиться, что он везёт этот груз", "Отправить RC брокеру на проверку", "Создать груз в Cargo ETL"], correctIndex: 1 },
+          { id: '6-1-q2-ru', text: "Что произойдёт, если подписать RC без звонка водителю, а он не сможет ехать?", options: ["Ничего — просто отменяете груз", "Создаётся recovery situation и будет штраф", "Брокер автоматически найдёт другого перевозчика", "Получите предупреждение, но без штрафа в первый раз"], correctIndex: 1 },
+          { id: '6-1-q3-ru', text: "Главный приоритет брокера при размещении груза?", options: ["Найти самого дешёвого перевозчика", "Максимизировать свою маржу", "Быстро закрыть груз надёжным перевозчиком, который доставит без проблем", "Выстроить отношения с диспетчером"], correctIndex: 2 },
+          { id: '6-1-q4-ru', text: "Какая система автоматически получает письма брокеров и показывает грузы в реальном времени?", options: ["Биржа DAT", "Truckstop.com", "CARGO ETL", "Gmail напрямую"], correctIndex: 2 },
+        ],
+      },
+    },
+
+    '6-2': {
+      type: 'text',
+      body: `<h2>Full Load Workflow: From Bid to Delivery</h2>
+<h3>Phase 1 — Bidding and Booking</h3>
+<ol>
+<li>Place a bid on a load.</li>
+<li>Receive confirmation from the broker. Phrases like <strong>"Send it over"</strong> mean the load is booked.</li>
+<li>Immediately provide driver info: <strong>driver's name and phone number</strong>.</li>
+<li>Tell the broker you are <strong>"standing by for the RC"</strong>.</li>
+<li>Receive the email from the broker with the RC, BOL, and any notes.</li>
+</ol>
+<div class="bg-red-50 border-l-4 border-red-500 px-4 py-3 my-4 rounded-r-xl"><p class="font-bold text-red-700 text-sm">⚠️ Before signing the RC: CALL THE DRIVER. Confirm they are doing this load. No exceptions.</p></div>
+<h3>Phase 2 — Broker Setup (if not set up yet)</h3>
+<ol start="6">
+<li>Identify the setup type: online portal (Highway, MyCarrierPackets) or PDF contract.</li>
+<li><strong>PDF contract:</strong> dispatcher can sign immediately.</li>
+<li><strong>Online portal:</strong> contact your operations manager in chat (or call if offline). Send them the broker's setup link. Also forward the setup email to <strong>info.shiftline@gmail.com</strong>.</li>
+</ol>
+<p><strong>Setup email template to send the broker:</strong></p>
+<blockquote>Dear [Broker's representative name],<br/><br/>We would be happy to complete the carrier setup so we can work together on future shipments. We look forward to establishing a working relationship.<br/><br/>Attached is the setup package.<br/><br/>Best regards,<br/>[Your name]</blockquote>
+<p>⚠️ If the broker asks for the truck's VIN — provide the <strong>Highway VIN</strong>, not the real VIN. Ask in chat if unsure.</p>
+<h3>Phase 3 — RC Signing and Cargo ETL</h3>
+<ol start="9">
+<li><strong>Sign the RC</strong> using <strong>sejda.com/pdf-editor</strong> — the company standard tool for digital signatures.</li>
+<li><strong>Create the load in Cargo ETL:</strong> open Cargo ETL → Bids → open your bid → click <strong>"Accept"</strong>.</li>
+<li>In the Orders tab: verify origin, destination, driver pay, and broker pay.</li>
+<li>Send the broker: driver's name, unit number, and phone number.</li>
+<li>Upload the signed RC into Cargo ETL.</li>
+</ol>
+<h3>Phase 4 — Pickup</h3>
+<ol start="14">
+<li>Inform the broker how far the driver is: <em>"30-35 minutes away."</em></li>
+<li>When the driver arrives: message the broker <strong>"The unit is on site."</strong></li>
+<li>Wait for the driver to be loaded.</li>
+<li>Once loaded: driver sends you cargo photos and the BOL. Forward them to the broker.</li>
+<li>Ask the broker for <strong>"Good to go"</strong> before the driver leaves the facility.</li>
+</ol>
+<h3>Phase 5 — Transit</h3>
+<ol start="19">
+<li>Monitor tracking via the order page in Cargo ETL.</li>
+<li>On long hauls (1,000+ miles): send broker updates <strong>every 2 hours</strong>.</li>
+<li>Update format: <em>if moving</em> — current location + <strong>"Rolling"</strong>. <em>If stopped</em> — location + reason (e.g., "Unit stopped for a quick snack and gas").</li>
+</ol>
+<h3>Phase 6 — Delivery and Closeout</h3>
+<ol start="22">
+<li>When driver arrives: message the broker <strong>"The unit is on site."</strong></li>
+<li>Once unloaded: driver sends POD photo. <strong>POD is mandatory — without it, payment will not be received.</strong></li>
+<li>Forward POD and unloading photos to the broker.</li>
+<li>Wait for broker's <strong>"Good to go"</strong> signal.</li>
+<li>Release the driver.</li>
+</ol><h3>📧 Complete Email Template Sequence</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:13px">
+        <tr style="background:#1e293b;color:white">
+          <th style="padding:8px;text-align:left;border-radius:8px 0 0 0">Stage</th>
+          <th style="padding:8px;text-align:left;border-radius:0 8px 0 0">Template</th>
+        </tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📌 Book It</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver info: [Name], [Phone]"</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">✍️ RC Signed</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Signed RC attached. Added my team, please reply all"</td></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🚀 Sending Driver</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"ETA [time]. I will keep you posted"</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">📍 PU Arrived</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver arrived at pick up. Will let you know once loaded"</td></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📦 PU Loaded</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver loaded. BOL attached. Can we roll to delivery?"</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">🛣️ Departed (G2G)</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver headed to delivery. ETA [time]. I will keep you posted"</td></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📍 DEL Arrived</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver arrived at delivery. POD as soon as I get it"</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">✅ DEL Unloaded</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver unloaded. POD attached. Signed by: [name]. Can we release?"</td></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-radius:0 0 8px 8px">🤝 Thank You</td><td style="padding:8px;border-radius:0 0 8px 8px">"We appreciate you selecting our business. Happy to work more!"</td></tr>
+      </table>
+      <blockquote><strong>💡 Pro Tip:</strong> Save these as email templates in your client. One-click sending saves 5+ minutes per load — that adds up to hours per week.</blockquote>
+
+      <figure><img src="/img-proxy/wikipedia/commons/f/f0/Person_writing_in_notebook_while_using_laptop_at_a_modern_workspace.jpg" alt="Dispatcher at workstation managing emails" loading="lazy" /><figcaption>Organized email workflow — the key to professional broker relationships</figcaption></figure>`,
+      bodyRu: `<h2>Полный рабочий процесс: от ставки до доставки</h2>
+<h3>Фаза 1 — Ставка и бронирование</h3>
+<ol>
+<li>Делаете ставку на груз.</li>
+<li>Получаете подтверждение от брокера. Фразы типа <strong>"Send it over"</strong> означают, что груз забронирован.</li>
+<li>Немедленно предоставляете данные водителя: <strong>имя и номер телефона</strong>.</li>
+<li>Сообщаете брокеру, что <strong>"standing by for the RC"</strong>.</li>
+<li>Получаете письмо от брокера с RC, BOL и инструкциями.</li>
+</ol>
+<div class="bg-red-50 border-l-4 border-red-500 px-4 py-3 my-4 rounded-r-xl"><p class="font-bold text-red-700 text-sm">⚠️ До подписания RC: ПОЗВОНИТЕ ВОДИТЕЛЮ. Убедитесь, что он везёт этот груз. Без исключений.</p></div>
+<h3>Фаза 2 — Регистрация у брокера (если не зарегистрированы)</h3>
+<ol start="6">
+<li>Определите тип регистрации: онлайн-портал (Highway, MyCarrierPackets) или PDF-контракт.</li>
+<li><strong>PDF-контракт:</strong> диспетчер может подписать сразу.</li>
+<li><strong>Онлайн-портал:</strong> свяжитесь с менеджером операций в чате (позвоните если нет онлайн). Отправьте ссылку на регистрацию. Также перешлите письмо о регистрации на <strong>info.shiftline@gmail.com</strong>.</li>
+</ol>
+<p><strong>Шаблон письма брокеру для регистрации:</strong></p>
+<blockquote>Dear [Broker's representative name],<br/><br/>We would be happy to complete the carrier setup so we can work together on future shipments. We look forward to establishing a working relationship.<br/><br/>Attached is the setup package.<br/><br/>Best regards,<br/>[Ваше имя]</blockquote>
+<p>⚠️ Если брокер просит VIN трака — указывайте <strong>Highway VIN</strong>, не настоящий VIN. Уточните в чате если не знаете.</p>
+<h3>Фаза 3 — Подписание RC и Cargo ETL</h3>
+<ol start="9">
+<li><strong>Подпишите RC</strong> через <strong>sejda.com/pdf-editor</strong> — стандартный инструмент компании.</li>
+<li><strong>Создайте груз в Cargo ETL:</strong> откройте Cargo ETL → Bids → откройте вашу ставку → нажмите <strong>"Accept"</strong>.</li>
+<li>Во вкладке Orders: проверьте или введите origin, destination, driver pay, broker pay.</li>
+<li>Отправьте брокеру: имя водителя, номер трака, телефон.</li>
+<li>Загрузите подписанный RC в Cargo ETL.</li>
+</ol>
+<h3>Фаза 4 — Загрузка</h3>
+<ol start="14">
+<li>Сообщите брокеру, как далеко водитель: <em>"30-35 минут."</em></li>
+<li>Когда водитель прибыл: напишите брокеру <strong>"The unit is on site."</strong></li>
+<li>Ожидайте загрузки водителя.</li>
+<li>После загрузки: водитель присылает фото груза и BOL. Перешлите брокеру.</li>
+<li>Запросите у брокера <strong>"Good to go"</strong> перед отъездом водителя.</li>
+</ol>
+<h3>Фаза 5 — В пути</h3>
+<ol start="19">
+<li>Отслеживайте через страницу заказа в Cargo ETL.</li>
+<li>На дальних рейсах (1000+ миль): отправляйте обновления брокеру <strong>каждые 2 часа</strong>.</li>
+<li>Формат: <em>едет</em> — текущее местоположение + <strong>"Rolling"</strong>. <em>Стоит</em> — местоположение + причина.</li>
+</ol>
+<h3>Фаза 6 — Доставка и закрытие</h3>
+<ol start="22">
+<li>Когда водитель прибыл: напишите брокеру <strong>"The unit is on site."</strong></li>
+<li>После выгрузки: водитель присылает фото POD. <strong>POD обязателен — без него не будет оплаты.</strong></li>
+<li>Перешлите POD и фото выгрузки брокеру.</li>
+<li>Дождитесь <strong>"Good to go"</strong> от брокера.</li>
+<li>Отпустите водителя.</li>
+</ol><h3>📧 Полная последовательность email-шаблонов</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:13px">
+      <tr style="background:#1e293b;color:white">
+        <th style="padding:8px;text-align:left;border-radius:8px 0 0 0">Этап</th>
+        <th style="padding:8px;text-align:left;border-radius:0 8px 0 0">Шаблон</th>
+      </tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📌 Бронирование</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver info: [Имя], [Телефон]"</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">✍️ RC подписан</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Signed RC attached. Added my team, please reply all"</td></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🚀 Отправка</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"ETA [время]. I will keep you posted"</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">📍 Прибыл на PU</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver arrived at pick up. Will let you know once loaded"</td></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📦 Загружен</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver loaded. BOL attached. Can we roll to delivery?"</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">🛣️ Выехал (G2G)</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver headed to delivery. ETA [время]"</td></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📍 Прибыл на DEL</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver arrived at delivery. POD as soon as I get it"</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">✅ Разгружен</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">"Driver unloaded. POD attached. Signed by: [имя]. Can we release?"</td></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-radius:0 0 8px 8px">🤝 Благодарность</td><td style="padding:8px;border-radius:0 0 8px 8px">"We appreciate you selecting our business. Happy to work more!"</td></tr>
+    </table>
+    <blockquote><strong>💡 Совет:</strong> Сохраните шаблоны в email-клиенте. Отправка в один клик экономит 5+ минут на рейс — за неделю это часы.</blockquote>
+
+    <figure><img src="/img-proxy/wikipedia/commons/f/f0/Person_writing_in_notebook_while_using_laptop_at_a_modern_workspace.jpg" alt="Диспетчер управляет email за рабочим столом" loading="lazy" /><figcaption>Организованный email-процесс — ключ к профессиональным отношениям с брокерами</figcaption></figure>`,
+      quiz: {
+        questions: [
+          { id: '6-2-q1', text: "Broker says \"Send it over!\" What do you do immediately?", options: ["Say \"Standing by for the RC\" and wait", "Provide driver name and phone number, then say \"standing by for the RC\"", "Sign the RC and create the load in Cargo ETL", "Call the operations manager to inform them"], correctIndex: 1 },
+          { id: '6-2-q2', text: "The broker sends an online portal link for carrier setup. What is the correct action?", options: ["Sign up on the portal yourself immediately", "Contact your operations manager and forward the portal link", "Tell the broker you'll handle it after delivery", "Skip setup — forward your MC number by email"], correctIndex: 1 },
+          { id: '6-2-q3', text: "Which tool does the company use to sign the RC digitally?", options: ["DocuSign", "Adobe Acrobat", "sejda.com/pdf-editor", "HelloSign"], correctIndex: 2 },
+          { id: '6-2-q4', text: "What must happen before the driver can leave the pickup facility?", options: ["Driver sends the POD photo", "You receive broker's \"Good to go\" after sending cargo photos and BOL", "You upload the signed RC to Cargo ETL", "Driver signs the Rate Confirmation"], correctIndex: 1 },
+          { id: '6-2-q5', text: "How often must you send broker updates on a 1,000-mile haul?", options: ["Every 30 minutes", "Once at pickup and once at delivery", "Every 2 hours", "Only when the broker asks"], correctIndex: 2 },
+          { id: '6-2-q6', text: "The broker asks for the truck's VIN. What VIN do you provide?", options: ["The real VIN from the truck's registration", "The Highway VIN — ask in chat if unsure", "Any VIN from a similar truck model", "Tell the broker VIN is confidential"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '6-2-q1-ru', text: "Брокер говорит \"Send it over!\" Что делаете немедленно?", options: ["Говорите \"Standing by for the RC\" и ждёте", "Предоставляете имя и телефон водителя, затем сообщаете что ждёте RC", "Подписываете RC и создаёте груз в Cargo ETL", "Звоните менеджеру операций сообщить о грузе"], correctIndex: 1 },
+          { id: '6-2-q2-ru', text: "Брокер прислал ссылку на онлайн-портал для регистрации. Правильное действие?", options: ["Самостоятельно регистрируетесь на портале", "Связываетесь с менеджером операций и пересылаете ссылку", "Скажете брокеру, что займётесь после доставки", "Пропускаете портал — присылаете MC номер по email"], correctIndex: 1 },
+          { id: '6-2-q3-ru', text: "Какой инструмент использует компания для цифровой подписи RC?", options: ["DocuSign", "Adobe Acrobat", "sejda.com/pdf-editor", "HelloSign"], correctIndex: 2 },
+          { id: '6-2-q4-ru', text: "Что должно произойти до того, как водитель покинет место загрузки?", options: ["Водитель присылает фото POD", "Вы получаете \"Good to go\" от брокера после отправки фото груза и BOL", "Вы загружаете подписанный RC в Cargo ETL", "Водитель подписывает Rate Confirmation"], correctIndex: 1 },
+          { id: '6-2-q5-ru', text: "Как часто нужно отправлять обновления брокеру на рейсе 1000 миль?", options: ["Каждые 30 минут", "Один раз при загрузке и один при доставке", "Каждые 2 часа", "Только когда брокер сам спрашивает"], correctIndex: 2 },
+          { id: '6-2-q6-ru', text: "Брокер просит VIN трака. Какой VIN предоставляете?", options: ["Настоящий VIN из регистрации трака", "Highway VIN — уточните в чате если не знаете", "Любой VIN от аналогичной модели трака", "Говорите брокеру что VIN конфиденциален"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '6-3': {
+      type: 'text',
+      body: `<h2>Demo: Broker Communication in Practice</h2>
+<p>This lesson walks you through the key communication moments of a real load — from booking to delivery. Each phase has a specific phrase or action that is standard in the industry.</p>
+<h3>Key Phrases You Must Know</h3>
+<ul>
+<li><strong>"Send it over"</strong> — broker's confirmation that the load is yours. Respond immediately with driver info.</li>
+<li><strong>"Standing by for the RC"</strong> — your confirmation that you're ready to receive and sign the Rate Confirmation.</li>
+<li><strong>"The unit is on site"</strong> — standard arrival notification. Use at pickup AND delivery.</li>
+<li><strong>"Good to go"</strong> — broker's clearance. Never let the driver leave without it.</li>
+<li><strong>"Rolling"</strong> — transit update. Send with current location every 2 hours on long hauls.</li>
+</ul>
+<h3>The Setup Email Template</h3>
+<p>When a broker is not set up with your company, use this exact template:</p>
+<blockquote>Dear [Broker's representative name],<br/><br/>We would be happy to complete the carrier setup so we can work together on future shipments. We look forward to establishing a working relationship.<br/><br/>Attached is the setup package.<br/><br/>Best regards,<br/>[Your name]</blockquote>
+<h3>How to Sign the RC</h3>
+<p>Go to <strong>sejda.com/pdf-editor</strong> → upload the RC PDF → add your signature → download → send back to the broker.</p>
+<h3>Practice: Broker Communication Simulation</h3>
+<p>Go through all 9 steps of a real load — from the moment the broker says "Send it over" to the final POD delivery. Choose the correct action at each step.</p>`,
+      bodyRu: `<h2>Демо: Общение с брокером на практике</h2>
+<p>Этот урок проводит вас через ключевые моменты коммуникации в реальном грузе — от бронирования до доставки. На каждом этапе есть конкретная фраза или действие, которое является стандартом в индустрии.</p>
+<h3>Ключевые фразы, которые нужно знать</h3>
+<ul>
+<li><strong>"Send it over"</strong> — подтверждение брокера, что груз ваш. Немедленно ответьте данными водителя.</li>
+<li><strong>"Standing by for the RC"</strong> — ваше подтверждение готовности получить и подписать RC.</li>
+<li><strong>"The unit is on site"</strong> — стандартное уведомление о прибытии. Используйте при загрузке И при доставке.</li>
+<li><strong>"Good to go"</strong> — разрешение брокера. Никогда не отпускайте водителя без него.</li>
+<li><strong>"Rolling"</strong> — обновление в пути. Отправляйте с текущей позицией каждые 2 часа на дальних рейсах.</li>
+</ul>
+<h3>Шаблон письма для регистрации</h3>
+<p>Когда брокер не зарегистрировал вашу компанию, используйте этот точный шаблон:</p>
+<blockquote>Dear [Broker's representative name],<br/><br/>We would be happy to complete the carrier setup so we can work together on future shipments. We look forward to establishing a working relationship.<br/><br/>Attached is the setup package.<br/><br/>Best regards,<br/>[Ваше имя]</blockquote>
+<h3>Как подписать RC</h3>
+<p>Перейдите на <strong>sejda.com/pdf-editor</strong> → загрузите PDF RC → добавьте подпись → скачайте → отправьте брокеру.</p>
+<h3>Практика: Симуляция общения с брокером</h3>
+<p>Пройдите все 9 шагов реального груза — с момента, когда брокер говорит "Send it over", до финальной отправки POD. Выбирайте правильное действие на каждом шаге.</p>`,
+      phoneCall: true,
+      quiz: {
+        questions: [
+          { id: '6-3-q1', text: "Broker says \"Send it over.\" What is your immediate next message?", options: ["\"Standing by for the RC.\"", "Driver name and phone number, then \"standing by for the RC.\"", "\"Great, I'll have the RC signed in 10 minutes.\"", "\"Can you confirm the rate one more time?\""], correctIndex: 1 },
+          { id: '6-3-q2', text: "Driver arrived at the pickup warehouse. What do you message the broker?", options: ["\"Driver is at the warehouse.\"", "\"My driver just pulled up.\"", "\"The unit is on site.\"", "\"ETA: arrived.\""], correctIndex: 2 },
+          { id: '6-3-q3', text: "It's been 2 hours since your last update on a 900-mile haul. Driver is moving. What do you send?", options: ["\"All good, driver is rolling.\"", "\"Update on load #[X]: current location — [City, State]. Status: Rolling.\"", "\"Driver is on the way, no issues.\"", "Nothing — wait for the broker to ask"], correctIndex: 1 },
+          { id: '6-3-q4', text: "Driver is loaded and ready to leave. What must you do before releasing him?", options: ["Tell him to go — the RC is signed, that's enough", "Send cargo photos and BOL to broker and wait for \"Good to go\"", "Upload the signed RC to Cargo ETL", "Call the broker to verbally confirm the load is picked up"], correctIndex: 1 },
+          { id: '6-3-q5', text: "Driver delivered and sent you a POD photo. What is the correct sequence?", options: ["Release driver, then send POD when you have time", "Forward POD + unloading photos to broker → wait for \"Good to go\" → release driver", "Send POD to broker and release driver at the same time", "Ask the consignee to send POD directly to the broker"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '6-3-q1-ru', text: "Брокер говорит \"Send it over.\" Ваше следующее немедленное сообщение?", options: ["\"Standing by for the RC.\"", "Имя и телефон водителя, затем \"standing by for the RC.\"", "\"Отлично, подпишу RC через 10 минут.\"", "\"Можете ещё раз подтвердить ставку?\""], correctIndex: 1 },
+          { id: '6-3-q2-ru', text: "Водитель прибыл на склад загрузки. Что пишете брокеру?", options: ["\"Водитель на складе.\"", "\"Мой водитель только что подъехал.\"", "\"The unit is on site.\"", "\"ETA: прибыл.\""], correctIndex: 2 },
+          { id: '6-3-q3-ru', text: "Прошло 2 часа с последнего обновления, рейс 900 миль, водитель едет. Что отправляете?", options: ["\"Всё хорошо, водитель едет.\"", "\"Обновление по грузу #[X]: текущая позиция — [Город, Штат]. Статус: Rolling.\"", "\"Водитель в пути, проблем нет.\"", "Ничего — ждёте пока брокер спросит"], correctIndex: 1 },
+          { id: '6-3-q4-ru', text: "Водитель загрузился и готов выехать. Что нужно сделать до того, как его отпустить?", options: ["Говорите ехать — RC подписан, этого достаточно", "Отправить фото груза и BOL брокеру и дождаться \"Good to go\"", "Загрузить подписанный RC в Cargo ETL", "Позвонить брокеру и устно подтвердить загрузку"], correctIndex: 1 },
+          { id: '6-3-q5-ru', text: "Водитель доставил и прислал фото POD. Правильная последовательность?", options: ["Отпустить водителя, потом отправить POD когда будет время", "Переслать POD + фото выгрузки брокеру → дождаться \"Good to go\" → отпустить водителя", "Отправить POD брокеру и отпустить водителя одновременно", "Попросить получателя отправить POD брокеру напрямую"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '6-4': {
+      type: 'text',
+      body: `<h2>Chapter 6 — Final Practice Test: Communication with Brokers</h2>
+<p>This test covers broker types, carrier packet setup, Rate Confirmation review and signing, phone and email communication, rate negotiation, and building broker relationships. 20 questions. Pass threshold: 18/20.</p>`,
+      bodyRu: `<h2>Глава 6 — Итоговый тест: Общение с брокерами</h2>
+<p>Тест охватывает типы брокеров, оформление Carrier Packet, проверку и подписание Rate Confirmation, телефонное и email-общение, переговоры о ставках и построение отношений с брокерами. 20 вопросов. Порог прохождения: 18/20.</p>`,
+      quiz: {
+        questions: [
+          { id: '6-4-q1', text: "What government authority does a freight broker need to legally operate?", options: ["DOT Safety Rating", "FMCSA Broker Authority (MC number with broker designation)", "State transportation license", "ICC permit"], correctIndex: 1 },
+          { id: '6-4-q2', text: "What is the primary difference between a broker and a carrier?", options: ["Brokers can haul freight, carriers cannot negotiate rates", "Brokers are intermediaries who don't own trucks; carriers own trucks and physically haul freight", "Brokers set freight rates; carriers enforce payment terms", "There is no legal difference — the terms are interchangeable"], correctIndex: 1 },
+          { id: '6-4-q3', text: "Which three documents are always required in a standard Carrier Packet?", options: ["Driver's CDL, truck registration, and route history", "MC Authority, Certificate of Insurance, and W-9", "BOL template, POD form, and Rate Confirmation", "FMCSA inspection report, GPS log, and insurance card"], correctIndex: 1 },
+          { id: '6-4-q4', text: "What does NOA stand for and when is it included in a Carrier Packet?", options: ["Notice of Availability — when the truck is ready for dispatch", "Notice of Assignment — when the carrier uses a factoring company for payments", "Notice of Accident — when there was a recent claim on the insurance", "Notice of Authorization — when the driver is new"], correctIndex: 1 },
+          { id: '6-4-q5', text: "A broker uses MyCarrierPackets.com. What should you do?", options: ["Tell the broker to switch to email — portals are unreliable", "Upload your carrier documents through the portal link they send you", "Ask the broker to enter your information for you", "Skip the portal and email documents directly — portals are optional"], correctIndex: 1 },
+          { id: '6-4-q6', text: "You receive an RC. The pickup address matches but the delivery city is wrong. What do you do?", options: ["Dispatch the driver — city errors get corrected at the warehouse", "Contact the broker immediately to issue a corrected RC before signing or dispatching", "Sign the RC and email the correct delivery address separately", "Have the driver verify the address at pickup"], correctIndex: 1 },
+          { id: '6-4-q7', text: "The RC shows \"Net 30\" payment terms. What does this mean?", options: ["Payment is made 30 minutes after delivery", "Payment is made 30 days after all documents (RC + POD) are submitted", "The carrier gets 30% of the rate upfront", "The broker has 30 days to dispute the rate"], correctIndex: 1 },
+          { id: '6-4-q8', text: "What is a \"quick pay\" option on an RC?", options: ["A broker service to expedite pickup scheduling", "An option to receive payment faster than Net 30, usually within 2–3 days, for a small fee (1–3%)", "A premium rate for same-day loads", "An automatic payment system that requires no invoice"], correctIndex: 1 },
+          { id: '6-4-q9', text: "You verbally agreed to $1,950 with a broker. The RC arrives showing $1,950 with a fuel surcharge of $0.10/mile. You never discussed fuel surcharge. What do you do?", options: ["Accept — fuel surcharge is always a broker bonus", "Call the broker to discuss the surcharge. If you want it removed or adjusted, negotiate before signing.", "Sign and ignore the surcharge line — it won't affect payment", "Add your own surcharge terms in the email when returning the signed RC"], correctIndex: 1 },
+          { id: '6-4-q10', text: "What is TONU and when should it appear on an RC?", options: ["Truck On Non-Urgent loads — standard language on all RCs", "Truck Ordered Not Used — agreed payment if the broker cancels after the driver is dispatched", "Total Outstanding Non-payment — a penalty clause for late payment", "Time Of Notified Unloading — estimated unload time"], correctIndex: 1 },
+          { id: '6-4-q11', text: "Your truck is 180 miles from the pickup point. How should this affect your rate negotiation?", options: ["It shouldn't — dead miles are the carrier's problem", "Factor dead miles into your rate by adding the cost of positioning to your target", "Always refuse loads more than 100 miles away", "Dead miles are reimbursed automatically by all brokers"], correctIndex: 1 },
+          { id: '6-4-q12', text: "A broker offers $1,400. Your minimum is $1,600. You counter at $1,800. They come back at $1,550. What is the correct response?", options: ["Accept $1,550 — you already countered once and can't push further", "Decline — only $1,600 or above is acceptable. Politely walk away.", "Counter again at $1,700 and keep negotiating until they agree", "Accept $1,550 and charge a fuel surcharge separately to make up the difference"], correctIndex: 1 },
+          { id: '6-4-q13', text: "Which of the following is the correct way to open a phone call to a broker about a posted load?", options: ["\"Do you have any loads available?\" — keep it open-ended", "\"Hi, this is [Name] from [Carrier], calling about load #[X] from [City A] to [City B] — I have a [truck type] available in [city], ready [date].\"", "\"I saw your load on DAT, what's the rate?\" — brokers appreciate directness", "\"Can you hold that load for me? I'll call back in an hour.\""], correctIndex: 1 },
+          { id: '6-4-q14', text: "Mini-case: You booked a load at $2,100. Two hours later the driver tells you he can't make the pickup. You need to find a replacement truck or cancel. What do you do first?", options: ["Cancel with the broker by text — quick and easy", "Immediately call the broker, explain the situation, give a realistic ETA for a solution, and offer options", "Wait until the scheduled pickup time and then notify", "Have the driver call the broker directly"], correctIndex: 1 },
+          { id: '6-4-q15', text: "A broker you work with regularly sends you a load but the rate is $300 below market. How do you handle this?", options: ["Take it — loyalty to regular brokers is more important than rate", "Politely decline and explain your current market rate. Offer to take it if they can get closer.", "Take it and complain after delivery", "Block the broker — they clearly don't value your service"], correctIndex: 1 },
+          { id: '6-4-q16', text: "What is the fastest digital method to sign and return an RC?", options: ["Print, sign by hand, scan, and email back", "Use a digital signature platform (DocuSign, HelloSign, Adobe Sign) via the link the broker sends", "Type \"I accept\" in an email reply with the RC attached", "Call the broker and give verbal acceptance only"], correctIndex: 1 },
+          { id: '6-4-q17', text: "Your driver delivered the load 2 hours ago. The broker emailed asking for the POD. What is the correct response time?", options: ["Within 24 hours — brokers understand drivers need time to rest", "As soon as possible — get the POD from the driver and send to the broker same day", "Within 3–5 business days — standard industry POD timeline", "The broker should request the POD from the consignee directly"], correctIndex: 1 },
+          { id: '6-4-q18', text: "What information must you give the driver after signing the RC?", options: ["Only the pickup address and rate", "Pickup address and time, delivery address and window, broker load number, and special instructions", "Just the RC PDF — driver is responsible for reading it", "Broker contact and load number only"], correctIndex: 1 },
+          { id: '6-4-q19', text: "Mini-case: A broker you've never worked with before offers a great rate but pays Net 45. What should you consider?", options: ["Always accept great rates regardless of payment terms", "Verify the broker's credit rating on DAT or Carrier411, check reviews, and factor the 45-day cash flow impact into your decision", "Refuse any broker that isn't Net 30", "Ask for 50% upfront before dispatch"], correctIndex: 1 },
+          { id: '6-4-q20', text: "Mini-case: You negotiated $1,750 with a broker. RC arrives with correct rate, correct route, but the equipment says \"Dry Van 53ft\" and your truck is a 26ft Straight. What do you do?", options: ["Sign it — the rate is correct, equipment is close enough", "Call the broker immediately to correct the equipment type before signing. Wrong equipment voids your authority to haul.", "Add a note in the email that your truck is actually 26ft Straight", "Dispatch the driver and correct the paperwork at pickup"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '6-4-q1-ru', text: "Какой государственный документ нужен грузовому брокеру для легальной работы?", options: ["Рейтинг безопасности DOT", "FMCSA Broker Authority (MC номер с обозначением брокера)", "Государственная транспортная лицензия", "Разрешение ICC"], correctIndex: 1 },
+          { id: '6-4-q2-ru', text: "В чём принципиальное отличие брокера от перевозчика?", options: ["Брокеры могут перевозить грузы, перевозчики не могут договариваться о ставках", "Брокеры — посредники без траков; перевозчики владеют траками и физически везут груз", "Брокеры устанавливают ставки; перевозчики контролируют условия оплаты", "Юридической разницы нет — термины взаимозаменяемы"], correctIndex: 1 },
+          { id: '6-4-q3-ru', text: "Какие три документа всегда входят в стандартный Carrier Packet?", options: ["CDL водителя, регистрация трака и история маршрутов", "MC Authority, Сертификат страхования и W-9", "Шаблон BOL, форма POD и Rate Confirmation", "Отчёт об инспекции FMCSA, GPS-лог и страховая карточка"], correctIndex: 1 },
+          { id: '6-4-q4-ru', text: "Что означает NOA и когда он включается в Carrier Packet?", options: ["Notice of Availability — когда трак готов к отправке", "Notice of Assignment — когда перевозчик использует факторинговую компанию для оплат", "Notice of Accident — когда был недавний страховой случай", "Notice of Authorization — когда водитель новый"], correctIndex: 1 },
+          { id: '6-4-q5-ru', text: "Брокер использует MyCarrierPackets.com. Что делать?", options: ["Попросить брокера перейти на email — порталы ненадёжны", "Загрузить документы перевозчика через ссылку в присланном портале", "Попросить брокера самому внести ваши данные", "Пропустить портал и отправить документы по email — порталы необязательны"], correctIndex: 1 },
+          { id: '6-4-q6-ru', text: "Вы получили RC. Адрес загрузки верный, но город доставки указан неправильно. Что делаете?", options: ["Отправляете водителя — ошибки в городе исправляются на складе", "Немедленно связываетесь с брокером для исправления RC до подписания и отправки водителя", "Подписываете RC и отправляете правильный адрес доставки отдельным письмом", "Просите водителя уточнить адрес при загрузке"], correctIndex: 1 },
+          { id: '6-4-q7-ru', text: "В RC указаны условия оплаты \"Net 30\". Что это означает?", options: ["Оплата через 30 минут после доставки", "Оплата через 30 дней после подачи всех документов (RC + POD)", "Перевозчик получает 30% ставки авансом", "У брокера есть 30 дней на оспаривание ставки"], correctIndex: 1 },
+          { id: '6-4-q8-ru', text: "Что такое \"quick pay\" в RC?", options: ["Брокерский сервис для ускорения расписания загрузки", "Опция получить оплату быстрее Net 30, обычно в течение 2–3 дней, за небольшую комиссию (1–3%)", "Повышенная ставка для грузов в тот же день", "Автоматическая система оплаты без инвойса"], correctIndex: 1 },
+          { id: '6-4-q9-ru', text: "Вы устно согласились на $1 950. RC приходит с $1 950 и надбавкой за топливо $0,10/миля. Надбавку вы не обсуждали. Что делаете?", options: ["Принимаете — надбавка за топливо всегда бонус от брокера", "Звоните брокеру для обсуждения надбавки. Если хотите убрать или изменить — переговоры до подписания.", "Подписываете и игнорируете строку надбавки — на оплату не влияет", "Добавляете свои условия надбавки в письме при возврате подписанного RC"], correctIndex: 1 },
+          { id: '6-4-q10-ru', text: "Что такое TONU и когда оно должно быть в RC?", options: ["Truck On Non-Urgent — стандартная формулировка во всех RC", "Truck Ordered Not Used — согласованная выплата, если брокер отменяет груз после отправки водителя", "Total Outstanding Non-payment — штрафная оговорка за просрочку оплаты", "Time Of Notified Unloading — расчётное время выгрузки"], correctIndex: 1 },
+          { id: '6-4-q11-ru', text: "Ваш трак в 180 милях от точки загрузки. Как это влияет на переговоры о ставке?", options: ["Никак — пустые мили это проблема перевозчика", "Включите пустые мили в ставку, добавив стоимость позиционирования к вашей цели", "Всегда отказывайтесь от грузов дальше 100 миль", "Пустые мили автоматически компенсируются всеми брокерами"], correctIndex: 1 },
+          { id: '6-4-q12-ru', text: "Брокер предлагает $1 400. Ваш минимум $1 600. Вы предлагаете $1 800. Они приходят на $1 550. Правильный ответ?", options: ["Принять $1 550 — вы уже делали контроффер и больше нажимать нельзя", "Отказаться — только $1 600 и выше приемлемо. Вежливо уйти.", "Предложить $1 700 и продолжать торговаться до согласия", "Принять $1 550 и добавить надбавку за топливо отдельно чтобы компенсировать"], correctIndex: 1 },
+          { id: '6-4-q13-ru', text: "Правильное начало телефонного звонка брокеру по размещённому грузу?", options: ["\"У вас есть грузы?\" — оставьте открытый вопрос", "\"Hi, this is [Имя] from [Компания], calling about load #[X] from [Город A] to [Город B] — I have a [тип трака] available in [город], ready [дата].\"", "\"Видел ваш груз на DAT, какая ставка?\" — брокеры ценят прямоту", "\"Можете придержать этот груз? Перезвоню через час.\""], correctIndex: 1 },
+          { id: '6-4-q14-ru', text: "Кейс: Вы забронировали груз за $2 100. Через два часа водитель говорит, что не сможет приехать на загрузку. Нужно найти замену или отменить. Что делаете первым?", options: ["Отменяете у брокера по SMS — быстро и просто", "Немедленно звоните брокеру, объясняете ситуацию, даёте реальный срок решения и предлагаете варианты", "Ждёте запланированного времени загрузки, потом уведомляете", "Пусть водитель сам позвонит брокеру"], correctIndex: 1 },
+          { id: '6-4-q15-ru', text: "Постоянный брокер присылает груз с ценой на $300 ниже рынка. Как поступаете?", options: ["Берёте — лояльность к постоянным брокерам важнее ставки", "Вежливо отказываете и объясняете вашу текущую рыночную ставку. Предлагаете взять если смогут приблизиться.", "Берёте и жалуетесь после доставки", "Блокируете брокера — они явно не ценят ваш сервис"], correctIndex: 1 },
+          { id: '6-4-q16-ru', text: "Самый быстрый цифровой способ подписать и вернуть RC?", options: ["Распечатать, подписать вручную, отсканировать и отправить по email", "Использовать платформу цифровой подписи (DocuSign, HelloSign, Adobe Sign) по ссылке от брокера", "Написать \"I accept\" в ответном письме с прикреплённым RC", "Позвонить брокеру и дать только устное согласие"], correctIndex: 1 },
+          { id: '6-4-q17-ru', text: "Ваш водитель доставил груз 2 часа назад. Брокер написал и просит POD. Какое правильное время ответа?", options: ["В течение 24 часов — брокеры понимают, что водителям нужен отдых", "Как можно скорее — получить POD от водителя и отправить брокеру в тот же день", "В течение 3–5 рабочих дней — стандартный отраслевой срок", "Брокер должен запросить POD у получателя напрямую"], correctIndex: 1 },
+          { id: '6-4-q18-ru', text: "Какую информацию нужно передать водителю после подписания RC?", options: ["Только адрес загрузки и ставку", "Адрес и время загрузки, адрес и окно доставки, номер груза брокера и особые инструкции", "Просто PDF RC — водитель сам читает", "Только контакт брокера и номер груза"], correctIndex: 1 },
+          { id: '6-4-q19-ru', text: "Кейс: Незнакомый брокер предлагает отличную ставку, но платит Net 45. Что учитываете?", options: ["Всегда берите хорошие ставки, условия оплаты неважны", "Проверьте кредитный рейтинг брокера на DAT или Carrier411, отзывы, и оцените влияние 45-дневного кэшфлоу на решение", "Отказывайте всем, кто не платит Net 30", "Просите 50% аванса до отправки водителя"], correctIndex: 1 },
+          { id: '6-4-q20-ru', text: "Кейс: Вы согласовали $1 750. RC с правильной ставкой и маршрутом, но тип оборудования — \"Dry Van 53ft\", а ваш трак 26ft Straight. Что делаете?", options: ["Подписываете — ставка верная, оборудование близкое", "Немедленно звоните брокеру исправить тип оборудования до подписания. Неверное оборудование лишает вас права везти груз.", "Добавляете примечание в письме, что ваш трак 26ft Straight", "Отправляете водителя и исправляете документы при загрузке"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '7-1': {
+      type: 'text',
+      body: `<h2>The Dispatcher-Driver Relationship</h2>
+<p>The driver is your hands on the ground. No matter how well you book a load, the outcome depends entirely on how well you communicate with your driver. A dispatcher who gives clear instructions, responds fast, and handles problems calmly builds drivers who trust them — and trust leads to fewer issues.</p>
+<h3>Types of Drivers You Work With</h3>
+<ul>
+<li><strong>Company drivers</strong> — employed by the carrier. More predictable schedules, set pay rates.</li>
+<li><strong>Owner-operators</strong> — own their truck, work independently. More flexible, but pricing decisions go through the owner, not always the driver.</li>
+</ul>
+<h3>Communication Channels</h3>
+<ul>
+<li><strong>Phone call</strong> — urgent issues, breakdowns, disputes at pickup/delivery, anything that needs immediate resolution</li>
+<li><strong>Text / WhatsApp / Telegram</strong> — address details, ETA confirmations, document photo requests, routine updates</li>
+</ul>
+<blockquote>Rule of thumb: if something can go wrong or needs a quick decision — call. If it's information transfer — text.</blockquote>
+<h3>What Good Driver Communication Looks Like</h3>
+<ul>
+<li>Give complete dispatch info in one message — driver shouldn't have to ask follow-up questions</li>
+<li>Respond quickly when driver calls — they're often in a time-sensitive situation</li>
+<li>Don't wait for the driver to report problems — check in proactively on long hauls</li>
+<li>Never yell or pressure the driver — a stressed driver makes more mistakes</li>
+</ul><figure><img src="/img-proxy/wikipedia/commons/b/b4/The_Driver_%2823143217816%29.jpg" alt="Truck driver — your key business partner" loading="lazy" /><figcaption>The truck driver — your primary partner. Building trust means building revenue.</figcaption></figure>
+
+      <h3>Driver Earnings — Quick Reference</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#1e293b;color:white">
+          <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Truck Type</th>
+          <th style="padding:10px;text-align:center">Avg Daily</th>
+          <th style="padding:10px;text-align:center">Payment</th>
+          <th style="padding:10px;text-align:center;border-radius:0 8px 0 0">QuickPay</th>
+        </tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🚐 Cargo Van</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0">$400–$700</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0">Weekly (Friday)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0">5% commission</td></tr>
+        <tr><td style="padding:8px">🚚 Box Truck</td><td style="padding:8px;text-align:center">$600–$900</td><td style="padding:8px;text-align:center">Weekly (Friday)</td><td style="padding:8px;text-align:center">5% commission</td></tr>
+      </table>
+
+      <h3>First Contact Script</h3>
+      <blockquote><strong>📞 New Driver Introduction:</strong><br/>"Hello! It's [Name] with [Company]. You've been approved in our system so we can start working together! I'll be your dispatcher — save this number and contact me with any questions."<br/><br/><strong>Then ask:</strong><br/>• Truck dimensions (L×W×H) + door dimensions<br/>• Load preferences (local / regional / OTR)<br/>• Equipment: LG, PJ, ramps, dolly, PPE?<br/>• TWIC card? HAZMAT endorsement?<br/>• Ready for work today?</blockquote>`,
+      bodyRu: `<h2>Отношения диспетчера и водителя</h2>
+<p>Водитель — ваши руки на земле. Как бы хорошо вы ни забронировали груз, результат полностью зависит от качества вашего общения с водителем. Диспетчер, который даёт чёткие инструкции, быстро отвечает и спокойно решает проблемы, получает доверие водителей — а доверие означает меньше проблем.</p>
+<h3>Типы водителей, с которыми вы работаете</h3>
+<ul>
+<li><strong>Штатные водители</strong> — наняты перевозчиком. Предсказуемый график, фиксированные ставки оплаты.</li>
+<li><strong>Owner-operators</strong> — владеют своим траком, работают самостоятельно. Гибче, но ценовые решения принимает оунер, не всегда водитель.</li>
+</ul>
+<h3>Каналы общения</h3>
+<ul>
+<li><strong>Звонок</strong> — срочные вопросы, поломки, споры на загрузке/выгрузке, всё что требует немедленного решения</li>
+<li><strong>SMS / WhatsApp / Telegram</strong> — детали адреса, подтверждение ETA, запрос фото документов, плановые обновления</li>
+</ul>
+<blockquote>Правило: если что-то может пойти не так или нужно быстрое решение — звоните. Если нужно передать информацию — пишите.</blockquote>
+<h3>Как выглядит хорошее общение с водителем</h3>
+<ul>
+<li>Давайте полную информацию о грузе в одном сообщении — водитель не должен задавать уточняющие вопросы</li>
+<li>Отвечайте быстро на звонки водителя — он часто в ситуации, требующей срочного решения</li>
+<li>Не ждите пока водитель сообщит о проблемах — проактивно проверяйте на длинных рейсах</li>
+<li>Никогда не кричите и не давите на водителя — стрессованный водитель делает больше ошибок</li>
+</ul><figure><img src="/img-proxy/wikipedia/commons/b/b4/The_Driver_%2823143217816%29.jpg" alt="Водитель грузовика — ваш ключевой партнёр" loading="lazy" /><figcaption>Водитель — ваш основной партнёр. Построение доверия = построение дохода.</figcaption></figure>
+
+    <h3>Заработок водителей — справочник</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#1e293b;color:white">
+        <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Тип грузовика</th>
+        <th style="padding:10px;text-align:center">Ср. в день</th>
+        <th style="padding:10px;text-align:center">Оплата</th>
+        <th style="padding:10px;text-align:center;border-radius:0 8px 0 0">QuickPay</th>
+      </tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🚐 Cargo Van</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0">$400–$700</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0">Еженедельно (пт)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0">Комиссия 5%</td></tr>
+      <tr><td style="padding:8px">🚚 Box Truck</td><td style="padding:8px;text-align:center">$600–$900</td><td style="padding:8px;text-align:center">Еженедельно (пт)</td><td style="padding:8px;text-align:center">Комиссия 5%</td></tr>
+    </table>
+
+    <h3>Скрипт первого контакта</h3>
+    <blockquote><strong>📞 Знакомство с водителем:</strong><br/>"Hello! It's [Имя] with [Компания]. You've been approved in our system so we can start working together! I'll be your dispatcher — save this number and contact me with any questions."<br/><br/><strong>Затем спросите:</strong><br/>• Габариты кузова (Д×Ш×В) + размеры двери<br/>• Предпочтения: локальные / региональные / OTR<br/>• Оборудование: LG, PJ, пандусы, долли, PPE?<br/>• Карта TWIC? Сертификат HAZMAT?<br/>• Готов к работе сегодня?</blockquote>`,
+      quiz: {
+        questions: [
+          { id: '7-1-q1', text: "When should you call a driver instead of texting?", options: ["Always — calls are more professional", "For urgent issues: breakdowns, pickup disputes, anything needing immediate resolution", "Only for long-haul loads over 500 miles", "Only after delivery is complete"], correctIndex: 1 },
+          { id: '7-1-q2', text: "What is the difference between a company driver and an owner-operator?", options: ["Company drivers own their truck; owner-operators are employed", "Company drivers are employed by the carrier; owner-operators own their truck and work independently", "Owner-operators only do local deliveries; company drivers do long haul", "There is no practical difference for the dispatcher"], correctIndex: 1 },
+          { id: '7-1-q3', text: "What does good dispatch communication include?", options: ["Only the pickup address — driver figures out the rest", "Complete info in one message: load number, pickup address + time, delivery address + window, broker name", "A PDF of the RC and a verbal \"good luck\"", "A phone call every 30 minutes to check status"], correctIndex: 1 },
+          { id: '7-1-q4', text: "Why should you never yell or pressure a driver?", options: ["It's against company policy", "A stressed driver makes more mistakes — calm communication leads to better outcomes", "Drivers can report you to FMCSA", "It wastes time on the phone"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '7-1-q1-ru', text: "Когда нужно звонить водителю вместо SMS?", options: ["Всегда — звонки профессиональнее", "В срочных ситуациях: поломка, споры на загрузке, всё что требует немедленного решения", "Только для дальних рейсов свыше 500 миль", "Только после завершения доставки"], correctIndex: 1 },
+          { id: '7-1-q2-ru', text: "В чём разница между штатным водителем и owner-operator?", options: ["Штатные водители владеют траком; owner-operators наняты", "Штатные водители наняты перевозчиком; owner-operators владеют своим траком и работают самостоятельно", "Owner-operators только местные доставки; штатные — дальний рейс", "Для диспетчера практической разницы нет"], correctIndex: 1 },
+          { id: '7-1-q3-ru', text: "Что включает хорошее отправление водителя?", options: ["Только адрес загрузки — дальше сам разберётся", "Полная информация в одном сообщении: номер груза, адрес + время загрузки, адрес + окно выгрузки, брокер", "PDF RC и устное \"удачи\"", "Звонок каждые 30 минут для проверки статуса"], correctIndex: 1 },
+          { id: '7-1-q4-ru', text: "Почему нельзя кричать или давить на водителя?", options: ["Это нарушение политики компании", "Стрессованный водитель делает больше ошибок — спокойное общение даёт лучший результат", "Водители могут пожаловаться в FMCSA", "Это трата времени на звонки"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '7-2': {
+      type: 'text',
+      body: `<h2>Driver Communication at Every Stage of the Load</h2>
+<h3>Stage 1 — Dispatching</h3>
+<p>When you dispatch a driver, give everything in one message:</p>
+<ul>
+<li>Load number (broker's reference)</li>
+<li>Pickup address + appointment time</li>
+<li>Delivery address + delivery window</li>
+<li>Broker company name</li>
+<li>Any special instructions (appointment required, dock level, team required, hazmat, etc.)</li>
+</ul>
+<h3>Stage 2 — Pre-Pickup Check</h3>
+<p>1–2 hours before pickup, confirm with driver: ETA, any issues, truck is ready. If driver will be late — notify broker immediately with new ETA and reason.</p>
+<h3>Stage 3 — At Pickup</h3>
+<ul>
+<li>Driver arrives → he calls you → you message broker: <strong>"The unit is on site."</strong></li>
+<li>If warehouse won't accept driver (no appointment, wrong address) → driver stays, you call broker immediately.</li>
+<li>After loading: driver sends <strong>cargo photos + BOL photo</strong> → you forward to broker → broker gives <strong>"Good to go"</strong> → driver leaves.</li>
+</ul>
+<h3>Detention</h3>
+<p>If driver waits more than 2 hours past appointment at pickup or delivery:</p>
+<ol>
+<li>Document exact arrival time (screenshot or note)</li>
+<li>Notify broker in real time — do not wait until after the load</li>
+<li>Request broker's written confirmation of detention pay</li>
+<li>Tell driver to document his wait time as well</li>
+</ol>
+<h3>Stage 4 — Transit</h3>
+<ul>
+<li>Check in on long hauls (1,000+ miles) every few hours</li>
+<li>Send broker updates every 2 hours: <strong>current location + "Rolling"</strong></li>
+<li>If driver is stopped: location + reason</li>
+</ul>
+<h3>Handling Breakdowns</h3>
+<ol>
+<li>Driver confirms safety (hazards on, safe location)</li>
+<li>Get exact location (mile marker, nearest exit, city)</li>
+<li>Notify broker immediately with ETA impact</li>
+<li>Coordinate roadside assistance</li>
+<li>Keep broker updated until resolved</li>
+</ol>
+<h3>Stage 5 — At Delivery</h3>
+<ul>
+<li>Driver arrives → message broker: <strong>"The unit is on site."</strong></li>
+<li>If consignee refuses freight → driver does NOT unload, you call broker immediately</li>
+<li>After unloading: driver gets <strong>BOL signed by consignee</strong> → photo → that's your <strong>POD</strong></li>
+<li>Forward POD to broker → wait for <strong>"Good to go"</strong> → release driver</li>
+</ul>
+<blockquote>Without POD — no payment. This is the most critical document at the end of every load.</blockquote><h3>📞 Load Offer Call Script (30 seconds)</h3>
+      <blockquote><strong>English version:</strong><br/>"Hello, it's [Sam] with [Trucking Express]. I see a load from Mosinee, Wisconsin going to Columbia City, Indiana. Pickup as soon as possible, delivery Friday morning. It's about 14 miles from you and 412 loaded miles, 3 pieces, thirty-four hundred pounds. It also requires PPE. What do you think?"</blockquote>
+
+      <h3>Driver Action Checklist</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#1e293b;color:white">
+          <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Stage</th>
+          <th style="padding:10px;text-align:left;border-radius:0 8px 0 0">Driver Must Do</th>
+        </tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📍 At Pickup</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">1. Notify arrival → 2. Send BOL + cargo photos → 3. Wait for dispatcher OK</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">🛣️ In Transit</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Keep GPS on "Always" → Respond to check calls → Report delays immediately</td></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px">📦 At Delivery</td><td style="padding:8px">1. Notify arrival → 2. Send signed POD photo → 3. Wait for release</td></tr>
+      </table>
+
+      <figure><img src="/img-proxy/wikipedia/commons/f/fa/Bakersfield%2C_%28CA%29_Truck_Peterbilt_at_Flying_J_Travel_Plaza_%286%29.jpg" alt="Truck fleet at Flying J Travel Plaza" loading="lazy" /><figcaption>A fleet at a truck stop — managing multiple drivers means managing multiple conversations simultaneously</figcaption></figure>
+
+      <blockquote><strong>⚠️ When the driver doesn't know their rate:</strong><br/>"We don't have any target for this load — tell me your usual rate and I will try to get this for you."</blockquote>`,
+      bodyRu: `<h2>Общение с водителем на каждом этапе груза</h2>
+<h3>Этап 1 — Отправка водителя</h3>
+<p>При отправке давайте всё в одном сообщении:</p>
+<ul>
+<li>Номер груза (номер брокера)</li>
+<li>Адрес загрузки + время аппойнтмента</li>
+<li>Адрес выгрузки + окно доставки</li>
+<li>Название компании брокера</li>
+<li>Особые инструкции (нужен аппойнтмент, dock level, тандем, опасный груз и т.д.)</li>
+</ul>
+<h3>Этап 2 — Проверка до загрузки</h3>
+<p>За 1–2 часа до загрузки: подтвердите ETA водителя, убедитесь что нет проблем, трак готов. Если водитель опаздывает — немедленно уведомите брокера с новым ETA и причиной.</p>
+<h3>Этап 3 — На загрузке</h3>
+<ul>
+<li>Водитель прибыл → звонит вам → вы пишете брокеру: <strong>"The unit is on site."</strong></li>
+<li>Если склад не принимает (нет аппойнтмента, неверный адрес) → водитель остаётся, вы немедленно звоните брокеру.</li>
+<li>После загрузки: водитель присылает <strong>фото груза + фото BOL</strong> → вы пересылаете брокеру → брокер даёт <strong>"Good to go"</strong> → водитель уезжает.</li>
+</ul>
+<h3>Detention</h3>
+<p>Если водитель ждёт более 2 часов сверх аппойнтмента на загрузке или выгрузке:</p>
+<ol>
+<li>Зафиксируйте точное время прибытия (скриншот или запись)</li>
+<li>Уведомите брокера в реальном времени — не ждите конца груза</li>
+<li>Запросите письменное подтверждение оплаты detention от брокера</li>
+<li>Скажите водителю тоже фиксировать время ожидания</li>
+</ol>
+<h3>Этап 4 — В пути</h3>
+<ul>
+<li>Проверяйте водителя на длинных рейсах (1000+ миль) каждые несколько часов</li>
+<li>Отправляйте брокеру обновления каждые 2 часа: <strong>текущая позиция + "Rolling"</strong></li>
+<li>Если водитель стоит: позиция + причина</li>
+</ul>
+<h3>Поломки</h3>
+<ol>
+<li>Водитель подтверждает безопасность (аварийка, безопасное место)</li>
+<li>Точное местоположение (отметка мили, ближайший съезд, город)</li>
+<li>Немедленно брокеру с влиянием на ETA</li>
+<li>Организуете помощь на дороге</li>
+<li>Держите брокера в курсе до решения</li>
+</ol>
+<h3>Этап 5 — На выгрузке</h3>
+<ul>
+<li>Водитель прибыл → пишете брокеру: <strong>"The unit is on site."</strong></li>
+<li>Если получатель отказывается → водитель НЕ выгружает, вы немедленно звоните брокеру</li>
+<li>После выгрузки: водитель получает <strong>BOL с подписью получателя</strong> → фото → это ваш <strong>POD</strong></li>
+<li>Пересылаете POD брокеру → ждёте <strong>"Good to go"</strong> → отпускаете водителя</li>
+</ul>
+<blockquote>Без POD — нет оплаты. Это самый критический документ в конце каждого груза.</blockquote><h3>📞 Скрипт предложения груза (30 секунд)</h3>
+    <blockquote><strong>English-версия:</strong><br/>"Hello, it's [Sam] with [Trucking Express]. I see a load from Mosinee, Wisconsin going to Columbia City, Indiana. Pickup as soon as possible, delivery Friday morning. It's about 14 miles from you and 412 loaded miles, 3 pieces, thirty-four hundred pounds. It also requires PPE. What do you think?"</blockquote>
+
+    <h3>Чеклист действий водителя</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#1e293b;color:white">
+        <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Этап</th>
+        <th style="padding:10px;text-align:left;border-radius:0 8px 0 0">Водитель должен</th>
+      </tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📍 На погрузке</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">1. Сообщить о прибытии → 2. Отправить BOL + фото → 3. Ждать ОК диспетчера</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">🛣️ В пути</td><td style="padding:8px;border-bottom:1px solid #e2e8f0">GPS «Всегда» → Отвечать на check calls → Сообщать о задержках немедленно</td></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px">📦 На доставке</td><td style="padding:8px">1. Сообщить о прибытии → 2. Отправить фото подписанного POD → 3. Ждать разрешения</td></tr>
+    </table>
+
+    <figure><img src="/img-proxy/wikipedia/commons/f/fa/Bakersfield%2C_%28CA%29_Truck_Peterbilt_at_Flying_J_Travel_Plaza_%286%29.jpg" alt="Парк грузовиков на Flying J" loading="lazy" /><figcaption>Парк на трак-стопе — управление несколькими водителями = несколько диалогов одновременно</figcaption></figure>
+
+    <blockquote><strong>⚠️ Когда водитель не знает свою ставку:</strong><br/>"We don't have any target for this load — tell me your usual rate and I will try to get this for you."</blockquote>`,
+      quiz: {
+        questions: [
+          { id: '7-2-q1', text: "Your driver has been waiting at pickup for 2.5 hours past his appointment. What must you do?", options: ["Tell driver to wait patiently — warehouses are often slow", "Document arrival time, notify broker in real time, request written detention pay confirmation", "Call the consignee to complain", "Only act after 4 hours — that's when detention typically starts"], correctIndex: 1 },
+          { id: '7-2-q2', text: "Driver is loaded and says \"Can I go?\" What is missing before you release him?", options: ["Nothing — RC is signed, that's enough", "Cargo photos + BOL photo sent to broker and broker's \"Good to go\" received", "Driver's verbal confirmation that freight is not damaged", "Broker's invoice for the load"], correctIndex: 1 },
+          { id: '7-2-q3', text: "Driver reports his truck broke down. What is the FIRST priority?", options: ["Call the broker immediately", "Tell driver to continue to nearest exit slowly", "Confirm driver safety (hazards on, safe location) and get exact location", "Find a replacement truck"], correctIndex: 2 },
+          { id: '7-2-q4', text: "The consignee refuses to accept the delivery. What should the driver do?", options: ["Leave the freight and drive away", "Try to negotiate with the consignee", "Do NOT unload — wait while you call the broker immediately", "Call the shipper directly to resolve it"], correctIndex: 2 },
+          { id: '7-2-q5', text: "What document does the driver get at delivery that becomes the POD?", options: ["A new Rate Confirmation for the return trip", "The BOL signed by an authorized representative of the consignee", "A delivery receipt printed from Cargo ETL", "The broker's payment confirmation email"], correctIndex: 1 },
+          { id: '7-2-q6', text: "How often must you send transit updates to the broker on a 1,200-mile haul?", options: ["Once at pickup and once at delivery", "Every hour", "Every 2 hours with current location and status", "Only when there is a problem"], correctIndex: 2 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '7-2-q1-ru', text: "Водитель ждёт на загрузке 2,5 часа сверх аппойнтмента. Что нужно сделать?", options: ["Сказать водителю терпеливо ждать — склады часто медленные", "Зафиксировать время прибытия, уведомить брокера в реальном времени, запросить письменное подтверждение detention", "Позвонить получателю с жалобой", "Действовать только после 4 часов — тогда обычно начинается detention"], correctIndex: 1 },
+          { id: '7-2-q2-ru', text: "Водитель загрузился и спрашивает \"Могу ехать?\" Чего не хватает до отпуска?", options: ["Ничего — RC подписан, этого достаточно", "Фото груза + BOL отправлены брокеру и получено \"Good to go\" от брокера", "Устное подтверждение водителя что груз не повреждён", "Инвойс брокера по грузу"], correctIndex: 1 },
+          { id: '7-2-q3-ru', text: "Водитель сообщает о поломке трака. Какой ПЕРВЫЙ приоритет?", options: ["Немедленно позвонить брокеру", "Сказать водителю медленно ехать до ближайшего съезда", "Убедиться в безопасности водителя (аварийка, безопасное место) и получить точное местоположение", "Найти замену трак"], correctIndex: 2 },
+          { id: '7-2-q4-ru', text: "Получатель отказывается принять доставку. Что должен делать водитель?", options: ["Оставить груз и уехать", "Попробовать договориться с получателем", "НЕ выгружать — ждать пока вы немедленно звоните брокеру", "Позвонить грузоотправителю напрямую для решения"], correctIndex: 2 },
+          { id: '7-2-q5-ru', text: "Какой документ водитель получает при выгрузке, который становится POD?", options: ["Новый Rate Confirmation на обратный рейс", "BOL с подписью уполномоченного представителя получателя", "Квитанция о доставке из Cargo ETL", "Email с подтверждением оплаты от брокера"], correctIndex: 1 },
+          { id: '7-2-q6-ru', text: "Как часто нужно отправлять обновления брокеру на рейсе 1200 миль?", options: ["Один раз при загрузке и один при доставке", "Каждый час", "Каждые 2 часа с текущей позицией и статусом", "Только когда есть проблема"], correctIndex: 2 },
+        ],
+      },
+    },
+
+    '7-3': {
+      type: 'text',
+      body: `<h2>Demo: Driver Communication in Practice</h2>
+<p>This lesson covers the key situations a dispatcher faces when communicating with drivers — from the first dispatch message to collecting the POD at delivery.</p>
+<h3>The Complete Dispatch Message</h3>
+<p>Every time you dispatch a driver, your message must include:</p>
+<ul>
+<li>Load number</li>
+<li>Pickup: address + appointment time</li>
+<li>Delivery: address + window</li>
+<li>Broker name</li>
+<li>Special notes (if any)</li>
+</ul>
+<h3>Key Situations and Correct Responses</h3>
+<table style="width:100%;border-collapse:collapse">
+<tr style="background:#f9fafb"><td style="padding:8px;border:1px solid #e5e7eb;font-weight:600">Situation</td><td style="padding:8px;border:1px solid #e5e7eb;font-weight:600">Correct Action</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Driver running late to pickup</td><td style="padding:8px;border:1px solid #e5e7eb">Acknowledge + immediately notify broker with new ETA</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Warehouse won't accept driver</td><td style="padding:8px;border:1px solid #e5e7eb">Driver stays on site — you call broker immediately</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Driver loaded, wants to leave</td><td style="padding:8px;border:1px solid #e5e7eb">Get cargo photos + BOL → forward to broker → wait for "Good to go"</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Detention (waiting 2+ hours)</td><td style="padding:8px;border:1px solid #e5e7eb">Document arrival time → notify broker → get written confirmation</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Breakdown in transit</td><td style="padding:8px;border:1px solid #e5e7eb">Safety first → exact location → notify broker → coordinate help</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Consignee refuses freight</td><td style="padding:8px;border:1px solid #e5e7eb">Don't unload → get contact name → call broker immediately</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Getting POD at delivery</td><td style="padding:8px;border:1px solid #e5e7eb">Signed BOL photo from consignee → send to broker → "Good to go" → release driver</td></tr>
+</table>
+<h3>Practice: Driver Communication Simulation</h3>
+<p>Go through 8 real dispatcher-driver situations. In each step, choose the correct action. Mistakes are learning opportunities — read the feedback and try again.</p>`,
+      bodyRu: `<h2>Демо: Общение с водителем на практике</h2>
+<p>Этот урок охватывает ключевые ситуации диспетчера при общении с водителями — от первого сообщения об отправке до получения POD при доставке.</p>
+<h3>Полное сообщение при отправке</h3>
+<p>Каждый раз при отправке водителя ваше сообщение должно содержать:</p>
+<ul>
+<li>Номер груза</li>
+<li>Загрузка: адрес + время аппойнтмента</li>
+<li>Выгрузка: адрес + окно</li>
+<li>Название брокера</li>
+<li>Особые примечания (если есть)</li>
+</ul>
+<h3>Ключевые ситуации и правильные ответы</h3>
+<table style="width:100%;border-collapse:collapse">
+<tr style="background:#f9fafb"><td style="padding:8px;border:1px solid #e5e7eb;font-weight:600">Ситуация</td><td style="padding:8px;border:1px solid #e5e7eb;font-weight:600">Правильное действие</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Водитель опаздывает на загрузку</td><td style="padding:8px;border:1px solid #e5e7eb">Принять информацию + немедленно уведомить брокера с новым ETA</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Склад не пускает водителя</td><td style="padding:8px;border:1px solid #e5e7eb">Водитель остаётся — вы немедленно звоните брокеру</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Водитель загрузился, хочет уехать</td><td style="padding:8px;border:1px solid #e5e7eb">Фото груза + BOL → брокеру → ждёте "Good to go"</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Detention (ждёт 2+ часа)</td><td style="padding:8px;border:1px solid #e5e7eb">Фиксируете время прибытия → уведомляете брокера → письменное подтверждение</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Поломка в пути</td><td style="padding:8px;border:1px solid #e5e7eb">Безопасность → точная позиция → брокеру → организуете помощь</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Получатель отказывается от груза</td><td style="padding:8px;border:1px solid #e5e7eb">Не выгружать → имя контакта → немедленно брокеру</td></tr>
+<tr><td style="padding:8px;border:1px solid #e5e7eb">Получение POD при выгрузке</td><td style="padding:8px;border:1px solid #e5e7eb">Фото подписанного BOL от получателя → брокеру → "Good to go" → отпускаете водителя</td></tr>
+</table>
+<h3>Практика: Симуляция общения с водителем</h3>
+<p>Пройдите 8 реальных ситуаций диспетчера с водителем. На каждом шаге выбирайте правильное действие. Ошибки — это возможность учиться: читайте обратную связь и пробуйте снова.</p>`,
+      driverChat: true,
+      quiz: {
+        questions: [
+          { id: '7-3-q1', text: "Driver says he'll be 1 hour late to pickup. What do you do first?", options: ["Tell him to go faster", "Acknowledge and immediately notify the broker with the new ETA", "Wait to see if he catches up", "Cancel the load"], correctIndex: 1 },
+          { id: '7-3-q2', text: "Driver is loaded and wants to leave. What must happen before he goes?", options: ["Nothing — he can leave when loaded", "Cargo photos + BOL sent to broker, broker's \"Good to go\" received", "You verify the delivery address one more time", "Driver signs the Rate Confirmation again"], correctIndex: 1 },
+          { id: '7-3-q3', text: "Truck breaks down mid-route with freight aboard. First action?", options: ["Find a replacement truck immediately", "Call the broker", "Confirm driver safety and get exact location", "Have driver call a tow service himself"], correctIndex: 2 },
+          { id: '7-3-q4', text: "Driver is at delivery. Consignee refuses freight. Driver's correct action?", options: ["Leave and call you from the road", "Argue with the consignee", "Stay on site and wait while you call the broker", "Unload the freight and let them figure it out"], correctIndex: 2 },
+          { id: '7-3-q5', text: "What creates the POD at delivery?", options: ["Driver's signature on the RC", "The consignee's signature on the BOL — driver takes a photo", "A confirmation email from the broker", "The delivery timestamp in Cargo ETL"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '7-3-q1-ru', text: "Водитель говорит, что опоздает на загрузку на 1 час. Что делаете первым?", options: ["Говорите ехать быстрее", "Принимаете информацию и немедленно уведомляете брокера с новым ETA", "Ждёте, догонит ли он время", "Отменяете груз"], correctIndex: 1 },
+          { id: '7-3-q2-ru', text: "Водитель загрузился и хочет уехать. Что должно произойти до отъезда?", options: ["Ничего — загрузился, значит можно ехать", "Фото груза + BOL отправлены брокеру, получено \"Good to go\" от брокера", "Вы ещё раз проверяете адрес выгрузки", "Водитель повторно подписывает Rate Confirmation"], correctIndex: 1 },
+          { id: '7-3-q3-ru', text: "Трак ломается в пути с грузом на борту. Первое действие?", options: ["Немедленно искать замену", "Позвонить брокеру", "Убедиться в безопасности водителя и получить точное местоположение", "Пусть водитель сам вызовет эвакуатор"], correctIndex: 2 },
+          { id: '7-3-q4-ru', text: "Водитель на выгрузке. Получатель отказывается от груза. Правильное действие водителя?", options: ["Уехать и позвонить вам по дороге", "Спорить с получателем", "Оставаться на месте пока вы звоните брокеру", "Выгрузить груз и пусть сами разбираются"], correctIndex: 2 },
+          { id: '7-3-q5-ru', text: "Что создаёт POD при доставке?", options: ["Подпись водителя на RC", "Подпись получателя на BOL — водитель делает фото", "Письмо с подтверждением от брокера", "Временная метка доставки в Cargo ETL"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '7-4': {
+      type: 'text',
+      body: `<h2>Chapter 7 — Final Practice Test: Communication with Drivers</h2>
+<p>This test covers all aspects of dispatcher-driver communication: dispatching, pickup procedures, detention, transit updates, breakdowns, delivery, and POD. 20 questions. Pass threshold: 18/20.</p>`,
+      bodyRu: `<h2>Глава 7 — Итоговый тест: Общение с водителями</h2>
+<p>Тест охватывает все аспекты общения диспетчера с водителями: отправка, процедуры загрузки, detention, обновления в пути, поломки, доставка и POD. 20 вопросов. Порог прохождения: 18/20.</p>`,
+      quiz: {
+        questions: [
+          { id: '7-4-q1', text: "What is the minimum information a dispatcher must give when dispatching a driver?", options: ["Pickup address only — driver finds delivery himself", "Load number, pickup address + time, delivery address + window, broker name", "Just the RC PDF and broker phone number", "Pickup address and expected rate per mile"], correctIndex: 1 },
+          { id: '7-4-q2', text: "Driver calls to say he'll be 40 minutes late to pickup. What are your two immediate actions?", options: ["Tell the driver to hurry up, then wait", "Acknowledge driver, then immediately notify broker with new ETA and reason", "Call the shipper directly to push the appointment", "Only notify broker if delay exceeds 2 hours"], correctIndex: 1 },
+          { id: '7-4-q3', text: "Driver arrives at pickup but warehouse guard says there is no appointment. What must the driver do?", options: ["Leave and come back in 2 hours", "Stay on site while dispatcher resolves the issue with the broker", "Call the broker himself", "Try a different entrance"], correctIndex: 1 },
+          { id: '7-4-q4', text: "Why is it important to document the driver's exact arrival time at pickup?", options: ["For Cargo ETL tracking purposes only", "To establish the detention clock — needed to claim detention pay if loading takes too long", "Brokers require arrival times on all loads", "To calculate driver pay per hour at the facility"], correctIndex: 1 },
+          { id: '7-4-q5', text: "Driver is loaded. What must you receive from him before sending \"Good to go\"?", options: ["Only the signed BOL", "Cargo photos AND BOL photo — both are required", "A verbal confirmation that everything is fine", "The consignee's signature"], correctIndex: 1 },
+          { id: '7-4-q6', text: "After loading, you send cargo photos + BOL to the broker. What are you waiting for?", options: ["Driver's confirmation that he left the facility", "Broker's \"Good to go\" clearance", "The delivery appointment confirmation", "Payment terms for the load"], correctIndex: 1 },
+          { id: '7-4-q7', text: "Driver has been waiting at pickup for 3 hours past appointment. You want detention pay. What is required?", options: ["Driver's verbal statement of wait time", "Documented arrival time + real-time broker notification + written broker confirmation of detention", "A photo of the empty loading dock", "Shipper's admission of the delay in writing"], correctIndex: 1 },
+          { id: '7-4-q8', text: "A long-haul driver is moving at 65 mph. He's been on the road 2 hours since your last update. What do you send the broker?", options: ["Nothing — only update when there is news", "\"Driver is moving.\" — that's sufficient", "\"Update on load #[X]: current location — [City, State]. Status: Rolling.\"", "\"ETA revised — will send full update at delivery\""], correctIndex: 2 },
+          { id: '7-4-q9', text: "Driver sends a blurry BOL photo that's unreadable. What do you do?", options: ["Accept it — any photo is better than nothing", "Ask the driver to take a new clear photo before leaving the facility", "Crop and enhance the photo yourself", "Have the broker accept verbal confirmation instead"], correctIndex: 1 },
+          { id: '7-4-q10', text: "Truck breaks down on I-70 in Missouri with freight aboard. Order the correct steps:", options: ["Call broker → find replacement → confirm driver safety", "Confirm driver safety → get exact location → notify broker → coordinate roadside help", "Find replacement truck → call broker → confirm driver safety", "Notify broker → call tow service → inform driver of the plan"], correctIndex: 1 },
+          { id: '7-4-q11', text: "Driver is stopped at a weigh station — scale shows truck is 2,000 lbs overweight. What do you do?", options: ["Tell driver to pay the fine and continue", "Notify broker immediately — driver must not proceed until issue is resolved with the shipper", "Ask driver to redistribute cargo himself", "Ignore it — minor overweights are rarely enforced"], correctIndex: 1 },
+          { id: '7-4-q12', text: "Consignee at delivery says \"We didn't order this, we're not taking it.\" Driver's correct response?", options: ["Leave the freight at the dock and drive away", "Try to convince the consignee to accept", "Do NOT unload — get consignee contact name and wait while dispatcher calls broker", "Call the shipper directly to resolve"], correctIndex: 2 },
+          { id: '7-4-q13', text: "Driver unloaded successfully. What document must he get before leaving the delivery facility?", options: ["A new Rate Confirmation", "The BOL signed by an authorized representative of the consignee", "A warehouse release form", "The broker's delivery confirmation email"], correctIndex: 1 },
+          { id: '7-4-q14', text: "Driver sends you the signed BOL photo. What do you do next?", options: ["Release driver — he's done", "Forward the POD to broker, wait for \"Good to go\", then release driver", "Send invoice to broker immediately", "File the POD in Cargo ETL and let broker retrieve it"], correctIndex: 1 },
+          { id: '7-4-q15', text: "Mini-case: Driver calls at 14:00 — \"I've been here since 11:00, they just started loading me.\" Appointment was 11:00. What do you do?", options: ["Tell driver to be patient", "Note arrival was 11:00. Notify broker NOW with current wait time. Request written detention pay confirmation.", "Wait until loading is done to address detention", "Tell driver to demand extra pay from the warehouse staff"], correctIndex: 1 },
+          { id: '7-4-q16', text: "You dispatched a driver but forgot to include the broker's load number in your message. Why does this matter?", options: ["It doesn't — drivers never need the load number", "The driver needs it at the warehouse to get checked in — missing it causes delays", "It's only needed for Cargo ETL, not for the driver", "The broker will call the driver directly with the number"], correctIndex: 1 },
+          { id: '7-4-q17', text: "Driver calls from the road: \"I'm tired and need to stop for 30 minutes.\" This is a 900-mile load with a next-day delivery deadline. What do you say?", options: ["\"No, keep driving — we have a deadline.\"", "\"Ok, rest when needed — safety first. Let me know your location when stopped and I'll update the broker.\"", "\"Stop only if you absolutely must — try to push through.\"", "Transfer the load to another driver immediately"], correctIndex: 1 },
+          { id: '7-4-q18', text: "Mini-case: You dispatched the driver at 07:00. It's now 11:00 and he hasn't sent any update. Pickup was at 09:00. What do you do?", options: ["Wait — drivers will call if something is wrong", "Call the driver immediately to get a status update", "Call the broker to ask if they heard anything", "Check Cargo ETL tracking and take no further action"], correctIndex: 1 },
+          { id: '7-4-q19', text: "Driver sends POD but his photo shows only half the signature page — the signature is cut off. What do you do?", options: ["Send it to the broker — partial POD is acceptable", "Ask driver to go back inside and get a new signed copy or a better photo", "Crop the image to show more of the signature", "Ask the consignee to email a digital copy"], correctIndex: 1 },
+          { id: '7-4-q20', text: "Mini-case: Driver delivered, you sent POD to broker. Broker has not responded in 45 minutes with \"Good to go.\" Driver is eager to leave. What do you do?", options: ["Release the driver — 45 minutes is long enough to wait", "Follow up with the broker: \"Hi, just checking on load #[X] — waiting for your clearance on the POD.\"", "Release driver and tell broker you already cleared him", "Call the shipper to get clearance instead"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '7-4-q1-ru', text: "Минимальная информация, которую диспетчер должен дать при отправке водителя?", options: ["Только адрес загрузки — доставку найдёт сам", "Номер груза, адрес + время загрузки, адрес + окно выгрузки, название брокера", "Просто PDF RC и телефон брокера", "Адрес загрузки и ожидаемая ставка за милю"], correctIndex: 1 },
+          { id: '7-4-q2-ru', text: "Водитель звонит — опоздает на 40 минут на загрузку. Ваши два немедленных действия?", options: ["Сказать водителю поторопиться, потом ждать", "Принять информацию от водителя, затем немедленно уведомить брокера с новым ETA и причиной", "Напрямую позвонить грузоотправителю перенести аппойнтмент", "Уведомлять брокера только если задержка больше 2 часов"], correctIndex: 1 },
+          { id: '7-4-q3-ru', text: "Водитель прибыл на загрузку, но охрана говорит нет аппойнтмента. Что должен делать водитель?", options: ["Уехать и вернуться через 2 часа", "Оставаться на месте пока диспетчер решает проблему с брокером", "Самому позвонить брокеру", "Попробовать другой въезд"], correctIndex: 1 },
+          { id: '7-4-q4-ru', text: "Почему важно фиксировать точное время прибытия водителя на загрузку?", options: ["Только для отслеживания в Cargo ETL", "Для запуска счётчика detention — необходимо для претензии на оплату если загрузка затягивается", "Брокеры требуют время прибытия по всем грузам", "Для расчёта оплаты водителя по часам на объекте"], correctIndex: 1 },
+          { id: '7-4-q5-ru', text: "Водитель загрузился. Что нужно получить от него до отправки \"Good to go\"?", options: ["Только подписанный BOL", "Фото груза И фото BOL — необходимы оба", "Устное подтверждение что всё в порядке", "Подпись получателя"], correctIndex: 1 },
+          { id: '7-4-q6-ru', text: "После загрузки вы отправили фото груза + BOL брокеру. Чего вы ждёте?", options: ["Подтверждения от водителя что он покинул объект", "\"Good to go\" от брокера", "Подтверждения аппойнтмента на выгрузку", "Условий оплаты по грузу"], correctIndex: 1 },
+          { id: '7-4-q7-ru', text: "Водитель ждёт на загрузке 3 часа сверх аппойнтмента. Вы хотите detention pay. Что требуется?", options: ["Устное заявление водителя о времени ожидания", "Зафиксированное время прибытия + уведомление брокера в реальном времени + письменное подтверждение брокером", "Фото пустого погрузочного дока", "Письменное признание задержки грузоотправителем"], correctIndex: 1 },
+          { id: '7-4-q8-ru', text: "Водитель дальнобойщик едет 65 миль/ч. Прошло 2 часа с последнего обновления. Что отправляете брокеру?", options: ["Ничего — обновлять только при новостях", "\"Водитель едет.\" — достаточно", "\"Обновление по грузу #[X]: текущая позиция — [Город, Штат]. Статус: Rolling.\"", "\"ETA скорректирован — полное обновление при доставке\""], correctIndex: 2 },
+          { id: '7-4-q9-ru', text: "Водитель присылает размытое нечитаемое фото BOL. Что делаете?", options: ["Принять — любое фото лучше чем ничего", "Попросить водителя сделать чёткое фото до выезда с объекта", "Самому обрезать и улучшить фото", "Попросить брокера принять устное подтверждение"], correctIndex: 1 },
+          { id: '7-4-q10-ru', text: "Трак ломается на I-70 в Миссури с грузом на борту. Правильный порядок действий:", options: ["Позвонить брокеру → найти замену → убедиться в безопасности водителя", "Убедиться в безопасности водителя → точная позиция → уведомить брокера → организовать помощь", "Найти замену → позвонить брокеру → убедиться в безопасности водителя", "Уведомить брокера → вызвать эвакуатор → сообщить водителю план"], correctIndex: 1 },
+          { id: '7-4-q11-ru', text: "Водителя остановили на весовой контрольной — перегруз 2000 фунтов. Что делаете?", options: ["Сказать водителю заплатить штраф и продолжать", "Немедленно уведомить брокера — водитель не должен продолжать до решения с грузоотправителем", "Попросить водителя самому перераспределить груз", "Игнорировать — небольшой перегруз редко применяется"], correctIndex: 1 },
+          { id: '7-4-q12-ru', text: "Получатель при выгрузке говорит: \"Мы это не заказывали, не принимаем.\" Правильное действие водителя?", options: ["Оставить груз у дока и уехать", "Постараться убедить получателя принять", "НЕ выгружать — узнать имя контакта и ждать пока диспетчер звонит брокеру", "Напрямую позвонить грузоотправителю для решения"], correctIndex: 2 },
+          { id: '7-4-q13-ru', text: "Водитель успешно разгрузился. Какой документ он должен получить до выезда с места выгрузки?", options: ["Новый Rate Confirmation", "BOL с подписью уполномоченного представителя получателя", "Форму выпуска склада", "Email с подтверждением доставки от брокера"], correctIndex: 1 },
+          { id: '7-4-q14-ru', text: "Водитель прислал фото подписанного BOL. Что делаете дальше?", options: ["Отпускаете водителя — он выполнил задачу", "Пересылаете POD брокеру, ждёте \"Good to go\", затем отпускаете водителя", "Немедленно выставляете инвойс брокеру", "Загружаете POD в Cargo ETL и ждёте пока брокер сам получит"], correctIndex: 1 },
+          { id: '7-4-q15-ru', text: "Кейс: Водитель звонит в 14:00 — \"Я здесь с 11:00, только начали грузить.\" Аппойнтмент был на 11:00. Что делаете?", options: ["Сказать водителю терпеть", "Зафиксировать прибытие в 11:00. Немедленно уведомить брокера с текущим временем ожидания. Запросить письменное подтверждение detention.", "Ждать конца загрузки, потом заниматься detention", "Сказать водителю требовать доплату от складских рабочих"], correctIndex: 1 },
+          { id: '7-4-q16-ru', text: "Вы отправили водителя, но забыли указать номер груза брокера. Почему это важно?", options: ["Не важно — номер груза водителям никогда не нужен", "Водителю нужен этот номер на складе для регистрации — без него задержки", "Нужен только для Cargo ETL, не для водителя", "Брокер сам позвонит водителю с номером"], correctIndex: 1 },
+          { id: '7-4-q17-ru', text: "Водитель звонит с дороги: \"Устал, нужно остановиться на 30 минут.\" Груз 900 миль, доставка завтра. Что говорите?", options: ["\"Нет, езди — у нас дедлайн.\"", "\"Ок, отдыхай при необходимости — безопасность прежде всего. Сообщи позицию когда остановишься, обновлю брокера.\"", "\"Останавливайся только если совсем нужно — постарайся дотянуть.\"", "Немедленно переводить груз на другого водителя"], correctIndex: 1 },
+          { id: '7-4-q18-ru', text: "Кейс: Вы отправили водителя в 07:00. Сейчас 11:00, никаких обновлений. Загрузка была в 09:00. Что делаете?", options: ["Ждать — водители позвонят если что-то не так", "Немедленно позвонить водителю для получения статуса", "Позвонить брокеру спросить не слышал ли он что", "Проверить трекинг в Cargo ETL и больше ничего не делать"], correctIndex: 1 },
+          { id: '7-4-q19-ru', text: "Водитель присылает POD, но на фото видна только половина страницы подписи — подпись обрезана. Что делаете?", options: ["Отправить брокеру — частичный POD приемлем", "Попросить водителя вернуться и получить новую подпись или сделать лучшее фото", "Обрезать изображение чтобы показать больше подписи", "Попросить получателя прислать цифровую копию по email"], correctIndex: 1 },
+          { id: '7-4-q20-ru', text: "Кейс: Водитель доставил, вы отправили POD брокеру. Брокер не отвечает \"Good to go\" уже 45 минут. Водитель хочет уехать. Что делаете?", options: ["Отпустить водителя — 45 минут достаточно ждать", "Написать брокеру follow-up: \"Hi, just checking on load #[X] — waiting for your clearance on the POD.\"", "Отпустить водителя и сообщить брокеру что уже отпустили", "Запросить разрешение у грузоотправителя вместо брокера"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '8-1': {
+      type: 'text',
+      body: `
+        <h2>Bidding & Deal Closing</h2>
+        <blockquote>
+          <strong>Remember:</strong> A dispatcher only earns when a load is booked. The ability to negotiate is your core monetization skill.
+        </blockquote>
+
+        <h3>What is Bidding in Logistics?</h3>
+        <p><strong>Bidding</strong> is the process of negotiating a freight rate between a dispatcher and a broker. You act as the intermediary: get the driver's rate, add your commission, and offer the final price to the broker.</p>
+
+        <h3>Negotiation Participants</h3>
+        <ul>
+          <li><strong>Driver</strong> — quotes their base rate for the load</li>
+          <li><strong>Dispatcher (you)</strong> — adds commission, negotiates with broker</li>
+          <li><strong>Broker</strong> — accepts or rejects your price, may counter-offer</li>
+        </ul>
+
+        <h3>Why Bidding is a Critical Skill</h3>
+        <p>Every dollar you leave on the negotiating table is money out of your pocket. With an average of $100–$300 revenue per load and 5–10 loads per day, the difference between a skilled and unskilled dispatcher can be thousands of dollars per month.</p>
+
+        <h3>Chapter Goals</h3>
+        <ul>
+          <li>Master the driver call script to get a rate</li>
+          <li>Learn to calculate broker price correctly (target 21% margin)</li>
+          <li>Understand how to handle broker counter-offers</li>
+          <li>Know the rules for additional payments (detention, TONU, layover)</li>
+        </ul>
+      <h3>💰 The Margin Formula</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#7c3aed;color:white">
+          <th style="padding:12px;text-align:center;border-radius:8px 8px 0 0" colspan="3">BIDDING MATH</th>
+        </tr>
+        <tr style="background:#f5f3ff"><td style="padding:10px;text-align:center;border-bottom:1px solid #ddd6fe"><strong>Driver Rate</strong><br/>$750</td><td style="padding:10px;text-align:center;border-bottom:1px solid #ddd6fe"><strong>+ Commission (21%)</strong><br/>$199</td><td style="padding:10px;text-align:center;border-bottom:1px solid #ddd6fe"><strong>= Broker Bid</strong><br/>$949</td></tr>
+        <tr><td style="padding:10px;text-align:center;border-radius:0 0 8px 8px" colspan="3" style="background:#ede9fe"><strong>Your Revenue: $199</strong> ✅ Above $100 minimum</td></tr>
+      </table>
+
+      <h3>Key Rules</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#1e293b;color:white">
+          <th style="padding:8px;text-align:left;border-radius:8px 0 0 0">Rule</th>
+          <th style="padding:8px;text-align:left;border-radius:0 8px 0 0">Value</th>
+        </tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🎯 Target average margin</td><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>21%</strong></td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">📉 Minimum revenue per load</td><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>$100</strong></td></tr>
+        <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📊 Average revenue range</td><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>$100–$300</strong></td></tr>
+        <tr><td style="padding:8px">⚠️ Never bid without</td><td style="padding:8px"><strong>Driver confirmation</strong></td></tr>
+      </table>
+
+      <figure><img src="/img-proxy/wikipedia/commons/a/ab/Business_agreement_handshake_at_coffee_shop.jpg" alt="Business handshake — closing a deal" loading="lazy" /><figcaption>Every successful bid ends with a deal — your negotiation skills directly determine your income</figcaption></figure>`,
+      bodyRu: `
+        <h2>Торги и закрытие сделок</h2>
+        <blockquote>
+          <strong>Запомните:</strong> Диспетчер зарабатывает только когда груз забронирован. Умение торговаться — ваш главный навык монетизации.
+        </blockquote>
+
+        <h3>Что такое торги в логистике?</h3>
+        <p><strong>Bidding</strong> (торги) — процесс согласования ставки между диспетчером и брокером за перевозку груза. Вы выступаете посредником: получаете ставку от водителя, добавляете свою комиссию и предлагаете итоговую цену брокеру.</p>
+
+        <h3>Участники переговоров</h3>
+        <ul>
+          <li><strong>Водитель</strong> — называет свою базовую ставку за груз</li>
+          <li><strong>Диспетчер (вы)</strong> — добавляет комиссию, ведёт переговоры с брокером</li>
+          <li><strong>Брокер</strong> — принимает или отклоняет вашу цену, может торговаться</li>
+        </ul>
+
+        <h3>Почему торги — критический навык?</h3>
+        <p>Каждый доллар, который вы оставляете на столе переговоров — это ваши упущенные деньги. При среднем доходе $100–$300 на груз и 5–10 грузах в день разница между умелым и неумелым диспетчером составляет тысячи долларов в месяц.</p>
+
+        <h3>Цели этой главы</h3>
+        <ul>
+          <li>Освоить скрипт звонка водителю для получения ставки</li>
+          <li>Научиться правильно рассчитывать брокерскую цену (целевая маржа 21%)</li>
+          <li>Понять как вести переговоры с брокером при получении встречного предложения</li>
+          <li>Знать правила дополнительных выплат (detention, TONU, layover)</li>
+        </ul>
+      <h3>💰 Формула маржи</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#7c3aed;color:white">
+        <th style="padding:12px;text-align:center;border-radius:8px 8px 0 0" colspan="3">МАТЕМАТИКА БИДДИНГА</th>
+      </tr>
+      <tr style="background:#f5f3ff"><td style="padding:10px;text-align:center;border-bottom:1px solid #ddd6fe"><strong>Ставка водителя</strong><br/>$750</td><td style="padding:10px;text-align:center;border-bottom:1px solid #ddd6fe"><strong>+ Комиссия (21%)</strong><br/>$199</td><td style="padding:10px;text-align:center;border-bottom:1px solid #ddd6fe"><strong>= Бид брокеру</strong><br/>$949</td></tr>
+      <tr><td style="padding:10px;text-align:center;border-radius:0 0 8px 8px" colspan="3" style="background:#ede9fe"><strong>Ваш доход: $199</strong> ✅ Выше минимума $100</td></tr>
+    </table>
+
+    <h3>Ключевые правила</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#1e293b;color:white">
+        <th style="padding:8px;text-align:left;border-radius:8px 0 0 0">Правило</th>
+        <th style="padding:8px;text-align:left;border-radius:0 8px 0 0">Значение</th>
+      </tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🎯 Целевая средняя маржа</td><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>21%</strong></td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">📉 Минимальный доход с груза</td><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>$100</strong></td></tr>
+      <tr style="background:#f8fafc"><td style="padding:8px;border-bottom:1px solid #e2e8f0">📊 Средний диапазон дохода</td><td style="padding:8px;border-bottom:1px solid #e2e8f0"><strong>$100–$300</strong></td></tr>
+      <tr><td style="padding:8px">⚠️ Никогда не биддить без</td><td style="padding:8px"><strong>Подтверждения водителя</strong></td></tr>
+    </table>
+
+    <figure><img src="/img-proxy/wikipedia/commons/a/ab/Business_agreement_handshake_at_coffee_shop.jpg" alt="Рукопожатие — закрытие сделки" loading="lazy" /><figcaption>Каждый успешный бид заканчивается сделкой — навыки переговоров напрямую определяют ваш доход</figcaption></figure>`,
+      quiz: {
+        questions: [
+          { id: '8-1-q1', text: "What is the dispatcher's role in the bidding process?", options: ["Drive the truck and deliver the load", "Get the driver's rate, add commission, and negotiate with the broker", "Set the shipper's price for the load", "Manage the warehouse appointment"], correctIndex: 1 },
+          { id: '8-1-q2', text: "What is the target margin a dispatcher should aim for?", options: ["5% average", "10% average", "21% average", "35% average"], correctIndex: 2 },
+          { id: '8-1-q3', text: "What is the minimum revenue per load a dispatcher should never go below?", options: ["$50", "$100", "$200", "$300"], correctIndex: 1 },
+          { id: '8-1-q4', text: "What happens if you bid without confirming the driver will take the load?", options: ["Nothing — brokers expect some no-shows", "You risk damaging your relationship with the broker", "The load automatically cancels", "The broker finds another truck for you"], correctIndex: 1 },
+          { id: '8-1-q5', text: "Average revenue per load for a dispatcher is:", options: ["$10–$50", "$50–$100", "$100–$300", "$500–$1,000"], correctIndex: 2 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '8-1-q1-ru', text: "Какова роль диспетчера в процессе торгов?", options: ["Управлять траком и доставлять груз", "Получить ставку водителя, добавить комиссию и вести переговоры с брокером", "Установить цену грузоотправителя", "Управлять складским аппойнтментом"], correctIndex: 1 },
+          { id: '8-1-q2-ru', text: "Какова целевая маржа диспетчера?", options: ["В среднем 5%", "В среднем 10%", "В среднем 21%", "В среднем 35%"], correctIndex: 2 },
+          { id: '8-1-q3-ru', text: "Ниже какого минимального дохода на груз диспетчер не должен опускаться?", options: ["$50", "$100", "$200", "$300"], correctIndex: 1 },
+          { id: '8-1-q4-ru', text: "Что произойдёт если вы подаёте заявку не убедившись что водитель готов взять груз?", options: ["Ничего — брокеры ожидают отказов", "Вы рискуете испортить отношения с брокером", "Груз автоматически отменяется", "Брокер найдёт для вас другой трак"], correctIndex: 1 },
+          { id: '8-1-q5-ru', text: "Средний доход диспетчера на груз составляет:", options: ["$10–$50", "$50–$100", "$100–$300", "$500–$1 000"], correctIndex: 2 },
+        ],
+      },
+    },
+
+    '8-2': {
+      type: 'text',
+      body: `
+        <h2>Bidding Strategy & Rates</h2>
+
+        <h3>Step 1: Call the Driver — Get Their Rate</h3>
+        <p>Before calling the broker, you must know the driver's rate. Use the script:</p>
+        <blockquote>
+          <strong>Driver Call Script:</strong><br/>
+          "Hello, it's [Sam/Tom/Max] with [Trucking Express]. I see a load from Mosinee, Wisconsin going to Columbia City, Indiana. Pickup as soon as possible, delivery Friday morning. It's about 14 miles from you and 412 loaded miles, 3 pieces, thirty-four hundred pounds. It also requires PPE — personal protective equipment. What do you think?"
+        </blockquote>
+        <p>If the driver doesn't know what to quote: <em>"We don't have a target for this load — tell me your usual rate and I'll try to get it for you."</em></p>
+
+        <h3>Step 2: Calculate Your Broker Price</h3>
+        <p>Your broker price = driver's rate + your commission. Target margin: <strong>21% of broker price on average across all loads</strong>.</p>
+
+        <h3>Calculation Example</h3>
+        <ul>
+          <li>Driver rate: $700</li>
+          <li>Target margin: 21%</li>
+          <li>Your commission: $700 × 0.21 / 0.79 ≈ $186</li>
+          <li>Broker price: <strong>$886</strong></li>
+        </ul>
+
+        <h3>Bidding Rules</h3>
+        <ul>
+          <li>Minimum revenue: <strong>$100</strong> per load — never go below this</li>
+          <li>Average revenue: $100–$300 per load</li>
+          <li>More miles = potential for bigger commission</li>
+          <li>Never bid without driver confirmation — you risk damaging broker relationships</li>
+        </ul>
+
+        <figure>
+          <img src="/ch8/strategy.png" alt="Bidding Strategy Playbook" />
+          <figcaption>Phase 1: Driver Pitch & Bid | Phase 2: Broker Submission & Closing</figcaption>
+        </figure>
+
+        <figure>
+          <img src="/ch8/rates.png" alt="Rate Guide 2026" />
+          <figcaption>Cargo Van / Sprinter Van Rate Guide 2026 — use as a reference baseline</figcaption>
+        </figure>
+
+        <h3>VIN Rule</h3>
+        <blockquote>
+          <strong>⚠️ IMPORTANT:</strong> If a broker asks for the truck's VIN — use the Highway VIN, NOT the real one. Ask in company chat. Shift Line Transit VIN: 1FT7X2B65HEC69262
+        </blockquote>
+
+        <h3>Accessorial Charges 2026</h3>
+        <p><strong>Detention:</strong> Waiting under 2 hours is unpaid. After that: $25/hour, max $200/day. If the driver had a scheduled time or a "window" between loading and unloading, the clock starts after that window expires.</p>
+        <p><strong>Layover:</strong> Paid if the driver waited overnight to be loaded/unloaded. Sprinter: $75, box truck and large straight: $100.</p>
+        <p><strong>TONU (Truck Order Not Used):</strong> Paid if the load was cancelled. Amount depends on miles traveled. Exception: cancelled 2 hours before unloading = not paid. Otherwise: $75 per load. Note: Layover and TONU cannot both apply — only one at a time.</p>
+        <p><strong>Hand loading/unloading:</strong> After dispatcher agreement — $50 for loads under 500 lbs, $75 for 500–1,000 lbs. All other cases: negotiate with dispatcher.</p>
+        <p><strong>Document printing:</strong> Include the cost in your rate before dispatch (Canada loads and airports).</p>
+
+        <h3>Truck Breakdown Under Load</h3>
+        <p>If the truck breaks down under a company load — call the main office immediately. A replacement driver must be found. Compensation: the recovery driver gets their required rate; the original driver gets the remainder of the full load rate regardless of distance already covered.</p>
+      `,
+      bodyRu: `
+        <h2>Стратегия торгов и ставки</h2>
+
+        <h3>Шаг 1: Звонок водителю — получить ставку</h3>
+        <p>Перед тем как звонить брокеру, вы должны знать ставку водителя. Используйте скрипт:</p>
+        <blockquote>
+          <strong>Скрипт звонка водителю:</strong><br/>
+          «Привет, это [Сэм/Том/Макс] из [Trucking Express]. Вижу груз из Мосини, Висконсин в Колумбию-Сити, Индиана. Загрузка как можно скорее, доставка утром пятницы. От вас примерно 14 миль и 412 загруженных миль, 3 единицы, тридцать четыре сотни фунтов. Также требуется PPE — средства индивидуальной защиты. Что думаете?»
+        </blockquote>
+        <p>Если водитель не знает что запросить — скажите: <em>«У нас нет таргета по этому грузу — скажите свою обычную ставку, я постараюсь её получить.»</em></p>
+
+        <h3>Шаг 2: Расчёт брокерской цены</h3>
+        <p>Ваша цена для брокера = ставка водителя + ваша комиссия. Целевая маржа: <strong>21% от брокерской цены в среднем по всем грузам</strong>.</p>
+
+        <h3>Пример расчёта</h3>
+        <ul>
+          <li>Ставка водителя: $700</li>
+          <li>Целевая маржа: 21%</li>
+          <li>Ваша комиссия: $700 × 0,21 / 0,79 ≈ $186</li>
+          <li>Цена для брокера: <strong>$886</strong></li>
+        </ul>
+
+        <h3>Правила торгов</h3>
+        <ul>
+          <li>Минимальный доход: <strong>$100</strong> на груз — ниже не торговаться</li>
+          <li>Средний доход: $100–$300 на груз</li>
+          <li>Чем больше миль — тем больше может быть ваша комиссия</li>
+          <li>Не подавайте заявку без подтверждения от водителя — иначе рискуете отношениями с брокером</li>
+        </ul>
+
+        <h3>Путеводитель по ставкам 2026 (Cargo Van / Sprinter Van)</h3>
+
+        <figure>
+          <img src="/ch8/rates.png" alt="Ставки Cargo Van 2026" />
+          <figcaption>Ставки Cargo Van / Sprinter Van по километражу — ориентир для расчёта</figcaption>
+        </figure>
+
+        <p><strong>Расшифровка таблицы ставок:</strong></p>
+        <ul>
+          <li>100 миль и менее: $225–$300</li>
+          <li>150 миль: $300–$350</li>
+          <li>200 миль: $325–$400</li>
+          <li>250 миль: $350–$425</li>
+          <li>300 миль: $400–$500</li>
+          <li>400 миль: $450–$525</li>
+          <li>500 миль: $550–$625</li>
+          <li>600 миль: $600–$650</li>
+          <li>700 миль: $700–$750</li>
+          <li>800 миль: $700–$900</li>
+          <li>1 000 миль и более: $0,85–$1,00 за милю в среднем</li>
+        </ul>
+
+        <h3>Правило VIN</h3>
+        <blockquote>
+          <strong>⚠️ ВАЖНО:</strong> Если брокер запрашивает VIN трака — используйте Highway VIN, НЕ настоящий. Уточняйте в рабочем чате. VIN компании Shift Line Transit: 1FT7X2B65HEC69262
+        </blockquote>
+
+        <h3>Дополнительные выплаты (Accessorial Charges) 2026</h3>
+        <p><strong>Detention (простой):</strong> Ожидание до 2 часов не оплачивается. После — $25/час, максимум $200/день. Если у водителя было чёткое время аппойнтмента или «окно» между загрузкой и выгрузкой — отсчёт начинается после истечения этого времени.</p>
+        <p><strong>Layover (ночёвка):</strong> Оплачивается если водитель ждал целую ночь для загрузки/выгрузки. Sprinter: $75, box truck и large straight: $100.</p>
+        <p><strong>TONU (Truck Order Not Used — трак вызвали, но не использовали):</strong> Оплачивается если груз был отменён. Сумма зависит от пройденных миль. Исключение: отмена за 2 часа до выгрузки — не оплачивается. В остальных случаях: $75 за груз. ВАЖНО: Layover и TONU не применяются одновременно — только одно из двух.</p>
+        <p><strong>Ручная погрузка/выгрузка:</strong> После согласования с диспетчером — $50 за груз до 500 фунтов, $75 за 500–1 000 фунтов. Всё остальное — согласовывается индивидуально.</p>
+        <p><strong>Печать документов:</strong> Включайте в ставку до отправки (Канада и аэропорты).</p>
+
+        <h3>Поломка трака под грузом</h3>
+        <p>Если трак ломается под грузом компании — немедленно позвоните в главный офис. Необходимо найти другого водителя для доставки. Компенсация: водитель который забрал груз получает свою ставку; водитель чей трак сломался получает остаток от общей ставки за этот груз вне зависимости от пройденного расстояния.</p>
+      `,
+      quiz: {
+        questions: [
+          { id: '8-2-q1', text: "What should you do BEFORE calling the broker to submit a bid?", options: ["Submit the bid at a standard $500 rate", "Confirm the driver's rate and calculate your broker price", "Ask the broker what their maximum budget is", "Check the load board for similar loads"], correctIndex: 1 },
+          { id: '8-2-q2', text: "Driver's rate is $600. With 21% target margin, what is your broker price?", options: ["$600", "$721", "$759", "$850"], correctIndex: 2 },
+          { id: '8-2-q3', text: "A broker asks for the truck VIN. What do you provide?", options: ["The real VIN from the truck documents", "Highway VIN (not the real one)", "Refuse to give any VIN", "The VIN of any available truck"], correctIndex: 1 },
+          { id: '8-2-q4', text: "When does detention pay START being counted?", options: ["Immediately upon arrival at the facility", "After 2 hours of waiting past the appointment", "After 1 hour of waiting", "When the driver calls you to report the delay"], correctIndex: 1 },
+          { id: '8-2-q5', text: "What is TONU?", options: ["A type of freight insurance", "Payment when a booked load is cancelled", "A detention rate for overnight waits", "A penalty for late delivery"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '8-2-q1-ru', text: "Что нужно сделать ПЕРЕД звонком брокеру для подачи заявки?", options: ["Подать заявку по стандартной ставке $500", "Подтвердить ставку водителя и рассчитать брокерскую цену", "Спросить брокера каков его максимальный бюджет", "Проверить биржу на аналогичные грузы"], correctIndex: 1 },
+          { id: '8-2-q2-ru', text: "Ставка водителя $600. При целевой марже 21% какова ваша брокерская цена?", options: ["$600", "$721", "$759", "$850"], correctIndex: 2 },
+          { id: '8-2-q3-ru', text: "Брокер запрашивает VIN трака. Что предоставляете?", options: ["Настоящий VIN из документов трака", "Highway VIN (не настоящий)", "Отказать в предоставлении VIN", "VIN любого доступного трака"], correctIndex: 1 },
+          { id: '8-2-q4-ru', text: "Когда начинает отсчитываться detention?", options: ["Сразу по прибытии на объект", "После 2 часов ожидания сверх аппойнтмента", "После 1 часа ожидания", "Когда водитель звонит вам сообщить о задержке"], correctIndex: 1 },
+          { id: '8-2-q5-ru', text: "Что такое TONU?", options: ["Вид грузовой страховки", "Выплата когда забронированный груз отменяется", "Ставка detention за ночное ожидание", "Штраф за позднюю доставку"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '8-3': {
+      type: 'text',
+      body: `<h2>Bidding Simulation — Live Negotiation</h2><p>Welcome to the Negotiation Game. In this simulation, you will practice the complete bidding cycle: evaluating loads, determining rates based on area pricing, negotiating with simulated brokers, and calculating your margin.</p><h3>How It Works</h3><p>You will face 3 rounds of negotiation, each with a different broker personality:</p><ul><li><strong>Budget Brian</strong> — a tough negotiator who starts low. You need strong counter-arguments.</li><li><strong>Fair Fiona</strong> — reasonable, meets in the middle. Standard negotiation.</li><li><strong>Premium Pete</strong> — generous opening, but don't leave money on the table.</li></ul><h3>Your Goal</h3><p>For each round:</p><ol><li>Review the load details (route, miles, equipment type)</li><li>Check the broker's opening offer against market rate</li><li>Set your counter-offer using the slider</li><li>Watch the P&L panel — your carrier cost, margin in dollars, and margin percentage</li><li>Target: 15-25% margin on each deal</li></ol><blockquote><strong>Remember:</strong> Minimum revenue per load is $100. Aim for 21% average margin across all deals. The more miles, the bigger your commission can be.</blockquote><p>Use the Negotiation Game below to practice.</p>`,
+      bodyRu: `<h2>Симуляция торгов — живые переговоры</h2><p>Добро пожаловать в Игру переговоров. В этой симуляции вы практикуете полный цикл: оценка грузов, определение ставок по зонам, переговоры с брокерами и расчёт маржи.</p><h3>Как это работает</h3><p>Вас ждут 3 раунда переговоров с разными брокерами:</p><ul><li><strong>Budget Brian</strong> — жёсткий переговорщик, начинает низко. Нужны сильные аргументы.</li><li><strong>Fair Fiona</strong> — разумная, идёт на компромисс. Стандартные переговоры.</li><li><strong>Premium Pete</strong> — щедрое начальное предложение, но не оставляйте деньги на столе.</li></ul><h3>Ваша цель</h3><ol><li>Изучите детали груза (маршрут, мили, тип оборудования)</li><li>Сравните предложение брокера с рыночной ставкой</li><li>Установите встречное предложение ползунком</li><li>Следите за панелью P&L — стоимость перевозчика, маржа в долларах и процентах</li><li>Цель: 15-25% маржа на каждой сделке</li></ol><blockquote><strong>Помните:</strong> Минимальный доход с груза — $100. Целевая средняя маржа — 21%. Чем больше миль, тем выше ваша комиссия.</blockquote>`,
+      negotiationGame: true,
+    },
+
+    '8-4': {
+      type: 'text',
+      body: `
+        <h2>Final Test — Bidding & Deal Closing</h2>
+        <p>This test covers all chapter topics: bidding strategy, commission calculation, rate rules, accessorial charges, and handling broker objections. <strong>Goal: 80% or higher.</strong></p>
+      `,
+      bodyRu: `
+        <h2>Итоговый тест — Торги и закрытие сделок</h2>
+        <p>Этот тест охватывает все темы главы: стратегию торгов, расчёт комиссии, правила ставок, дополнительные выплаты и работу с возражениями брокера. <strong>Цель: 80% и выше.</strong></p>
+      `,
+      quiz: {
+        questions: [
+          { id: '8-4-q1', text: "You find a load: 380 miles, driver rate $550. What is your broker bid at 21% margin?", options: ["$550", "$665", "$696", "$750"], correctIndex: 2 },
+          { id: '8-4-q2', text: "Before submitting a bid to a broker, you must:", options: ["Check the weather along the route", "Confirm the driver will take the load", "Get written authorization from your manager", "Call the shipper to confirm the load"], correctIndex: 1 },
+          { id: '8-4-q3', text: "A broker says \"best I can do is $750\" but your driver rate is $700. What do you do?", options: ["Accept $750 — $50 revenue is better than nothing", "Reject and find another load", "Counter at $800 — you need at least $100 revenue", "Ask the driver to lower his rate to $600"], correctIndex: 2 },
+          { id: '8-4-q4', text: "When does TONU NOT apply?", options: ["When the load is cancelled 3 hours before unloading", "When the load is cancelled 2 hours before unloading", "When the driver has already driven 200 miles", "When the driver hasn't left yet"], correctIndex: 1 },
+          { id: '8-4-q5', text: "Can Layover and TONU be applied to the same load simultaneously?", options: ["Yes, both apply if the driver waited overnight AND the load was cancelled", "No, only one can apply at a time", "Yes, but only for loads over 500 miles", "Only if the broker approves both"], correctIndex: 1 },
+          { id: '8-4-q6', text: "A broker asks for the truck VIN during booking. You should:", options: ["Give the real VIN from the truck registration", "Provide the Highway VIN after checking in company chat", "Refuse the load — this is suspicious", "Give any random VIN number"], correctIndex: 1 },
+          { id: '8-4-q7', text: "Your target margin across all loads should average:", options: ["5%", "10%", "15%", "21%"], correctIndex: 3 },
+          { id: '8-4-q8', text: "A driver says: \"I don't know what to ask for this load, what's your target?\" You respond:", options: ["\"Our target is $800.\"", "\"We don't have a target — tell me your usual rate and I'll try to get it.\"", "\"Ask the broker directly what they're offering.\"", "\"Start at $400 and we'll negotiate.\""], correctIndex: 1 },
+          { id: '8-4-q9', text: "Detention pay max per day is:", options: ["$100", "$150", "$200", "$300"], correctIndex: 2 },
+          { id: '8-4-q10', text: "Hand loading under 500 lbs pays the driver:", options: ["$25", "$50", "$75", "$100"], correctIndex: 1 },
+          { id: '8-4-q11', text: "A truck breaks down under a company load. The recovery driver delivers. Who gets what?", options: ["Recovery driver gets full load rate, original driver gets nothing", "Recovery driver gets their required amount, original driver gets the remainder of the total rate", "They split the rate 50/50", "The company keeps all payment"], correctIndex: 1 },
+          { id: '8-4-q12', text: "Document printing costs should be:", options: ["Billed separately after delivery", "Included in your rate before sending to loading (Canada/airports)", "Covered by the broker always", "Deducted from driver pay"], correctIndex: 1 },
+          { id: '8-4-q13', text: "Driver had a scheduled 10:00 AM pickup window. Loading started at 10:00 AM but finished at 1:30 PM. When does detention clock start?", options: ["Immediately at 10:00 AM", "At 12:00 PM (after 2 hours from start)", "At 10:00 AM but only after driver calls you", "After 1:30 PM when loading finished"], correctIndex: 1 },
+          { id: '8-4-q14', text: "Sprinter van layover payment is:", options: ["$50", "$75", "$100", "$125"], correctIndex: 1 },
+          { id: '8-4-q15', text: "Which loads have higher commission potential?", options: ["Short city loads under 100 miles", "High-value freight loads", "Long-haul loads with more miles", "Airport and Canada loads"], correctIndex: 2 },
+          { id: '8-4-q16', text: "Broker counters your $900 bid at $820. Your driver rate is $720. What is your revenue at $820?", options: ["$80", "$100", "$120", "$820"], correctIndex: 1 },
+          { id: '8-4-q17', text: "Why should you never reveal your target rate to the driver?", options: ["It's confidential company information", "You need the driver's rate first to calculate your margin properly", "Brokers can hear the call", "Drivers will report you to the load board"], correctIndex: 1 },
+          { id: '8-4-q18', text: "A load was cancelled. Driver had driven 150 miles. TONU applies. How much does the driver get?", options: ["$0 — TONU doesn't cover miles driven", "$75 for the load", "Full original rate", "$25 per mile driven"], correctIndex: 1 },
+          { id: '8-4-q19', text: "Hand loading for 700 lbs cargo is paid at:", options: ["$50", "$75", "Negotiated with dispatcher", "$100"], correctIndex: 2 },
+          { id: '8-4-q20', text: "After the broker accepts your bid, the next critical step is:", options: ["Dispatch the driver immediately", "Wait for Rate Confirmation and verify all details match before dispatching", "Call the shipper to confirm pickup time", "Update Cargo ETL with the load information"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: '8-4-q1-ru', text: "Груз 380 миль, ставка водителя $550. Какова ваша заявка брокеру при марже 21%?", options: ["$550", "$665", "$696", "$750"], correctIndex: 2 },
+          { id: '8-4-q2-ru', text: "Перед подачей заявки брокеру вы должны:", options: ["Проверить погоду по маршруту", "Подтвердить что водитель возьмёт груз", "Получить письменное разрешение менеджера", "Позвонить грузоотправителю для подтверждения"], correctIndex: 1 },
+          { id: '8-4-q3-ru', text: "Брокер говорит \"лучшее что могу — $750\", но ставка вашего водителя $700. Что делаете?", options: ["Принять $750 — $50 лучше чем ничего", "Отказать и найти другой груз", "Встречное предложение $800 — нужно минимум $100 дохода", "Попросить водителя снизить ставку до $600"], correctIndex: 2 },
+          { id: '8-4-q4-ru', text: "Когда TONU НЕ применяется?", options: ["Когда груз отменяется за 3 часа до выгрузки", "Когда груз отменяется за 2 часа до выгрузки", "Когда водитель уже проехал 200 миль", "Когда водитель ещё не выехал"], correctIndex: 1 },
+          { id: '8-4-q5-ru', text: "Можно ли применить Layover и TONU к одному грузу одновременно?", options: ["Да, оба применяются если водитель ждал ночь И груз отменили", "Нет, только одно из двух", "Да, но только для грузов более 500 миль", "Только если брокер одобряет оба"], correctIndex: 1 },
+          { id: '8-4-q6-ru', text: "Брокер запрашивает VIN трака при бронировании. Вы должны:", options: ["Дать настоящий VIN из регистрации трака", "Предоставить Highway VIN после уточнения в рабочем чате", "Отказаться от груза — это подозрительно", "Дать любой случайный VIN"], correctIndex: 1 },
+          { id: '8-4-q7-ru', text: "Средняя целевая маржа по всем грузам должна составлять:", options: ["5%", "10%", "15%", "21%"], correctIndex: 3 },
+          { id: '8-4-q8-ru', text: "Водитель говорит: \"Не знаю что запросить, какой у вас таргет?\" Вы отвечаете:", options: ["\"Наш таргет $800.\"", "\"У нас нет таргета — скажите свою обычную ставку, я постараюсь её получить.\"", "\"Спросите брокера напрямую что они предлагают.\"", "\"Начните с $400 и будем договариваться.\""], correctIndex: 1 },
+          { id: '8-4-q9-ru', text: "Максимальный detention за день составляет:", options: ["$100", "$150", "$200", "$300"], correctIndex: 2 },
+          { id: '8-4-q10-ru', text: "Ручная погрузка до 500 фунтов оплачивается водителю:", options: ["$25", "$50", "$75", "$100"], correctIndex: 1 },
+          { id: '8-4-q11-ru', text: "Трак ломается под грузом. Водитель-замена доставляет груз. Кто что получает?", options: ["Замена получает всю ставку, оригинальный водитель ничего", "Замена получает свою требуемую сумму, оригинальный водитель получает остаток от полной ставки", "Делят ставку 50/50", "Компания оставляет всю оплату"], correctIndex: 1 },
+          { id: '8-4-q12-ru', text: "Расходы на печать документов должны быть:", options: ["Выставлены отдельно после доставки", "Включены в ставку до отправки на загрузку (Канада/аэропорты)", "Всегда покрыты брокером", "Вычтены из оплаты водителя"], correctIndex: 1 },
+          { id: '8-4-q13-ru', text: "Аппойнтмент водителя на 10:00, загрузка началась в 10:00 но закончилась в 13:30. Когда начинается отсчёт detention?", options: ["Сразу в 10:00", "В 12:00 (через 2 часа от начала)", "В 10:00 но только после звонка водителя", "После 13:30 когда погрузка закончилась"], correctIndex: 1 },
+          { id: '8-4-q14-ru', text: "Layover для Sprinter Van составляет:", options: ["$50", "$75", "$100", "$125"], correctIndex: 1 },
+          { id: '8-4-q15-ru', text: "У каких грузов потенциально выше комиссия диспетчера?", options: ["Короткие городские грузы до 100 миль", "Высокоценные грузы", "Дальние грузы с большим количеством миль", "Аэропорты и Канада"], correctIndex: 2 },
+          { id: '8-4-q16-ru', text: "Брокер снижает вашу заявку $900 до $820. Ставка водителя $720. Каков ваш доход при $820?", options: ["$80", "$100", "$120", "$820"], correctIndex: 1 },
+          { id: '8-4-q17-ru', text: "Почему нельзя раскрывать водителю свой целевой тариф?", options: ["Это конфиденциальная информация компании", "Нужно сначала получить ставку водителя для правильного расчёта маржи", "Брокеры могут слышать звонок", "Водители сообщат на биржу грузов"], correctIndex: 1 },
+          { id: '8-4-q18-ru', text: "Груз отменён. Водитель проехал 150 миль. Применяется TONU. Сколько получает водитель?", options: ["$0 — TONU не покрывает пройденные мили", "$75 за груз", "Полную оригинальную ставку", "$25 за каждую пройденную милю"], correctIndex: 1 },
+          { id: '8-4-q19-ru', text: "Ручная погрузка груза 700 фунтов оплачивается:", options: ["$50", "$75", "По согласованию с диспетчером", "$100"], correctIndex: 2 },
+          { id: '8-4-q20-ru', text: "После того как брокер принял вашу заявку, следующий критический шаг:", options: ["Немедленно отправить водителя", "Дождаться Rate Confirmation и проверить все детали перед отправкой", "Позвонить грузоотправителю для подтверждения времени загрузки", "Обновить Cargo ETL с информацией о грузе"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '9-1': {
+      type: 'text',
+      body: `<h2>Recovery & Problem Solving</h2><p>In US trucking, problems are not exceptions — they are part of the daily routine. Loads get cancelled, drivers break down, brokers change delivery addresses mid-route, and drivers sometimes refuse to complete a load after pickup. A dispatcher who cannot handle these situations will lose money, broker relationships, and drivers.</p><blockquote><strong>The golden rule of recovery:</strong> Every problem has a solution. The question is how fast you find it and how much it costs.</blockquote><h3>What Triggers a Recovery Situation</h3><p>Recovery is needed when the original plan fails and you must find an alternative to complete the delivery. The most common triggers are:</p><ul><li><strong>Driver cancellation</strong> — the driver refuses the load before or after pickup</li><li><strong>Truck breakdown</strong> — mechanical failure en route</li><li><strong>Load cancellation by broker</strong> — the shipper cancels or changes the load (TONU situation)</li><li><strong>Driver no-show</strong> — driver doesn't arrive at pickup</li><li><strong>Late delivery risk</strong> — ETA shows the driver will miss the delivery window</li></ul><h3>Why Drivers Cancel</h3><p>Understanding why drivers cancel helps you prevent and handle cancellations:</p><ol><li><strong>Changed their mind</strong> — found a better-paying load elsewhere</li><li><strong>Got tired of waiting</strong> — sat at a facility too long without updates</li><li><strong>Didn't read load details</strong> — realized the load doesn't match their equipment</li><li><strong>Want more money</strong> — trying to renegotiate after booking</li><li><strong>Actual issue</strong> — real breakdown or emergency (rare)</li></ol><h3>The Cardinal Rule</h3><p><strong>BEFORE YOU SIGN THE RATE CON, YOU MUST CALL THE DRIVER AND CONFIRM THEY ARE STILL DOING THE LOAD.</strong> If you sign without confirming and the driver backs out, you've created a recovery situation that was 100% preventable. This is a serious mistake that can result in penalties.</p><h3>Financial Consequences</h3><p>Every recovery situation has costs. Understanding the standard compensation structure helps you make fast decisions:</p><ul><li><strong>TONU (Truck Order Not Used)</strong> — $75 paid to the driver when a load is cancelled. Standard broker TONU is $150.</li><li><strong>Detention</strong> — $25/hour after the first 2 free hours of waiting, maximum $200/day</li><li><strong>Layover</strong> — $75 for sprinter/cargo van, $100 for box truck/large straight, paid when driver waits overnight</li><li><strong>Hand load/unload</strong> — $50 for under 500 lbs, $75 for 500-1000 lbs</li></ul><blockquote><strong>Important:</strong> Layover and TONU cannot be applied to the same load — you get one or the other.</blockquote><h3>Breakdown Compensation</h3><p>When a truck breaks down mid-load:</p><ol><li>The recovery driver gets paid their requested rate to complete the delivery</li><li>The original driver gets the remainder from the total load rate, regardless of how far they drove</li><li>Tolls and accessorials are only paid with documented receipts agreed by the company</li></ol><p>In the following lessons, you will learn the complete recovery playbook: how to verify problems, find replacement drivers, negotiate under pressure, and communicate with brokers during crises.</p><figure><img src="/img-proxy/wikipedia/commons/a/a7/Tow_truck_-_I-65.jpg" alt="Tow truck on Interstate 65" loading="lazy" /><figcaption>When a truck breaks down, the dispatcher coordinates recovery — every minute of delay costs money</figcaption></figure>
+
+      <h3>💵 Compensation Quick Reference</h3>
+      <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+        <tr style="background:#1e293b;color:white">
+          <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Type</th>
+          <th style="padding:10px;text-align:center">Amount</th>
+          <th style="padding:10px;text-align:left;border-radius:0 8px 0 0">When</th>
+        </tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🚫 TONU (to driver)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$75</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Load cancelled after driver dispatched</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">🚫 TONU (from broker)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$150</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Same — broker pays more</td></tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #e2e8f0">⏰ Detention</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$25/hr</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">After 2 free hours, max $200/day</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">🌙 Layover (Van)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$75</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Overnight wait at facility</td></tr>
+        <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🌙 Layover (Box Truck)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$100</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Overnight wait at facility</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">💪 Hand load <500 lbs</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$50</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Driver loads/unloads manually</td></tr>
+        <tr style="background:#fef2f2"><td style="padding:8px">💪 Hand load 500-1000 lbs</td><td style="padding:8px;text-align:center"><strong>$75</strong></td><td style="padding:8px">Driver loads/unloads manually</td></tr>
+      </table>
+      <blockquote><strong>⚠️ Important:</strong> Layover + TONU = NEVER on same load. Detention + Layover = CAN coexist (waited at facility + overnight).</blockquote>`,
+      bodyRu: `<h2>Решение проблем и восстановление рейсов</h2><p>В грузоперевозках США проблемы — не исключение, а часть ежедневной работы. Грузы отменяются, грузовики ломаются, брокеры меняют адрес доставки в пути, а водители иногда отказываются завершать рейс после погрузки. Диспетчер, который не умеет решать такие ситуации, теряет деньги, отношения с брокерами и водителей.</p><blockquote><strong>Золотое правило восстановления:</strong> У каждой проблемы есть решение. Вопрос — как быстро вы его найдёте и сколько оно будет стоить.</blockquote><h3>Что запускает ситуацию восстановления</h3><p>Восстановление нужно, когда первоначальный план срывается и необходимо найти альтернативу для выполнения доставки. Самые частые причины:</p><ul><li><strong>Отказ водителя</strong> — водитель отказывается от груза до или после погрузки</li><li><strong>Поломка грузовика</strong> — механическая неисправность в пути</li><li><strong>Отмена груза брокером</strong> — грузоотправитель отменяет или меняет груз (ситуация TONU)</li><li><strong>Неявка водителя</strong> — водитель не приехал на погрузку</li><li><strong>Риск опоздания</strong> — ETA показывает, что водитель не успеет в окно доставки</li></ul><h3>Почему водители отказываются</h3><p>Понимание причин помогает предотвращать и решать отказы:</p><ol><li><strong>Передумал</strong> — нашёл более выгодный груз в другом месте</li><li><strong>Устал ждать</strong> — просидел на объекте слишком долго без обновлений</li><li><strong>Не прочитал детали</strong> — понял, что груз не подходит его оборудованию</li><li><strong>Хочет больше денег</strong> — пытается пересогласовать ставку после бронирования</li><li><strong>Реальная проблема</strong> — настоящая поломка или ЧП (редко)</li></ol><h3>Главное правило</h3><p><strong>ПРЕЖДЕ ЧЕМ ПОДПИСАТЬ RATE CON, ВЫ ОБЯЗАНЫ ПОЗВОНИТЬ ВОДИТЕЛЮ И ПОДТВЕРДИТЬ, ЧТО ОН ВСЁ ЕЩЁ БЕРЁТ ЭТОТ ГРУЗ.</strong> Если подпишете без подтверждения и водитель откажется — вы создали ситуацию восстановления, которую можно было на 100% предотвратить.</p><h3>Финансовые последствия</h3><p>Каждая ситуация восстановления имеет свою стоимость:</p><ul><li><strong>TONU (Truck Order Not Used)</strong> — $75 компенсация водителю при отмене груза. Стандартный TONU от брокера — $150.</li><li><strong>Detention</strong> — $25/час после первых 2 бесплатных часов ожидания, максимум $200/день</li><li><strong>Layover</strong> — $75 для спринтера, $100 для бокс трака, оплачивается при ночном ожидании</li><li><strong>Ручная погрузка/разгрузка</strong> — $50 до 500 фунтов, $75 за 500-1000 фунтов</li></ul><blockquote><strong>Важно:</strong> Layover и TONU не могут применяться к одному рейсу одновременно.</blockquote><h3>Компенсация при поломке</h3><p>Когда грузовик ломается в пути:</p><ol><li>Recovery-водитель получает свою запрошенную ставку за завершение доставки</li><li>Первоначальный водитель получает остаток от общей ставки рейса, вне зависимости от пройденного расстояния</li><li>Дорожные сборы и дополнительные расходы оплачиваются только при наличии документального подтверждения</li></ol><figure><img src="/img-proxy/wikipedia/commons/a/a7/Tow_truck_-_I-65.jpg" alt="Эвакуатор на Interstate 65" loading="lazy" /><figcaption>При поломке грузовика диспетчер координирует восстановление — каждая минута простоя стоит денег</figcaption></figure>
+
+    <h3>💵 Справочник по компенсациям</h3>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:14px">
+      <tr style="background:#1e293b;color:white">
+        <th style="padding:10px;text-align:left;border-radius:8px 0 0 0">Тип</th>
+        <th style="padding:10px;text-align:center">Сумма</th>
+        <th style="padding:10px;text-align:left;border-radius:0 8px 0 0">Когда</th>
+      </tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🚫 TONU (водителю)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$75</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Груз отменён после отправки</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">🚫 TONU (от брокера)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$150</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Брокер платит больше</td></tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #e2e8f0">⏰ Detention</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$25/час</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">После 2 бесплатных часов, макс $200</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">🌙 Layover (Вэн)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$75</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Ночное ожидание</td></tr>
+      <tr style="background:#fef2f2"><td style="padding:8px;border-bottom:1px solid #e2e8f0">🌙 Layover (Бокс Трак)</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$100</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Ночное ожидание</td></tr>
+      <tr><td style="padding:8px;border-bottom:1px solid #e2e8f0">💪 Ручная <500 lbs</td><td style="padding:8px;text-align:center;border-bottom:1px solid #e2e8f0"><strong>$50</strong></td><td style="padding:8px;border-bottom:1px solid #e2e8f0">Водитель грузит/выгружает</td></tr>
+      <tr style="background:#fef2f2"><td style="padding:8px">💪 Ручная 500-1000 lbs</td><td style="padding:8px;text-align:center"><strong>$75</strong></td><td style="padding:8px">Водитель грузит/выгружает</td></tr>
+    </table>
+    <blockquote><strong>⚠️ Важно:</strong> Layover + TONU = НИКОГДА за один рейс. Detention + Layover = МОЖНО (ждал на объекте + ночевал).</blockquote>`,
+      quiz: {
+        questions: [
+          { id: 'rec-in-q1', text: "What is TONU and when does it apply?", options: ["Toll fee charged at highway exits", "Truck Order Not Used — compensation when a load is cancelled", "A type of insurance claim for damaged freight", "Tax on freight over 10,000 lbs"], correctIndex: 1 },
+          { id: 'rec-in-q2', text: "What is the standard TONU payment to the driver?", options: ["$25", "$50", "$75", "$150"], correctIndex: 2 },
+          { id: 'rec-in-q3', text: "Can layover and TONU be applied to the same load?", options: ["Yes, they always apply together", "No — you receive one or the other, never both", "Only if the broker agrees to both", "Yes, but only for box trucks"], correctIndex: 1 },
+          { id: 'rec-in-q4', text: "What are detention rates after the free period?", options: ["$10/hour, no maximum", "$25/hour after 2 free hours, max $200/day", "$50/hour from the first minute", "$100 flat per incident"], correctIndex: 1 },
+          { id: 'rec-in-q5', text: "What is the layover rate for a sprinter vs. box truck?", options: ["$50 / $75", "$75 / $100", "$100 / $150", "$150 / $200"], correctIndex: 1 },
+          { id: 'rec-in-q6', text: "What must you do BEFORE signing a Rate Con?", options: ["Upload documents to Google Drive", "Call the driver to confirm they are still taking the load", "Notify the broker about driver ETA", "Send the BOL to the consignee"], correctIndex: 1 },
+          { id: 'rec-in-q7', text: "When a truck breaks down mid-load, who gets paid what?", options: ["Both drivers split the rate 50/50", "Recovery driver gets their rate; original driver gets the remainder of the total load rate", "Only the recovery driver gets paid", "The original driver keeps the full rate and the recovery driver bills separately"], correctIndex: 1 },
+          { id: 'rec-in-q8', text: "Which is NOT a common reason drivers cancel loads?", options: ["Found a better-paying load", "Got tired of waiting at the facility", "The broker offered them a bonus to stay", "Didn't read load details properly"], correctIndex: 2 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: 'rec-in-q1', text: "Что такое TONU и когда он применяется?", options: ["Дорожный сбор на выезде с шоссе", "Truck Order Not Used — компенсация при отмене груза", "Вид страхового требования за повреждённый груз", "Налог на грузы свыше 10 000 фунтов"], correctIndex: 1 },
+          { id: 'rec-in-q2', text: "Какова стандартная выплата TONU водителю?", options: ["$25", "$50", "$75", "$150"], correctIndex: 2 },
+          { id: 'rec-in-q3', text: "Можно ли применить layover и TONU к одному рейсу?", options: ["Да, они всегда применяются вместе", "Нет — получаете одно или другое, не оба", "Только если брокер согласен на оба", "Да, но только для бокс траков"], correctIndex: 1 },
+          { id: 'rec-in-q4', text: "Какова ставка detention после бесплатного периода?", options: ["$10/час без максимума", "$25/час после 2 бесплатных часов, максимум $200/день", "$50/час с первой минуты", "$100 фиксированно за инцидент"], correctIndex: 1 },
+          { id: 'rec-in-q5', text: "Какова ставка layover для спринтера и бокс трака?", options: ["$50 / $75", "$75 / $100", "$100 / $150", "$150 / $200"], correctIndex: 1 },
+          { id: 'rec-in-q6', text: "Что ОБЯЗАТЕЛЬНО сделать до подписания Rate Con?", options: ["Загрузить документы в Google Drive", "Позвонить водителю и подтвердить, что он берёт груз", "Уведомить брокера о ETA водителя", "Отправить BOL грузополучателю"], correctIndex: 1 },
+          { id: 'rec-in-q7', text: "При поломке в пути, кто получает сколько?", options: ["Оба водителя делят ставку 50/50", "Recovery-водитель получает свою ставку, оригинальный — остаток от общей суммы", "Только recovery-водитель получает оплату", "Оригинальный водитель сохраняет всю ставку"], correctIndex: 1 },
+          { id: 'rec-in-q8', text: "Что НЕ является частой причиной отказа водителей?", options: ["Нашёл более выгодный груз", "Устал ждать на объекте", "Брокер предложил бонус за ожидание", "Не прочитал детали груза"], correctIndex: 2 },
+        ],
+      },
+    },
+
+    '9-2': {
+      type: 'text',
+      body: `<h2>The Recovery Playbook</h2><p>When a load goes wrong, you need a system — not panic. This lesson covers the complete recovery process: from verifying the problem to finding a replacement driver to closing out the situation professionally.</p><h3>Step 1: Verify the Problem</h3><p>Before you do anything, confirm what actually happened. Drivers can exaggerate, lie, or misunderstand situations.</p><blockquote><strong>Golden rule:</strong> Always ask for proof. There have been cases where drivers sent photos taken from the internet. Google reverse-image-search every breakdown photo before forwarding it to the broker.</blockquote><p>For breakdown claims, request:</p><ul><li>Photo of the truck showing the issue</li><li>Video of the engine/problem area</li><li>Exact location (GPS coordinates or nearest exit)</li></ul><p>For cancellation claims, determine the real reason by asking direct questions. The five common reasons are: changed their mind, tired of waiting, didn't read details, want more money, or actual emergency.</p><h3>Step 2: Find a Recovery Driver</h3><p>Once you confirm a recovery is needed, move fast:</p><ol><li><strong>Search your company's fleet capacity.</strong> Open CargoETL and look for available trucks near the pickup or the driver's current location. Call the owner or driver directly and explain the situation.</li><li><strong>Check with other dispatchers.</strong> Use the group chat: "Is this your driver? Is he reliable? Can I use him for recovery?" Always contact the other dispatcher before calling their driver — the driver may already be booked.</li><li><strong>Post on map.cargoetl.com.</strong> If internal options fail, post the load on the public board. You'll receive offers from external carriers. Talk to them, verify reliability, and get it covered.</li></ol><h3>When Can You Contact Another Dispatcher's Driver Directly?</h3><ul><li><strong>Usually NO</strong> — contact the dispatcher first. The driver may be negotiating another load.</li><li><strong>Exception:</strong> Urgent recovery, dispatcher unavailable (evenings, off-hours). In this case, contact the driver, then immediately notify the dispatcher.</li></ul><h3>Step 3: Handle the Driver</h3><p>Different driver types require different approaches during conflict:</p><h3>Type 1: The Negotiator ("Add $50 and I'll go")</h3><p>Apply pressure first: "You agreed to the terms and gave your rate. You must deliver what you agreed to." If they won't budge and your margin allows it, offer a partial compromise ($25-50). This is cheaper than a full recovery.</p><h3>Type 2: The Honest Mistake ("I bid by mistake")</h3><p>Use logic: "We booked this load for you, the broker is counting on us. Let's make this work." Often these drivers will cooperate if you communicate calmly.</p><h3>Type 3: The Tired Driver (waited too long)</h3><p>This is partly your fault for not managing their wait. Acknowledge the frustration, offer detention compensation, and work with the broker on timing.</p><h3>Type 4: Complete Refusal</h3><p>When nothing works, your options are:</p><ol><li>Tell the broker the truth immediately</li><li>Email to request removal from the load</li><li>Negotiate financially one more time</li><li>Find a recovery driver ASAP</li></ol><h3>The 4 Tools of Persuasion</h3><p>There is no universal script for recovery calls. You rely on four tools:</p><ul><li><strong>Pressure</strong> — "You committed to this load"</li><li><strong>Logic</strong> — "Moving to a better area will make you more money"</li><li><strong>Money</strong> — "I can add $50 if you complete this"</li><li><strong>Human connection</strong> — "I need your help here, you're my last option"</li></ul><h3>Step 4: Communicate with the Broker</h3><p>During any crisis, the broker must be updated continuously. Even if you don't have a solution yet, send an update: "We are aware of the situation and actively working on a resolution. New ETA will be provided within 30 minutes."</p><p>Remember: even major delays can be forgiven if the broker feels informed and your ETA is realistic.</p><figure><img src="/img-proxy/wikipedia/commons/a/a7/Tow_truck_-_I-65.jpg" alt="Tow truck on Interstate 65" loading="lazy" /><figcaption>Roadside recovery — a reality every dispatcher must be prepared to manage</figcaption></figure>`,
+      bodyRu: `<h2>Алгоритм восстановления рейсов</h2><p>Когда рейс идёт не по плану, нужна система — не паника. Этот урок охватывает полный процесс восстановления: от проверки проблемы до поиска замены и профессионального закрытия ситуации.</p><h3>Шаг 1: Проверьте проблему</h3><p>Прежде чем что-то делать, подтвердите, что реально произошло. Водители могут преувеличивать, врать или неправильно понимать ситуацию.</p><blockquote><strong>Золотое правило:</strong> Всегда просите доказательства. Были случаи, когда водители отправляли фото из интернета. Проверяйте каждое фото поломки через поиск по изображению в Google.</blockquote><p>При заявлении о поломке запросите:</p><ul><li>Фото грузовика с видимой проблемой</li><li>Видео двигателя/проблемной зоны</li><li>Точное местоположение (GPS-координаты или ближайший съезд)</li></ul><h3>Шаг 2: Найдите recovery-водителя</h3><p>Как только подтвердили необходимость восстановления, действуйте быстро:</p><ol><li><strong>Поищите в парке компании.</strong> Откройте CargoETL и найдите свободные машины рядом. Позвоните владельцу или водителю напрямую.</li><li><strong>Проверьте у других диспетчеров.</strong> В групповом чате: «Это ваш водитель? Он надёжный? Могу использовать для recovery?» Всегда связывайтесь с диспетчером до звонка его водителю.</li><li><strong>Опубликуйте на map.cargoetl.com.</strong> Если внутренние варианты не работают, разместите груз на публичной площадке.</li></ol><h3>Шаг 3: Работа с водителем</h3><h3>Тип 1: Переговорщик («Добавьте $50 и поеду»)</h3><p>Сначала давление: «Вы согласились на эти условия и назвали свою ставку. Вы обязаны доставить груз.» Если не поддаётся и маржа позволяет — предложите компромисс ($25-50).</p><h3>Тип 2: Честная ошибка («Я поставил ставку по ошибке»)</h3><p>Используйте логику: «Мы забронировали этот груз для вас, брокер рассчитывает на нас. Давайте решим это.»</p><h3>Тип 3: Усталый водитель</h3><p>Признайте его фрустрацию, предложите компенсацию за ожидание, договоритесь с брокером по срокам.</p><h3>Тип 4: Полный отказ</h3><p>Когда ничего не работает: сообщите брокеру правду, запросите снятие с рейса, попытайтесь ещё раз финансово, ищите recovery ASAP.</p><h3>4 инструмента убеждения</h3><ul><li><strong>Давление</strong> — «Вы взяли обязательство»</li><li><strong>Логика</strong> — «Переезд в лучшую зону принесёт больше денег»</li><li><strong>Деньги</strong> — «Могу добавить $50 за завершение»</li><li><strong>Человеческий контакт</strong> — «Мне нужна ваша помощь, вы мой последний вариант»</li></ul><h3>Шаг 4: Коммуникация с брокером</h3><p>Во время любого кризиса брокер должен получать обновления непрерывно. Даже если решения ещё нет: «Мы в курсе ситуации и активно работаем. Новый ETA будет предоставлен в течение 30 минут.»</p><figure><img src="/img-proxy/wikipedia/commons/a/a7/Tow_truck_-_I-65.jpg" alt="Эвакуатор на Interstate 65" loading="lazy" /><figcaption>Дорожная эвакуация — реальность, к которой должен быть готов каждый диспетчер</figcaption></figure>`,
+      quiz: {
+        questions: [
+          { id: 'rec-th-q1', text: "What is Step 1 of the recovery process?", options: ["Post the load on map.cargoetl.com", "Call the broker and explain the delay", "Verify the problem — ask for proof (photos, video, location)", "Find a recovery driver from internal fleet"], correctIndex: 2 },
+          { id: 'rec-th-q2', text: "How do you verify a driver's breakdown claim is real?", options: ["Trust the driver — they have no reason to lie", "Request photo and video, then Google reverse-image-search the photo", "Ask the broker to verify the location", "Send another driver to check"], correctIndex: 1 },
+          { id: 'rec-th-q3', text: "Must you contact another dispatcher before using their driver for recovery?", options: ["No — in emergencies you call the driver directly", "Yes, in most cases — the driver may already be booked", "Only if the driver is a box truck", "Only during business hours"], correctIndex: 1 },
+          { id: 'rec-th-q4', text: "What website do you use to post a recovery load externally?", options: ["dat.com", "truckstop.com", "map.cargoetl.com", "freightfinder.com"], correctIndex: 2 },
+          { id: 'rec-th-q5', text: "A 'Negotiator' driver wants $50 more to continue. What is your first response?", options: ["Immediately agree to the $50 to avoid delays", "Apply pressure: 'You agreed to the terms and gave your rate'", "Cancel the load and find a recovery driver", "Call the broker and ask for more money"], correctIndex: 1 },
+          { id: 'rec-th-q6', text: "What are the 4 tools of persuasion for recovery calls?", options: ["Email, phone, text, fax", "Pressure, logic, money, human connection", "Threats, ultimatums, bribes, guilt", "Documentation, escalation, arbitration, litigation"], correctIndex: 1 },
+          { id: 'rec-th-q7', text: "When can you bypass the other dispatcher and call their driver directly?", options: ["Whenever you need a truck urgently", "Never — always go through the dispatcher", "Urgent recovery situations when the dispatcher is unavailable (evenings, off-hours)", "Only with written approval from management"], correctIndex: 2 },
+          { id: 'rec-th-q8', text: "What should you tell the broker while still working on a solution?", options: ["Nothing — only call when you have the answer", "We are aware of the situation and actively working on a resolution. New ETA in 30 minutes.", "The load is cancelled — we'll send TONU", "The driver is fine, just running a bit late"], correctIndex: 1 },
+          { id: 'rec-th-q9', text: "A driver sends a photo of a broken axle. What do you do before sending it to the broker?", options: ["Send it immediately to show transparency", "Google reverse-image-search to verify it is not from the internet", "Ask the driver to take another photo from a different angle", "Call a mechanic to confirm the damage type"], correctIndex: 1 },
+          { id: 'rec-th-q10', text: "What is the correct process when using another dispatcher's available driver?", options: ["Call the driver → book the load → notify the dispatcher later", "Post in group chat → contact dispatcher → confirm availability → get approval → call driver", "Email management → wait for approval → call the driver", "Call the driver directly — dispatchers don't need to coordinate"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: 'rec-th-q1', text: "Каков шаг 1 процесса восстановления?", options: ["Опубликовать груз на map.cargoetl.com", "Позвонить брокеру и объяснить задержку", "Проверить проблему — запросить доказательства (фото, видео, локация)", "Найти recovery-водителя из своего парка"], correctIndex: 2 },
+          { id: 'rec-th-q2', text: "Как проверить, что поломка водителя реальна?", options: ["Доверять водителю — у него нет причин врать", "Запросить фото и видео, затем проверить фото через поиск по изображению в Google", "Попросить брокера проверить локацию", "Отправить другого водителя для проверки"], correctIndex: 1 },
+          { id: 'rec-th-q3', text: "Нужно ли связываться с другим диспетчером перед использованием его водителя?", options: ["Нет — в экстренных случаях звоните водителю напрямую", "Да, в большинстве случаев — водитель может быть уже забронирован", "Только если водитель на бокс траке", "Только в рабочее время"], correctIndex: 1 },
+          { id: 'rec-th-q4', text: "На каком сайте размещают recovery-груз извне?", options: ["dat.com", "truckstop.com", "map.cargoetl.com", "freightfinder.com"], correctIndex: 2 },
+          { id: 'rec-th-q5', text: "Водитель-переговорщик хочет +$50. Ваш первый ответ?", options: ["Сразу согласиться, чтобы избежать задержки", "Давление: «Вы согласились на условия и назвали свою ставку»", "Отменить груз и искать recovery", "Позвонить брокеру и попросить больше денег"], correctIndex: 1 },
+          { id: 'rec-th-q6', text: "Каковы 4 инструмента убеждения при recovery?", options: ["Email, телефон, SMS, факс", "Давление, логика, деньги, человеческий контакт", "Угрозы, ультиматумы, взятки, вина", "Документация, эскалация, арбитраж, суд"], correctIndex: 1 },
+          { id: 'rec-th-q7', text: "Когда можно звонить водителю другого диспетчера напрямую?", options: ["Когда срочно нужен грузовик", "Никогда", "Срочное восстановление, когда диспетчер недоступен (вечер, нерабочее время)", "Только с письменного одобрения руководства"], correctIndex: 2 },
+          { id: 'rec-th-q8', text: "Что сказать брокеру, пока вы ещё ищете решение?", options: ["Ничего — звоните только с готовым ответом", "Мы в курсе ситуации и активно работаем. Новый ETA через 30 минут.", "Груз отменён — оформляем TONU", "Водитель в порядке, просто немного задерживается"], correctIndex: 1 },
+          { id: 'rec-th-q9', text: "Водитель прислал фото сломанной оси. Что вы делаете до отправки брокеру?", options: ["Отправляете сразу для прозрачности", "Проверяете через поиск по изображению, что фото не из интернета", "Просите водителя сделать другой ракурс", "Звоните механику для подтверждения"], correctIndex: 1 },
+          { id: 'rec-th-q10', text: "Правильный процесс при использовании водителя другого диспетчера?", options: ["Звонок водителю → бронирование → уведомление диспетчера потом", "Сообщение в чат → связь с диспетчером → подтверждение доступности → одобрение → звонок водителю", "Email руководству → ожидание одобрения → звонок водителю", "Звонок водителю напрямую — диспетчерам не нужно координироваться"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '9-3': {
+      type: 'text',
+      body: `<h2>Crisis Management — Live Simulation</h2><p>Welcome to the Crisis Dashboard. In real dispatching, problems don't come one at a time — they pile up. You might be handling a driver breakdown while a broker calls about a late delivery and another driver wants to drop their load.</p><p>This simulation puts you in the seat of a dispatcher managing multiple crises simultaneously. You must triage, prioritize, and resolve each situation using the recovery playbook you learned.</p><blockquote><strong>Key principle:</strong> Triage first. The load closest to failure gets your attention first. A driver who is 30 minutes from missing a delivery window is more urgent than a driver who wants $50 more.</blockquote><h3>What You Will Practice</h3><ul><li><strong>Driver no-show</strong> — The pickup is in 15 minutes and the driver isn't answering. Find a replacement.</li><li><strong>Mid-route breakdown</strong> — Verify the claim, find recovery, update the broker.</li><li><strong>Driver wants more money</strong> — Use the 4 persuasion tools to keep the load moving.</li><li><strong>Detention escalation</strong> — Calculate detention owed, calm the driver, update the broker.</li></ul><p>Use the interactive Crisis Dashboard below to practice managing all four crises at once.</p><figure><img src="/img-proxy/wikipedia/commons/d/d7/Roadside_Assistance_in_New_York.jpg" alt="Roadside assistance on US interstate" loading="lazy" /><figcaption>Real-world crisis recovery — every minute counts when freight is on the line</figcaption></figure>`,
+      bodyRu: `<h2>Управление кризисами — живая симуляция</h2><p>Добро пожаловать в Кризисный дашборд. В реальной работе диспетчера проблемы не приходят по одной — они накапливаются. Вы можете решать поломку одного водителя, пока брокер звонит по поводу опоздания, а третий водитель хочет бросить груз.</p><p>Эта симуляция помещает вас на место диспетчера, управляющего несколькими кризисами одновременно. Вы должны определить приоритеты и решить каждую ситуацию, используя изученный алгоритм.</p><blockquote><strong>Ключевой принцип:</strong> Сначала триаж. Груз, ближайший к провалу, получает ваше внимание первым. Водитель, который через 30 минут пропустит окно доставки — важнее водителя, который просит +$50.</blockquote><h3>Что вы будете практиковать</h3><ul><li><strong>Неявка водителя</strong> — до погрузки 15 минут, водитель не отвечает. Найдите замену.</li><li><strong>Поломка в пути</strong> — проверьте заявление, найдите recovery, обновите брокера.</li><li><strong>Водитель хочет больше денег</strong> — используйте 4 инструмента убеждения.</li><li><strong>Эскалация detention</strong> — рассчитайте сумму, успокойте водителя, обновите брокера.</li></ul><p>Используйте интерактивный Кризисный дашборд ниже для практики.</p><figure><img src="/img-proxy/wikipedia/commons/d/d7/Roadside_Assistance_in_New_York.jpg" alt="Дорожная помощь на шоссе США" loading="lazy" /><figcaption>Реальное кризисное восстановление — каждая минута на счету</figcaption></figure>`,
+      crisisDashboard: true,
+      quiz: {
+        questions: [
+          { id: 'rec-dm-q1', text: "It is 30 minutes before pickup and the driver is not responding. What are your first 3 actions?", options: ["Wait 30 more minutes, then call the broker", "Call driver 3 times → search internal fleet for nearby trucks → notify broker with realistic new ETA", "Email the driver and wait for response", "Cancel the load immediately and request TONU"], correctIndex: 1 },
+          { id: 'rec-dm-q2', text: "A driver has waited 4 hours at pickup. How much detention is owed?", options: ["$100 (4 hours × $25)", "$50 (2 paid hours × $25, first 2 hours free)", "$200 (maximum per day)", "$0 (detention only applies at delivery)"], correctIndex: 1 },
+          { id: 'rec-dm-q3', text: "A recovery driver wants $500 for a load paying $800. Original driver drove 200 of 600 miles. How does pay split?", options: ["Recovery driver: $500, Original driver: $300 (remainder of $800)", "Recovery driver: $500, Original driver: $0 (they didn't complete)", "Recovery driver: $400, Original driver: $400 (split evenly)", "Recovery driver: $500, Original driver: $200 (proportional to miles)"], correctIndex: 0 },
+          { id: 'rec-dm-q4', text: "Your driver refuses to deliver and the broker asks what's happening. What do you say?", options: ["Tell them the driver quit and you have no solution", "We are experiencing a driver issue and actively arranging recovery. I will update you with a new ETA within 30 minutes.", "Blame the driver by name and ask the broker for TONU", "Say nothing until you have a recovery driver confirmed"], correctIndex: 1 },
+          { id: 'rec-dm-q5', text: "Which crisis should you handle FIRST: (A) Driver wants $50 more, (B) Driver 30 min from missing delivery window, (C) New driver can't log into app?", options: ["A — money issues can escalate quickly", "B — the delivery window is the most time-critical", "C — the new driver needs help first", "All three simultaneously — dispatchers must multitask"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: 'rec-dm-q1', text: "До погрузки 30 минут, водитель не отвечает. Ваши первые 3 действия?", options: ["Подождать ещё 30 минут, затем звонить брокеру", "3 звонка водителю → поиск машин в своём парке → уведомление брокера с новым ETA", "Написать email водителю и ждать ответа", "Отменить груз и запросить TONU"], correctIndex: 1 },
+          { id: 'rec-dm-q2', text: "Водитель ждёт 4 часа на погрузке. Сколько detention положено?", options: ["$100 (4 часа × $25)", "$50 (2 оплачиваемых часа × $25, первые 2 бесплатно)", "$200 (максимум в день)", "$0 (detention только на доставке)"], correctIndex: 1 },
+          { id: 'rec-dm-q3', text: "Recovery-водитель хочет $500 за груз стоимостью $800. Оригинальный проехал 200 из 600 миль. Как делится оплата?", options: ["Recovery: $500, Оригинальный: $300 (остаток от $800)", "Recovery: $500, Оригинальный: $0", "Recovery: $400, Оригинальный: $400", "Recovery: $500, Оригинальный: $200 (пропорционально)"], correctIndex: 0 },
+          { id: 'rec-dm-q4', text: "Водитель отказывается доставлять, брокер спрашивает что происходит. Что вы говорите?", options: ["Водитель уволился, решения нет", "У нас возникла проблема с водителем, мы активно организуем recovery. Обновлю ETA в течение 30 минут.", "Назвать водителя по имени и попросить TONU", "Молчать до подтверждения recovery"], correctIndex: 1 },
+          { id: 'rec-dm-q5', text: "Какой кризис решать ПЕРВЫМ: (A) Водитель хочет +$50, (B) Водитель через 30 мин пропустит окно доставки, (C) Новый водитель не может зайти в приложение?", options: ["A — денежные вопросы эскалируются быстро", "B — окно доставки самое критичное по времени", "C — новому водителю нужна помощь первому", "Все три одновременно"], correctIndex: 1 },
+        ],
+      },
+    },
+
+    '9-4': {
+      type: 'text',
+      body: `<h2>Practice — Chapter 9: Recovery & Problem Solving</h2><p>This practice test covers all recovery scenarios from Chapter 9: TONU, detention, layover, breakdown handling, driver conflict types, recovery driver search process, broker communication during crises, and multi-crisis triage.</p><p>The test contains <strong>20 questions</strong> — 15 standard questions and 5 mini-case scenarios.</p><blockquote><strong>Goal:</strong> Score 80% or higher (16 out of 20) to pass.</blockquote>`,
+      bodyRu: `<h2>Практика — Глава 9: Решение проблем и восстановление</h2><p>Этот тест охватывает все сценарии восстановления из Главы 9: TONU, detention, layover, обработка поломок, типы конфликтов с водителями, процесс поиска recovery-водителя, коммуникация с брокерами при кризисах и триаж нескольких кризисов.</p><p>Тест содержит <strong>20 вопросов</strong> — 15 стандартных и 5 мини-кейсов.</p><blockquote><strong>Цель:</strong> Набрать 80% и выше (16 из 20).</blockquote>`,
+      quiz: {
+        questions: [
+          { id: 'rec-pr-q1', text: "What is TONU?", options: ["A type of truck insurance", "Truck Order Not Used — compensation paid when a load is cancelled", "Tax on freight crossing state lines", "A trucking industry union"], correctIndex: 1 },
+          { id: 'rec-pr-q2', text: "Standard TONU from the broker is:", options: ["$50", "$75", "$100", "$150"], correctIndex: 3 },
+          { id: 'rec-pr-q3', text: "Detention starts being paid after:", options: ["30 minutes", "1 hour", "2 hours", "4 hours"], correctIndex: 2 },
+          { id: 'rec-pr-q4', text: "Maximum detention per day is:", options: ["$100", "$150", "$200", "Unlimited"], correctIndex: 2 },
+          { id: 'rec-pr-q5', text: "Layover for a box truck/large straight is:", options: ["$50", "$75", "$100", "$150"], correctIndex: 2 },
+          { id: 'rec-pr-q6', text: "Can layover and TONU be applied to the same load?", options: ["Yes, always", "No, never — one or the other", "Only for loads over 500 miles", "Only with broker approval"], correctIndex: 1 },
+          { id: 'rec-pr-q7', text: "Hand loading/unloading for freight under 500 lbs pays:", options: ["$25", "$50", "$75", "$100"], correctIndex: 1 },
+          { id: 'rec-pr-q8', text: "What is the FIRST step when a driver claims breakdown?", options: ["Call the broker immediately", "Request photo, video, and exact location as proof", "Find a recovery driver", "Cancel the load"], correctIndex: 1 },
+          { id: 'rec-pr-q9', text: "Why should you Google reverse-image-search breakdown photos?", options: ["To find the nearest mechanic", "To verify the photo is real and not taken from the internet", "To estimate repair costs", "To identify the truck model"], correctIndex: 1 },
+          { id: 'rec-pr-q10', text: "When internal recovery options fail, where do you post the load?", options: ["Facebook Marketplace", "map.cargoetl.com", "Craigslist", "The company website"], correctIndex: 1 },
+          { id: 'rec-pr-q11', text: "A Type 1 'Negotiator' driver wants more money. What is your first approach?", options: ["Immediately agree to their demand", "Apply pressure: you agreed to the terms", "Cancel the load", "Offer double the original rate"], correctIndex: 1 },
+          { id: 'rec-pr-q12', text: "What should you tell the broker during an active crisis before you have a solution?", options: ["Nothing until resolved", "We are aware and working on it. New ETA within 30 minutes.", "The load is cancelled", "Blame the driver and provide their phone number"], correctIndex: 1 },
+          { id: 'rec-pr-q13', text: "When can you contact another dispatcher's driver directly?", options: ["Anytime you need a truck", "Only in urgent recovery when the dispatcher is unavailable", "Never", "Only on weekdays"], correctIndex: 1 },
+          { id: 'rec-pr-q14', text: "What is the correct process for using another dispatcher's driver?", options: ["Call driver → book → tell dispatcher later", "Group chat → contact dispatcher → confirm → get approval → call driver", "Email management for approval", "Post it publicly and let drivers respond"], correctIndex: 1 },
+          { id: 'rec-pr-q15', text: "If a truck breaks down, the recovery driver gets:", options: ["Half the original rate", "Their requested rate for completing the delivery", "The full original rate minus fuel costs", "A flat $200 recovery fee"], correctIndex: 1 },
+          { id: 'rec-pr-q16', text: "Mini-case: A driver sends a photo of a broken axle. You Google it and find the exact same image on a mechanic's website from 2023. What do you do?", options: ["Accept the photo and tell the broker about the breakdown", "Confront the driver: 'This photo is from the internet. Send me a real photo of YOUR truck right now or I'm reporting this.' If they can't provide proof, treat it as a refusal and start recovery.", "Ignore it and find a recovery driver anyway", "Fire the driver immediately"], correctIndex: 1 },
+          { id: 'rec-pr-q17', text: "Mini-case: Original driver cancelled 1 hour before pickup. Recovery driver is 45 min away and wants $100 more than original rate. Your margin was $150. Do you take it?", options: ["No — you'd lose money on the deal", "Yes — $150 margin minus $100 extra still leaves $50 profit, and saves the broker relationship. Take it.", "Only if the broker agrees to pay extra", "Decline and post on map.cargoetl.com instead"], correctIndex: 1 },
+          { id: 'rec-pr-q18', text: "Mini-case: Driver arrived at delivery at 5 PM, appointment is 7 AM next day. Is layover applicable?", options: ["No — the driver chose to arrive early", "Yes — the driver must wait overnight (7+ hours) through no fault of their own. Layover applies: $75 sprinter, $100 box truck.", "Only if the broker pre-approved layover", "No — layover only applies at pickup facilities"], correctIndex: 1 },
+          { id: 'rec-pr-q19', text: "Mini-case: Broker calls saying 'I'm sending a dry run for the load, they made a mistake setting it up.' Your driver drove 30 miles to pickup. What happens?", options: ["Driver gets nothing — dry runs don't qualify for TONU", "Confirm with broker: 'So we get TONU and this load is cancelled?' Driver receives $75 TONU compensation.", "Driver keeps the full load rate", "You charge the broker for the 30 empty miles at market rate"], correctIndex: 1 },
+          { id: 'rec-pr-q20', text: "Mini-case: You have 3 active crises: (A) Load A driver is 2 hours late to delivery, (B) Load B driver wants to drop the load after pickup, (C) Load C broker asking for update but driver tracking stopped. Priority order?", options: ["C, B, A — broker communication always comes first", "B, A, C — loaded freight at risk is most critical, then late delivery, then tracking issue", "A, B, C — late delivery first since the appointment is closest", "Handle all three simultaneously with the same priority"], correctIndex: 1 },
+        ],
+      },
+      quizRu: {
+        questions: [
+          { id: 'rec-pr-q1', text: "Что такое TONU?", options: ["Вид страховки грузовиков", "Truck Order Not Used — компенсация при отмене груза", "Налог на межштатные грузы", "Профсоюз грузоперевозчиков"], correctIndex: 1 },
+          { id: 'rec-pr-q2', text: "Стандартный TONU от брокера:", options: ["$50", "$75", "$100", "$150"], correctIndex: 3 },
+          { id: 'rec-pr-q3', text: "Detention начинает оплачиваться после:", options: ["30 минут", "1 часа", "2 часов", "4 часов"], correctIndex: 2 },
+          { id: 'rec-pr-q4', text: "Максимум detention за день:", options: ["$100", "$150", "$200", "Без лимита"], correctIndex: 2 },
+          { id: 'rec-pr-q5', text: "Layover для бокс трака:", options: ["$50", "$75", "$100", "$150"], correctIndex: 2 },
+          { id: 'rec-pr-q6', text: "Можно ли получить layover и TONU за один рейс?", options: ["Да, всегда", "Нет — одно или другое", "Только для рейсов свыше 500 миль", "Только с согласия брокера"], correctIndex: 1 },
+          { id: 'rec-pr-q7', text: "Ручная погрузка/разгрузка до 500 фунтов:", options: ["$25", "$50", "$75", "$100"], correctIndex: 1 },
+          { id: 'rec-pr-q8', text: "Первый шаг при заявлении водителя о поломке?", options: ["Звонок брокеру", "Запросить фото, видео и точную локацию", "Искать recovery", "Отменить груз"], correctIndex: 1 },
+          { id: 'rec-pr-q9', text: "Зачем проверять фото поломки через поиск по изображению?", options: ["Найти ближайшего механика", "Убедиться, что фото реальное, а не из интернета", "Оценить стоимость ремонта", "Определить модель грузовика"], correctIndex: 1 },
+          { id: 'rec-pr-q10', text: "Куда публиковать груз, если внутренние варианты исчерпаны?", options: ["Facebook", "map.cargoetl.com", "Craigslist", "Сайт компании"], correctIndex: 1 },
+          { id: 'rec-pr-q11', text: "Водитель-переговорщик хочет больше денег. Ваш первый подход?", options: ["Сразу согласиться", "Давление: вы согласились на условия", "Отменить груз", "Предложить двойную ставку"], correctIndex: 1 },
+          { id: 'rec-pr-q12', text: "Что сказать брокеру во время кризиса до нахождения решения?", options: ["Ничего до решения", "Мы в курсе и работаем. Новый ETA через 30 минут.", "Груз отменён", "Виноват водитель, вот его телефон"], correctIndex: 1 },
+          { id: 'rec-pr-q13', text: "Когда можно звонить водителю другого диспетчера напрямую?", options: ["Когда нужен грузовик", "Только при срочном recovery, когда диспетчер недоступен", "Никогда", "Только в будни"], correctIndex: 1 },
+          { id: 'rec-pr-q14', text: "Правильный процесс использования водителя другого диспетчера?", options: ["Звонок водителю → бронирование → сообщить диспетчеру потом", "Чат → связь с диспетчером → подтверждение → одобрение → звонок водителю", "Email руководству", "Публикация и ожидание откликов"], correctIndex: 1 },
+          { id: 'rec-pr-q15', text: "При поломке recovery-водитель получает:", options: ["Половину ставки", "Свою запрошенную ставку за завершение доставки", "Полную ставку минус топливо", "Фиксированные $200"], correctIndex: 1 },
+          { id: 'rec-pr-q16', text: "Мини-кейс: Водитель прислал фото сломанной оси. Вы нашли это фото на сайте механика 2023 года. Что делаете?", options: ["Принимаете и сообщаете брокеру", "Конфронтация: «Это фото из интернета. Пришлите реальное фото ВАШЕГО грузовика.» Если не может — это отказ, начинаете recovery.", "Игнорируете и ищете recovery", "Увольняете водителя"], correctIndex: 1 },
+          { id: 'rec-pr-q17', text: "Мини-кейс: Водитель отменил за 1 час до погрузки. Recovery-водитель в 45 мин, хочет +$100. Ваша маржа $150. Берёте?", options: ["Нет — потеряете деньги", "Да — $150 минус $100 = $50 прибыли, плюс сохранение отношений с брокером", "Только если брокер доплатит", "Нет, публикуем на map.cargoetl.com"], correctIndex: 1 },
+          { id: 'rec-pr-q18', text: "Мини-кейс: Водитель прибыл на доставку в 17:00, приём в 7:00 следующего дня. Положен ли layover?", options: ["Нет — водитель приехал рано сам", "Да — водитель ждёт ночь (7+ часов). Layover: $75 спринтер, $100 бокс трак.", "Только с предварительного одобрения брокера", "Нет — layover только на погрузке"], correctIndex: 1 },
+          { id: 'rec-pr-q19', text: "Мини-кейс: Брокер говорит «Отправляю dry run, ошиблись при оформлении». Водитель проехал 30 миль до погрузки. Что происходит?", options: ["Водитель ничего не получает", "Подтвердить: «Значит, TONU и груз отменён?» Водитель получает $75.", "Водитель сохраняет полную ставку", "Выставить счёт за 30 порожних миль"], correctIndex: 1 },
+          { id: 'rec-pr-q20', text: "Мини-кейс: 3 кризиса: (A) Водитель опаздывает на доставку на 2 часа, (B) Водитель хочет бросить груз после погрузки, (C) Брокер просит обновление, но трекинг остановился. Приоритет?", options: ["C, B, A — коммуникация с брокером всегда первая", "B, A, C — загруженный груз под угрозой самый критичный, затем опоздание, затем трекинг", "A, B, C — опоздание первым", "Все три одновременно"], correctIndex: 1 },
+        ],
+      },
+    },
+
   };
 
   return contents[`${chapter}-${lesson}`] ?? { type: 'text', body: `Content for chapter ${chapter}, lesson ${lesson} — coming soon.`, bodyRu: `Контент главы ${chapter}, урок ${lesson} — скоро будет.` };
