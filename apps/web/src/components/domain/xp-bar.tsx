@@ -1,6 +1,7 @@
 'use client';
 import { useGamification, LEVELS } from '@/lib/stores/gamification.store';
 import { useLang } from '@/lib/i18n/lang-context';
+import { Zap, Flame } from 'lucide-react';
 
 export function XPBar() {
   const { totalXP, getLevel, getLevelProgress, streak } = useGamification();
@@ -11,38 +12,49 @@ export function XPBar() {
   const next = idx < LEVELS.length - 1 ? LEVELS[idx + 1] : null;
 
   return (
-    <div className="card p-3 space-y-2">
-      {/* Level + XP */}
+    <div className="card p-3.5">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="text-xl">{level.emoji}</span>
+        <div className="flex items-center gap-2.5">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center text-xl">
+            {level.emoji}
+          </div>
           <div>
             <p className="text-sm font-bold text-gray-900">
               {lang === 'ru' ? level.nameRu : level.name}
             </p>
-            <p className="text-xs text-gray-400">{totalXP.toLocaleString()} XP</p>
+            <div className="flex items-center gap-2 mt-0.5">
+              <span className="inline-flex items-center gap-0.5 text-[11px] font-mono font-semibold text-amber-600">
+                <Zap className="w-3 h-3" />
+                {totalXP.toLocaleString()}
+              </span>
+              {streak > 0 && (
+                <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-orange-500">
+                  <Flame className="w-3 h-3" />
+                  {streak}
+                </span>
+              )}
+            </div>
           </div>
         </div>
-        {streak > 0 && (
-          <div className="flex items-center gap-1 bg-orange-50 px-2.5 py-1 rounded-full">
-            <span className="text-sm">🔥</span>
-            <span className="text-sm font-bold text-orange-600">{streak}</span>
+        {next && (
+          <div className="text-right">
+            <p className="text-[9px] font-medium text-gray-400 uppercase tracking-wider">
+              {lang === 'ru' ? 'Следующий' : 'Next'}
+            </p>
+            <p className="text-xs font-semibold text-gray-500">{lang === 'ru' ? next.nameRu : next.name}</p>
           </div>
         )}
       </div>
 
-      {/* Progress bar to next level */}
       {next && (
-        <div>
+        <div className="mt-3">
           <div className="flex items-center justify-between mb-1">
-            <span className="text-[10px] text-gray-400 uppercase tracking-wide">
-              {lang === 'ru' ? 'до' : 'next'}: {lang === 'ru' ? next.nameRu : next.name}
-            </span>
-            <span className="text-[10px] text-gray-400">{progress}%</span>
+            <span className="text-[10px] font-mono text-gray-400">{level.minXP} XP</span>
+            <span className="text-[10px] font-mono text-gray-400">{next.minXP} XP</span>
           </div>
-          <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full transition-all duration-700"
+              className="h-full bg-gradient-to-r from-brand-400 to-brand-500 rounded-full transition-all duration-700 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>

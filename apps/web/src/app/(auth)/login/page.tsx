@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { authApi } from '@/lib/api/auth';
 import { useAuthStore } from '@/lib/stores/auth.store';
-import { Truck } from 'lucide-react';
 import { useLang } from '@/lib/i18n/lang-context';
+import { LogoIcon } from '@/components/domain/logo';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -35,14 +35,15 @@ export default function LoginPage() {
   return (
     <div className="w-full max-w-sm lg:max-w-md">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 mb-4 animate-float shadow-lg shadow-emerald-500/30">
-          <Truck className="w-8 h-8 text-white" strokeWidth={2.5} />
+        <div className="inline-flex mb-5 rounded-2xl p-3 bg-white/5 backdrop-blur-sm border border-white/10"
+             style={{ filter: 'drop-shadow(0 0 24px rgba(34,197,94,0.2))' }}>
+          <LogoIcon size={90} />
         </div>
         <h1 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-          Dispatch<span className="text-emerald-300">GO</span>
+          Dispatch<span className="text-emerald-400">GO</span>
         </h1>
-        <p className="text-blue-100 mt-2 text-sm lg:text-base">{t('auth_title')}</p>
-        <p className="text-blue-200/60 mt-1 text-xs">9 chapters · 36 lessons · 100% online</p>
+        <p className="text-blue-200/80 mt-2 text-sm lg:text-base">{t('auth_title')}</p>
+        <p className="text-blue-300/40 mt-1 text-xs tracking-wide">9 chapters · 36 lessons · 100% online</p>
       </div>
 
       <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg space-y-4 animate-fade-in-up">

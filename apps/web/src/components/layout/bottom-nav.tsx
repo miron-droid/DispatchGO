@@ -1,10 +1,11 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, BarChart2, GraduationCap, User, Truck } from 'lucide-react';
+import { BookOpen, BarChart2, GraduationCap, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLang } from '@/lib/i18n/lang-context';
 import { useGamification, LEVELS } from '@/lib/stores/gamification.store';
+import { Logo } from '@/components/domain/logo';
 import { useState, useEffect, useRef } from 'react';
 
 export function BottomNav() {
@@ -38,14 +39,8 @@ export function BottomNav() {
       <nav className="hidden lg:flex fixed left-0 top-0 bottom-0 w-56 bg-white border-r border-gray-100 z-50 flex-col">
         {/* Brand header */}
         <div className="px-4 py-4 border-b border-gray-100">
-          <Link href="/learn" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-md shadow-emerald-500/20">
-              <Truck className="w-5 h-5 text-white" strokeWidth={2.5} />
-            </div>
-            <div>
-              <span className="font-extrabold text-base text-gray-900 tracking-tight">Dispatch<span className="text-emerald-500">GO</span></span>
-              <p className="text-[9px] text-gray-400 uppercase tracking-widest -mt-0.5">training</p>
-            </div>
+          <Link href="/learn">
+            <Logo size={36} textSize="md" />
           </Link>
         </div>
 
@@ -93,12 +88,7 @@ export function BottomNav() {
       {/* Mobile top bar */}
       <div className="lg:hidden fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 safe-area-pt">
         <div className="flex items-center justify-between h-12 px-4">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
-              <Truck className="w-4 h-4 text-white" strokeWidth={2.5} />
-            </div>
-            <span className="font-extrabold text-sm text-gray-900">Dispatch<span className="text-emerald-500">GO</span></span>
-          </div>
+          <Logo size={28} textSize="sm" />
           <div className="flex items-center gap-1.5 bg-gray-50 rounded-full px-2.5 py-1">
             <span className="text-xs">{level.emoji}</span>
             <span className="text-[10px] font-semibold text-gray-600">{totalXP} XP</span>
