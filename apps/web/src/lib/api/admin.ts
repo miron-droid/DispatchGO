@@ -38,5 +38,7 @@ export const adminApi = {
   createUser: (data: { email: string; password: string; firstName: string; lastName: string; role: string; managerId?: string }) =>
     apiFetch<UserItem>('/users', { method: 'POST', body: JSON.stringify(data) }),
   deactivateUser: (id: string) => apiFetch<void>(`/users/${id}`, { method: 'DELETE' }),
+  resetPassword: (id: string, password: string) => apiFetch<void>(`/users/${id}/password`, { method: 'PATCH', body: JSON.stringify({ password }) }),
+  resetProgress: (id: string) => apiFetch<{ reset: boolean }>(`/users/${id}/reset-progress`, { method: 'POST' }),
   myStudents: () => apiFetch<UserItem[]>('/users/my-students'),
 };

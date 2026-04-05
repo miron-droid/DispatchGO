@@ -1,11 +1,11 @@
 'use client';
 import { useQuery } from '@tanstack/react-query';
-import { adminApi } from '@/lib/api/admin';
+import { adminApi, type StudentAnalytics } from '@/lib/api/admin';
 import { examsApi } from '@/lib/api/exams';
 import { useAuthStore } from '@/lib/stores/auth.store';
 import { useLang } from '@/lib/i18n/lang-context';
 import Link from 'next/link';
-import { Users, GraduationCap, BarChart2, Clock, ChevronRight, AlertTriangle } from 'lucide-react';
+import { Users, GraduationCap, BarChart2, Clock, ChevronRight, AlertTriangle, TrendingUp, Target } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function ManagerDashboard() {
@@ -15,161 +15,212 @@ export default function ManagerDashboard() {
   const { data: students = [] } = useQuery({ queryKey: ['admin-students'], queryFn: adminApi.students });
   const { data: pendingExams = [] } = useQuery({ queryKey: ['pending-exams'], queryFn: examsApi.pending });
 
-  const stalled = students.filter(s => {
-    if (!s.lastActiveAt) return true;
-    const days = (Date.now() - new Date(s.lastActiveAt).getTime()) / 86400000;
-    return days > 5;
-  });
+  const now = Date.now();
+  const stalled = students.filter(s => !s.lastActiveAt || (now - new Date(s.lastActiveAt!).getTime()) / 86400000 > 5);
   const struggling = students.filter(s => s.avgTestScore != null && s.avgTestScore < 60);
+  const needsAttention = [...pendingExams.map((e: any) => ({ type: 'exam' as const, data: e })),
+    ...stalled.map(s => ({ type: 'stalled' as const, data: s })),
+    ...struggling.map(s => ({ type: 'struggling' as const, data: s }))];
 
-  // Cohort distribution — count students per chapter
-  const cohort = Array.from({ length: 9 }, (_, i) => ({
-    ch: i + 1,
-    count: students.filter(s => s.chaptersCompleted === i + 1 || (i === 0 && s.chaptersCompleted === 0)).length,
-  }));
+  // Charts data
+  const cohort = Array.from({ length: 9 }, (_, i) => {
+    const count = students.filter(s => s.chaptersCompleted >= i + 1).length;
+    return { ch: i + 1, count };
+  });
   const maxCohort = Math.max(...cohort.map(c => c.count), 1);
+
+  // Score distribution
+  const scoreBuckets = [
+    { label: '90-100%', min: 90, max: 100, color: 'bg-emerald-500' },
+    { label: '80-89%', min: 80, max: 89, color: 'bg-emerald-400' },
+    { label: '70-79%', min: 70, max: 79, color: 'bg-amber-400' },
+    { label: '60-69%', min: 60, max: 69, color: 'bg-amber-500' },
+    { label: '<60%', min: 0, max: 59, color: 'bg-red-500' },
+  ].map(b => ({
+    ...b,
+    count: students.filter(s => s.avgTestScore != null && s.avgTestScore >= b.min && s.avgTestScore <= b.max).length,
+  }));
+  const maxBucket = Math.max(...scoreBuckets.map(b => b.count), 1);
+
+  // Activity: active today / this week / inactive
+  const activeToday = students.filter(s => s.lastActiveAt && (now - new Date(s.lastActiveAt).getTime()) < 86400000).length;
+  const activeWeek = students.filter(s => s.lastActiveAt && (now - new Date(s.lastActiveAt).getTime()) < 7 * 86400000).length;
+  const inactive = students.length - activeWeek;
 
   const hasPending = pendingExams.length > 0;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 lg:px-6 pt-6 pb-8">
+    <div className="max-w-6xl mx-auto px-4 lg:px-6 pt-6 pb-8">
       {/* Header */}
-      <div className="mb-6">
-        <p className="text-sm text-gray-400">
-          {lang === 'ru' ? 'Доброе утро' : 'Good morning'}, <span className="text-gray-600 font-medium">{user?.firstName}</span>
-        </p>
-        <h1 className="text-xl lg:text-2xl font-bold text-gray-900 tracking-tight">
-          {lang === 'ru' ? 'Панель управления' : 'Dashboard'}
-        </h1>
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <p className="text-sm text-gray-400">{lang === 'ru' ? 'Привет' : 'Hello'}, <span className="text-gray-600 font-medium">{user?.firstName}</span></p>
+          <h1 className="text-xl lg:text-2xl font-bold text-gray-900">{lang === 'ru' ? 'Аналитика' : 'Analytics'}</h1>
+        </div>
       </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-        {[
-          { icon: Clock, value: dash?.pendingExams ?? 0, label: lang === 'ru' ? 'Ожидают' : 'Pending', urgent: hasPending, color: hasPending ? 'border-red-200 bg-red-50/50' : '' },
-          { icon: AlertTriangle, value: struggling.length, label: lang === 'ru' ? 'Проблемы' : 'Struggling', urgent: struggling.length > 0, color: struggling.length > 0 ? 'border-amber-200 bg-amber-50/50' : '' },
-          { icon: Users, value: dash?.activeStudents ?? 0, label: lang === 'ru' ? 'Студенты' : 'Students', color: '' },
-          { icon: BarChart2, value: dash?.avgTestScore != null ? `${dash.avgTestScore}%` : '—', label: lang === 'ru' ? 'Ср. балл' : 'Avg Score', color: '' },
-        ].map((s, i) => (
-          <div key={i} className={cn('card p-4', s.color)}>
-            <div className="flex items-center justify-between mb-2">
-              <s.icon className={cn('w-4 h-4', s.urgent ? 'text-red-500' : 'text-gray-400')} />
-              {s.urgent && <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />}
-            </div>
-            <p className="text-2xl font-bold text-gray-900 font-mono">{s.value}</p>
-            <p className="text-[11px] text-gray-400 mt-0.5">{s.label}</p>
-          </div>
-        ))}
+      {/* KPI Row */}
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
+        <KPICard icon={Users} value={dash?.activeStudents ?? 0} label={lang === 'ru' ? 'Студенты' : 'Students'} />
+        <KPICard icon={BarChart2} value={dash?.avgTestScore != null ? `${dash.avgTestScore}%` : '—'} label={lang === 'ru' ? 'Ср. балл' : 'Avg Score'} color={dash?.avgTestScore && dash.avgTestScore >= 75 ? 'text-emerald-600' : 'text-amber-600'} />
+        <KPICard icon={Target} value={`${Math.round((students.filter(s => s.chaptersCompleted >= 9).length / Math.max(students.length, 1)) * 100)}%`} label={lang === 'ru' ? 'Выпускники' : 'Graduated'} />
+        <KPICard icon={TrendingUp} value={activeToday} label={lang === 'ru' ? 'Сегодня' : 'Active Today'} color="text-emerald-600" />
+        <KPICard icon={Clock} value={pendingExams.length} label={lang === 'ru' ? 'На проверку' : 'To Review'} color={hasPending ? 'text-red-600' : ''} urgent={hasPending} className="lg:col-span-1 col-span-2" />
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-4 mb-6">
-        {/* Exams to Review */}
-        <div className={cn('card p-0 overflow-hidden', hasPending && 'border-red-200')}>
-          <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+      {/* Needs Attention Banner */}
+      {needsAttention.length > 0 && (
+        <div className={cn('rounded-2xl border p-4 mb-6', hasPending ? 'bg-red-50/50 border-red-200' : 'bg-amber-50/50 border-amber-200')}>
+          <div className="flex items-center gap-2 mb-3">
+            <AlertTriangle className={cn('w-4 h-4', hasPending ? 'text-red-500' : 'text-amber-500')} />
             <h2 className="text-sm font-semibold text-gray-900">
-              {lang === 'ru' ? 'Требуют проверки' : 'Exams to Review'}
+              {lang === 'ru' ? 'Требует внимания' : 'Needs Attention'} ({needsAttention.length})
             </h2>
-            {hasPending && (
-              <span className="text-[10px] font-mono font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">
-                {pendingExams.length}
-              </span>
-            )}
           </div>
-          <div className="divide-y divide-gray-50">
-            {pendingExams.length === 0 ? (
-              <p className="p-6 text-center text-sm text-gray-400">
-                {lang === 'ru' ? 'Всё проверено' : 'All caught up'}
-              </p>
-            ) : pendingExams.slice(0, 5).map((ex: any) => {
-              const hours = Math.round((Date.now() - new Date(ex.createdAt).getTime()) / 3600000);
-              const urgent = hours > 48;
+          <div className="space-y-2">
+            {/* Pending exams first */}
+            {pendingExams.slice(0, 3).map((ex: any) => {
+              const hours = Math.round((now - new Date(ex.createdAt).getTime()) / 3600000);
               return (
-                <Link key={ex.id} href="/manager/exams" className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group cursor-pointer">
-                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-700">
-                    {ex.student?.firstName?.charAt(0)}{ex.student?.lastName?.charAt(0)}
-                  </div>
+                <Link key={ex.id} href="/manager/exams" className="flex items-center gap-3 px-3 py-2 bg-white rounded-xl hover:shadow-sm transition-all cursor-pointer group">
+                  <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse flex-shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate">{ex.student?.firstName} {ex.student?.lastName}</p>
-                    <p className="text-xs text-gray-400">{ex.chapter?.title}</p>
+                    <span className="text-sm font-medium text-gray-900">{ex.student?.firstName} {ex.student?.lastName}</span>
+                    <span className="text-xs text-gray-400 ml-2">{lang === 'ru' ? 'экзамен' : 'exam'} · {hours}h</span>
                   </div>
-                  <span className={cn('text-xs font-mono', urgent ? 'text-red-600 font-bold' : 'text-gray-400')}>
-                    {hours}h
-                  </span>
-                  <ChevronRight className="w-4 h-4 text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-semibold">{lang === 'ru' ? 'Проверить' : 'Review'}</span>
+                  <ChevronRight className="w-3 h-3 text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               );
             })}
-          </div>
-          {pendingExams.length > 0 && (
-            <Link href="/manager/exams" className="block text-center text-sm font-medium text-emerald-600 py-3 border-t border-gray-100 hover:bg-emerald-50 transition-colors cursor-pointer">
-              {lang === 'ru' ? 'Проверить все →' : 'Review All →'}
-            </Link>
-          )}
-        </div>
-
-        {/* Needs Attention */}
-        <div className="card p-0 overflow-hidden">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
-            <h2 className="text-sm font-semibold text-gray-900">
-              {lang === 'ru' ? 'Требуют внимания' : 'Needs Attention'}
-            </h2>
-            <span className="text-[10px] font-mono text-amber-600">{stalled.length + struggling.length}</span>
-          </div>
-          <div className="divide-y divide-gray-50">
-            {stalled.length === 0 && struggling.length === 0 ? (
-              <p className="p-6 text-center text-sm text-gray-400">
-                {lang === 'ru' ? 'Все в порядке' : 'Everyone on track'}
+            {/* Stalled */}
+            {stalled.slice(0, 2).map(s => (
+              <Link key={`st-${s.id}`} href="/manager/students" className="flex items-center gap-3 px-3 py-2 bg-white rounded-xl hover:shadow-sm transition-all cursor-pointer">
+                <span className="h-2 w-2 rounded-full bg-amber-500 flex-shrink-0" />
+                <span className="text-sm text-gray-900 flex-1">{s.name}</span>
+                <span className="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-semibold">
+                  {lang === 'ru' ? 'неактивен' : 'inactive'}
+                </span>
+              </Link>
+            ))}
+            {needsAttention.length > 5 && (
+              <p className="text-xs text-gray-400 text-center pt-1">
+                +{needsAttention.length - 5} {lang === 'ru' ? 'ещё' : 'more'}
               </p>
-            ) : (
-              <>
-                {stalled.slice(0, 3).map(s => (
-                  <Link key={s.id} href={`/manager/students`} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors cursor-pointer">
-                    <span className="h-2 w-2 rounded-full bg-red-500 flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900 truncate">{s.name}</p>
-                    </div>
-                    <span className="text-[10px] bg-red-50 text-red-600 px-2 py-0.5 rounded-full font-medium">
-                      {lang === 'ru' ? 'неактивен' : 'inactive'}
-                    </span>
-                  </Link>
-                ))}
-                {struggling.slice(0, 3).map(s => (
-                  <Link key={s.id} href={`/manager/students`} className="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors cursor-pointer">
-                    <span className="h-2 w-2 rounded-full bg-amber-500 flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900 truncate">{s.name}</p>
-                    </div>
-                    <span className="text-[10px] bg-amber-50 text-amber-600 px-2 py-0.5 rounded-full font-medium">
-                      {s.avgTestScore}%
-                    </span>
-                  </Link>
-                ))}
-              </>
             )}
           </div>
         </div>
-      </div>
+      )}
 
-      {/* Cohort Progress */}
-      <div className="card p-5">
-        <h2 className="text-sm font-semibold text-gray-900 mb-4">
-          {lang === 'ru' ? 'Распределение по главам' : 'Cohort Progress'}
-        </h2>
-        <div className="space-y-2">
-          {cohort.map(c => (
-            <div key={c.ch} className="flex items-center gap-3">
-              <span className="text-xs font-mono text-gray-400 w-10">{lang === 'ru' ? 'Гл' : 'Ch'}.{c.ch}</span>
-              <div className="flex-1 h-5 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-emerald-500 rounded-full transition-all duration-500"
-                  style={{ width: `${(c.count / maxCohort) * 100}%` }}
-                />
+      {/* Charts Grid */}
+      <div className="grid lg:grid-cols-3 gap-4 mb-6">
+        {/* Cohort Progress */}
+        <div className="card p-5 lg:col-span-2">
+          <h2 className="text-sm font-semibold text-gray-900 mb-4">{lang === 'ru' ? 'Прогресс когорты' : 'Cohort Progress'}</h2>
+          <div className="space-y-2.5">
+            {cohort.map(c => (
+              <div key={c.ch} className="flex items-center gap-3">
+                <span className="text-[10px] font-mono text-gray-400 w-8">{lang === 'ru' ? 'Гл' : 'Ch'}.{c.ch}</span>
+                <div className="flex-1 h-6 bg-gray-100 rounded-lg overflow-hidden relative">
+                  <div className="h-full bg-emerald-500 rounded-lg transition-all duration-700 flex items-center" style={{ width: `${Math.max((c.count / maxCohort) * 100, 2)}%` }}>
+                    {c.count > 0 && <span className="text-[10px] font-mono font-bold text-white ml-2">{c.count}</span>}
+                  </div>
+                </div>
               </div>
-              <span className="text-xs font-mono text-gray-500 w-6 text-right">{c.count}</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Score Distribution */}
+        <div className="card p-5">
+          <h2 className="text-sm font-semibold text-gray-900 mb-4">{lang === 'ru' ? 'Распределение баллов' : 'Score Distribution'}</h2>
+          <div className="space-y-3">
+            {scoreBuckets.map(b => (
+              <div key={b.label} className="flex items-center gap-2.5">
+                <span className="text-[10px] font-mono text-gray-400 w-14">{b.label}</span>
+                <div className="flex-1 h-5 bg-gray-100 rounded-md overflow-hidden">
+                  <div className={cn('h-full rounded-md transition-all duration-700', b.color)} style={{ width: `${Math.max((b.count / maxBucket) * 100, b.count > 0 ? 8 : 0)}%` }} />
+                </div>
+                <span className="text-[10px] font-mono text-gray-500 w-4 text-right">{b.count}</span>
+              </div>
+            ))}
+          </div>
+          {/* Mini donut */}
+          <div className="flex items-center justify-center gap-4 mt-5 pt-4 border-t border-gray-100">
+            <MiniDonut segments={[
+              { pct: (activeToday / Math.max(students.length, 1)) * 100, color: '#22c55e' },
+              { pct: ((activeWeek - activeToday) / Math.max(students.length, 1)) * 100, color: '#fbbf24' },
+              { pct: (inactive / Math.max(students.length, 1)) * 100, color: '#e5e7eb' },
+            ]} />
+            <div className="text-[10px] space-y-1">
+              <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" />{lang === 'ru' ? 'Сегодня' : 'Today'} ({activeToday})</div>
+              <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-400" />{lang === 'ru' ? 'Неделя' : 'Week'} ({activeWeek - activeToday})</div>
+              <div className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-gray-200" />{lang === 'ru' ? 'Неактивны' : 'Inactive'} ({inactive})</div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
+
+      {/* Quick Actions */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+        <Link href="/manager/exams" className="card p-4 flex items-center gap-3 hover:border-red-200 transition-colors cursor-pointer">
+          <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
+            <GraduationCap className="w-5 h-5 text-red-500" />
+          </div>
+          <div>
+            <p className="text-sm font-semibold">{lang === 'ru' ? 'Экзамены' : 'Exams'}</p>
+            <p className="text-xs text-gray-400">{pendingExams.length} {lang === 'ru' ? 'ожидают' : 'pending'}</p>
+          </div>
+        </Link>
+        <Link href="/manager/students" className="card p-4 flex items-center gap-3 hover:border-blue-200 transition-colors cursor-pointer">
+          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+            <Users className="w-5 h-5 text-blue-500" />
+          </div>
+          <div>
+            <p className="text-sm font-semibold">{lang === 'ru' ? 'Студенты' : 'Students'}</p>
+            <p className="text-xs text-gray-400">{students.length} {lang === 'ru' ? 'всего' : 'total'}</p>
+          </div>
+        </Link>
+        <Link href="/manager/students" className="card p-4 flex items-center gap-3 hover:border-amber-200 transition-colors cursor-pointer col-span-2 lg:col-span-1">
+          <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+            <AlertTriangle className="w-5 h-5 text-amber-500" />
+          </div>
+          <div>
+            <p className="text-sm font-semibold">{lang === 'ru' ? 'Проблемные' : 'At Risk'}</p>
+            <p className="text-xs text-gray-400">{stalled.length + struggling.length} {lang === 'ru' ? 'студентов' : 'students'}</p>
+          </div>
+        </Link>
+      </div>
     </div>
+  );
+}
+
+function KPICard({ icon: Icon, value, label, color, urgent, className }: {
+  icon: any; value: any; label: string; color?: string; urgent?: boolean; className?: string;
+}) {
+  return (
+    <div className={cn('card p-4', urgent && 'border-red-200 bg-red-50/30', className)}>
+      <div className="flex items-center justify-between mb-1.5">
+        <Icon className={cn('w-4 h-4', urgent ? 'text-red-500' : 'text-gray-400')} />
+        {urgent && <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />}
+      </div>
+      <p className={cn('text-2xl font-bold font-mono', color || 'text-gray-900')}>{value}</p>
+      <p className="text-[10px] text-gray-400 mt-0.5">{label}</p>
+    </div>
+  );
+}
+
+function MiniDonut({ segments }: { segments: { pct: number; color: string }[] }) {
+  let offset = 0;
+  return (
+    <svg width="56" height="56" viewBox="0 0 36 36">
+      <circle cx="18" cy="18" r="14" fill="none" stroke="#f3f4f6" strokeWidth="4" />
+      {segments.map((s, i) => {
+        const dash = `${s.pct * 0.88} ${88 - s.pct * 0.88}`;
+        const o = offset;
+        offset += s.pct * 0.88;
+        return <circle key={i} cx="18" cy="18" r="14" fill="none" stroke={s.color} strokeWidth="4" strokeDasharray={dash} strokeDashoffset={-o} strokeLinecap="round" transform="rotate(-90 18 18)" className="transition-all duration-700" />;
+      })}
+    </svg>
   );
 }
