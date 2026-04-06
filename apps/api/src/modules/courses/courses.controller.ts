@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { CoursesService } from './courses.service';
 import { Roles } from '../../common/decorators/roles.decorator';
-import { UserRole } from '../../common/enums';
+import { UserRole } from '@prisma/client';
 
 @Controller('courses')
 export class CoursesController {

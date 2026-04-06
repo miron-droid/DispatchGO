@@ -43,11 +43,11 @@ export class ProgressService {
     });
 
     const totalChapters = chapters.length;
-    const completedChapters = chapters.filter((c) => c.status === ProgressStatus.COMPLETED).length;
+    const passedChapters = chapters.filter((c) => c.examPassed).length;
 
     return {
       courseId,
-      overallPercent: totalChapters > 0 ? Math.round((completedChapters / totalChapters) * 100) : 0,
+      overallPercent: totalChapters > 0 ? Math.round((passedChapters / totalChapters) * 100) : 0,
       chapters,
     };
   }

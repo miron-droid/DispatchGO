@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, BarChart2, GraduationCap, User } from 'lucide-react';
+import { BookOpen, BarChart2, GraduationCap, User, BookText } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLang } from '@/lib/i18n/lang-context';
 import { useGamification, LEVELS } from '@/lib/stores/gamification.store';
@@ -29,6 +29,7 @@ export function BottomNav() {
   const NAV = [
     { href: '/learn',    label: t('nav_course'),    icon: BookOpen },
     { href: '/progress', label: t('nav_progress'),  icon: BarChart2 },
+    { href: '/glossary', label: t('nav_glossary'),   icon: BookText },
     { href: '/exams',    label: t('nav_exams'),     icon: GraduationCap },
     { href: '/profile',  label: t('nav_profile'),   icon: User },
   ];

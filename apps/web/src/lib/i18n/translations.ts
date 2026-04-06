@@ -7,6 +7,7 @@ export const translations = {
     nav_progress: 'Progress',
     nav_exams: 'Exams',
     nav_profile: 'Profile',
+    nav_glossary: 'Glossary',
 
     // Auth
     auth_title: 'Dispatcher Training',
@@ -98,6 +99,7 @@ export const translations = {
     nav_progress: 'Прогресс',
     nav_exams: 'Экзамены',
     nav_profile: 'Профиль',
+    nav_glossary: 'Словарь',
 
     // Auth
     auth_title: 'Обучение диспетчеров',

@@ -1,11 +1,3 @@
-{
-  "name": "lms-platform",
-  "private": true,
-  "workspaces": ["apps/*"],
-  "scripts": {
-    "dev:api": "npm run dev --workspace=apps/api",
-    "dev:web": "npm run dev --workspace=apps/web",
-    "db:migrate": "npm run db:migrate --workspace=apps/api",
-    "db:seed": "npm run db:seed --workspace=apps/api"
-  }
-}
+Permission denied, please try again.
+Permission denied, please try again.
+root@5.129.233.51: Permission denied (publickey,password).

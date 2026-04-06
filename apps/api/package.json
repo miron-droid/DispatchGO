@@ -19,7 +19,6 @@
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.3.0",
     "@nestjs/event-emitter": "^2.0.4",
-    "eventemitter2": "^6.4.9",
     "@prisma/client": "^5.9.0",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
@@ -30,6 +29,9 @@
     "rxjs": "^7.8.1",
     "web-push": "^3.6.7",
     "nodemailer": "^6.9.9"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.3.0",
